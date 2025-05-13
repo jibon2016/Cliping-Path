@@ -1,0 +1,2 @@
+[27-Apr-2025 17:53:40 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 8.1.32. in /home/photndbs/public_html/vendor/composer/platform_check.php on line 28
+[27-Apr-2025 17:54:00 UTC] PHP Fatal error:  Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.2.0". You are running 8.1.32. in /home/photndbs/public_html/vendor/composer/platform_check.php on line 28
