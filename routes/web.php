@@ -131,6 +131,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('/notification-fetch', [NotificationController::class, 'fetch'])->name('notifications.fetch');
 
     require __DIR__.'/db_backup.php';
+    require __DIR__.'/new_backend.php';
 });
 
 Route::get('/', [HomeController::class, 'home'])->name('home');

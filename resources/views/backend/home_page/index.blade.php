@@ -1,10 +1,10 @@
-<?php $__env->startSection('title','Contact Message Inbox'); ?>
-<?php $__env->startSection('content'); ?>
+@extends('layouts.app')
+@section('title','Home Page Video')
+@section('content')
     <div class="row">
         <div class="col-12">
             <div class="card card-default">
                 <div class="card-header">
-                   <div class="card-title">Contact Message Inbox</div>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -13,13 +13,9 @@
                             <thead>
                             <tr>
                                 <th>S/L</th>
-                                <th>id</th>
-                                <th>Created At</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Mobile No.</th>
-                                <th>Subject</th>
-                                <th>Message</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Video</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -30,30 +26,36 @@
             </div>
         </div>
     </div>
-<?php $__env->stopSection(); ?>
-<?php $__env->startSection('script'); ?>
+@endsection
+@section('script')
     <script>
         $(function () {
 
             $('#table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '<?php echo e(route('contact-message.datatable')); ?>',
+                ajax: '{{ route('home-backend.datatable') }}',
                 "pagingType": "full_numbers",
                 "lengthMenu": [[10, 25, 50, -1],[10, 25, 50, "All"]
                 ],
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false},
-                    {data: 'id', name: 'id',visible:false},
-                    {data: 'created_at', name: 'created_at'},
-                    {data: 'name', name: 'name'},
-                    {data: 'email', name: 'email'},
-                    {data: 'mobile_no', name: 'mobile_no'},
-                    {data: 'subject', name: 'subject'},
-                    {data: 'message', name: 'message'},
+                    {data: 'title', name: 'title'},
+                    {
+                        data: 'status',
+                        name: 'status',
+                        render: function (data, type, row) {
+                            if (data === 1) {
+                                return '<span class="badge badge-success">Active</span>';
+                            } else if (data === 0) {
+                                return '<span class="badge badge-danger">Inactive</span>';
+                            }
+                            return data;
+                        }
+                    },
+                    {data: 'video', name: 'video'},
                     {data: 'action', name: 'action', orderable: false},
                 ],
-                order: [[1, 'desc']],
                 "dom": 'lBfrtip',
                 "buttons": [
                     {
@@ -99,7 +101,7 @@
                         preloaderToggle(true);
                         $.ajax({
                             method: "DELETE",
-                            url: "<?php echo e(route('contact-message.destroy', ['contact_message' => 'REPLACE_WITH_ID_HERE'])); ?>".replace('REPLACE_WITH_ID_HERE', id),
+                            url: "{{ route('video-gallery.destroy', ['video_gallery' => 'REPLACE_WITH_ID_HERE']) }}".replace('REPLACE_WITH_ID_HERE', id),
                             data: { id: id }
                         }).done(function( response ) {
                             preloaderToggle(false);
@@ -126,6 +128,4 @@
             });
         });
     </script>
-<?php $__env->stopSection(); ?>
-
-<?php echo $__env->make('layouts.app', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?><?php /**PATH D:\laragon\www\photopixelqa\resources\views/backend/contact_inbox_message/index.blade.php ENDPATH**/ ?>
+@endsection

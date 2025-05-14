@@ -138,7 +138,7 @@
 @section('content')
     <section class="full-height vertical-center position-relative overflow-hidden">
         <video autoplay muted loop playsinline class="bg-video">
-            <source src="{{asset('uploads/video/free.mp4')}}" type="video/mp4">
+            <source src="{{asset($homePageVideo->attachments->first()->file)}}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 

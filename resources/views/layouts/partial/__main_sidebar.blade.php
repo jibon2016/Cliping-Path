@@ -98,6 +98,45 @@
                 </ul>
             </li>
 
+            <?php
+            $subMenu = [
+                'home-backend.index','home-backend-video.edit','home-backend-video.update'
+            ];
+            ?>
+            <li class="nav-item {{ in_array(Route::currentRouteName(), $subMenu) ? 'menu-open' : '' }}">
+                <a href="#"
+                   class="nav-link {{ in_array(Route::currentRouteName(), $subMenu) ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-home"></i>
+                    <p>
+                        Home Page
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+
+                    <?php
+                    $subSubMenu = ['home-backend.index','home-backend-video.edit','home-backend-video.update'];
+                    ?>
+                    <li class="nav-item">
+                        <a href="{{ route('home-backend.index') }}"
+                           class="nav-link {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'active' : '' }}">
+                            <i class="far  {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'fa-check-circle' : 'fa-circle' }} nav-icon"></i>
+                            <p>Home Page Video</p>
+                        </a>
+                    </li>
+                    <?php
+                    $subSubMenu = ['activity.index','activity.create','activity.edit'];
+                    ?>
+                    <li class="nav-item">
+                        <a href="{{ route('activity.index') }}"
+                           class="nav-link {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'active' : '' }}">
+                            <i class="far  {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'fa-check-circle' : 'fa-circle' }} nav-icon"></i>
+                            <p>Activity</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
 
             <?php
                 $subMenu = [

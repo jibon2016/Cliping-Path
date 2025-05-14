@@ -19,6 +19,7 @@ use App\Models\Donation;
 use App\Models\DonationFund;
 use App\Models\ExecutiveCommittee;
 use App\Models\Gallery;
+use App\Models\HomeContent;
 use App\Models\Look;
 use App\Models\News;
 use App\Models\Program;
@@ -66,8 +67,12 @@ class HomeController extends Controller
                 ->where('status', 1); // Filter galleries where status is 1
         })->latest()->take(12)->get();
 
+        $homePageVideo = HomeContent::where('title','Video')
+            ->with('attachments')
+            ->first();
+
         return view('frontend.home',compact('sliders',
-            'customers','stories','galleries'));
+            'customers','stories','galleries', 'homePageVideo'));
     }
     public function imageGallery()
     {
