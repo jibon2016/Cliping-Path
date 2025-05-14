@@ -21,6 +21,7 @@ use App\Http\Controllers\StoryController;
 use App\Http\Controllers\TeamMemberController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\VideoGalleryController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -192,4 +193,8 @@ Route::get('/clear', function () {
     Artisan::call('config:cache');
     Artisan::call('view:clear');
     return "Cleared!";
+});
+
+Route::get('/migrate', function (){
+   Artisan::call('migrate');
 });
