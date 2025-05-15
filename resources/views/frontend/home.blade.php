@@ -138,7 +138,7 @@
 @section('content')
     <section class="full-height vertical-center position-relative overflow-hidden">
         <video autoplay muted loop playsinline class="bg-video">
-            <source src="{{asset($homePageVideo->attachments->first()->file)}}" type="video/mp4">
+            <source src="{{asset($homePageVideo?->attachments->first()?->file)}}" type="video/mp4">
             Your browser does not support the video tag.
         </video>
 
@@ -211,90 +211,106 @@
                 <div class="spacer-full"></div>
                 <div class="container text-center">
                     <div class="row">
-                        <div class="col-md-4">
-                            <div class="card border-0 mb-4" style="min-height: 350px;">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <!-- Icon for Faster Delivery -->
-                                        <i class="fas fa-shipping-fast fa-3x mb-3 color-primary-1"></i>
-                                        <h4>Faster Delivery</h4>
-                                        <p class="description txt-lim4">
-                                            Our TAT is flexible— 24 hours to 48 hours MAX for no race against time. For emergencies, WE LET YOU CHOOSE. Urgent deliveries within ASAP 1 hour, 4 hours, and 10 hours; you demand it, we do it.
-                                        </p>
+                        @foreach($wcus as $wcu)
+                            <div class="col-md-4">
+                                <div class="card border-0 mb-4" style="min-height: 350px;">
+                                    <div class="card-body">
+                                        <div class="text-center">
+                                            <!-- Icon for Faster Delivery -->
+                                            <i class="fas fa-shipping-fast fa-3x mb-3 color-primary-1"></i>
+                                            <h4>{{$wcu->title}}</h4>
+                                            <p class="description txt-lim4">
+                                                {!! $wcu->description !!}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0 mb-4" style="min-height: 350px;">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <!-- Icon for No Mediocre AI -->
-                                        <i class="fas fa-robot fa-3x mb-3 color-primary-1"></i>
-                                        <h4>No Mediocre AI</h4>
-                                        <p class="description txt-lim4">
-                                            Every project is closely carried out, monitored, and edited by HUMANS. We don’t hate AI; we simply prioritize hand-crafted works to make your images ‘picture perfect’.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0 mb-4" style="min-height: 350px;">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <!-- Icon for 24/7 Support -->
-                                        <i class="fas fa-headset fa-3x mb-3 color-primary-1"></i>
-                                        <h4>24/7 Support</h4>
-                                        <p class="description txt-lim4">
-                                            Rest assured, our dedicated team is always available to swiftly address your queries. Just reach out, and we'll provide immediate assistance round the clock.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0 mb-4" style="min-height: 350px;">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <!-- Icon for Dedicated Team -->
-                                        <i class="fas fa-users fa-3x mb-3 color-primary-1"></i>
-                                        <h4>Dedicated Team</h4>
-                                        <p class="description txt-lim4">
-                                            Picture this! A team working solely for your project. We make sure the team we assign your project to focuses on you and your project alone.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0 mb-4" style="min-height: 350px;">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <!-- Icon for Competitive Price -->
-                                        <i class="fas fa-dollar-sign fa-3x mb-3 color-primary-1"></i>
-                                        <h4>Competitive Price</h4>
-                                        <p class="description txt-lim4">
-                                            We’re not cheap; we EARN the price even you’ll agree we deserve. We just make sure you don’t have to break your bank to afford us.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card border-0 mb-4" style="min-height: 350px;">
-                                <div class="card-body">
-                                    <div class="text-center">
-                                        <!-- Icon for Secured Data -->
-                                        <i class="fas fa-lock fa-3x mb-3 color-primary-1"></i>
-                                        <h4>Secured Data</h4>
-                                        <p class="description txt-lim4">
-                                            Your images are always secured with us. We use firewalls and security that are strong enough to stop all types of unwanted breaches.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
+{{--                        <div class="col-md-4">--}}
+{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="text-center">--}}
+{{--                                        <!-- Icon for Faster Delivery -->--}}
+{{--                                        <i class="fas fa-shipping-fast fa-3x mb-3 color-primary-1"></i>--}}
+{{--                                        <h4>Faster Delivery</h4>--}}
+{{--                                        <p class="description txt-lim4">--}}
+{{--                                            Our TAT is flexible— 24 hours to 48 hours MAX for no race against time. For emergencies, WE LET YOU CHOOSE. Urgent deliveries within ASAP 1 hour, 4 hours, and 10 hours; you demand it, we do it.--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-4">--}}
+{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="text-center">--}}
+{{--                                        <!-- Icon for No Mediocre AI -->--}}
+{{--                                        <i class="fas fa-robot fa-3x mb-3 color-primary-1"></i>--}}
+{{--                                        <h4>No Mediocre AI</h4>--}}
+{{--                                        <p class="description txt-lim4">--}}
+{{--                                            Every project is closely carried out, monitored, and edited by HUMANS. We don’t hate AI; we simply prioritize hand-crafted works to make your images ‘picture perfect’.--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-4">--}}
+{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="text-center">--}}
+{{--                                        <!-- Icon for 24/7 Support -->--}}
+{{--                                        <i class="fas fa-headset fa-3x mb-3 color-primary-1"></i>--}}
+{{--                                        <h4>24/7 Support</h4>--}}
+{{--                                        <p class="description txt-lim4">--}}
+{{--                                            Rest assured, our dedicated team is always available to swiftly address your queries. Just reach out, and we'll provide immediate assistance round the clock.--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-4">--}}
+{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="text-center">--}}
+{{--                                        <!-- Icon for Dedicated Team -->--}}
+{{--                                        <i class="fas fa-users fa-3x mb-3 color-primary-1"></i>--}}
+{{--                                        <h4>Dedicated Team</h4>--}}
+{{--                                        <p class="description txt-lim4">--}}
+{{--                                            Picture this! A team working solely for your project. We make sure the team we assign your project to focuses on you and your project alone.--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-4">--}}
+{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="text-center">--}}
+{{--                                        <!-- Icon for Competitive Price -->--}}
+{{--                                        <i class="fas fa-dollar-sign fa-3x mb-3 color-primary-1"></i>--}}
+{{--                                        <h4>Competitive Price</h4>--}}
+{{--                                        <p class="description txt-lim4">--}}
+{{--                                            We’re not cheap; we EARN the price even you’ll agree we deserve. We just make sure you don’t have to break your bank to afford us.--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-4">--}}
+{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+{{--                                <div class="card-body">--}}
+{{--                                    <div class="text-center">--}}
+{{--                                        <!-- Icon for Secured Data -->--}}
+{{--                                        <i class="fas fa-lock fa-3x mb-3 color-primary-1"></i>--}}
+{{--                                        <h4>Secured Data</h4>--}}
+{{--                                        <p class="description txt-lim4">--}}
+{{--                                            Your images are always secured with us. We use firewalls and security that are strong enough to stop all types of unwanted breaches.--}}
+{{--                                        </p>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
 

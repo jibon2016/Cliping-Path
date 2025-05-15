@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Activity Edit')
+@section('title','WCU Edit')
 @section('style')
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('themes/backend/plugins/summernote/summernote-bs4.min.css') }}">
@@ -78,67 +78,39 @@
             <!-- jquery validation -->
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title">Activity Information</h3>
+                    <h3 class="card-title">WCU Information</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="news-form" enctype="multipart/form-data" action="{{ route('activity.update',['activity'=>$activity->id]) }}" class="form-horizontal" method="post">
+                <form id="news-form" enctype="multipart/form-data" action="{{ route('home-backend.wcu.update',['wcu'=>$wcu->id]) }}" class="form-horizontal" method="post">
                     @csrf
                     @method('PUT')
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="category" class="col-sm-12">Category <span class="text-danger">*</span></label>
-                                    <div class="col-sm-12">
-                                        <select name="category" id="category" class="form-control select2">
-                                            <option value="">Select Category</option>
-                                            @foreach($categories as $category)
-                                                <option {{ old('category',$activity->activity_category_id) == $category->id ? 'selected' : '' }} value="{{ $category->id }}">
-                                                    {{ $category->name }}</option>
-                                            @endforeach
-                                        </select>
-                                        <span id="category-error" class="text-danger error-message"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <label for="title" class="col-sm-12">Title <span class="text-danger">*</span></label>
-                                    <div class="col-sm-12">
-                                        <input type="text" value="{{ old('title',$activity->title) }}" name="title" class="form-control" id="title" placeholder="Enter Title">
-                                        <span id="title-error" class="text-danger error-message"></span>
-                                    </div>
-                                </div>
+                        <div class="form-group row">
+                            <label for="title" class="col-sm-2 col-form-label">Title <span class="text-danger">*</span></label>
+                            <div class="col-sm-10">
+                                <input type="text" value="{{ old('title', $wcu->title) }}" name="title" class="form-control" id="title" placeholder="Enter Title">
+                                <span id="title-error" class="help-block error-message"></span>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="short_description" class="col-sm-12">Short Description <span class="text-danger">*</span></label>
-                            <div class="col-sm-12">
-                                <textarea name="short_description" class="form-control" id="short_description">{{ old('short_description',$activity->short_description) }}</textarea>
-                                <span id="short_description-error" class="text-danger error-message"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="description" class="col-sm-12">Description</label>
-                            <div class="col-sm-12">
-                                <textarea name="description" id="description">{{ old('description',$activity->description) }}</textarea>
+                            <label for="description" class="col-sm-2 col-form-label">Description <span class="text-danger">*</span></label>
+                            <div class="col-sm-10">
+                                <textarea name="description" class="form-control" id="description">{{ old('description', $wcu->description) }}</textarea>
                                 <span id="description-error" class="text-danger error-message"></span>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-12">Status <span class="text-danger">*</span></label>
-                            <div class="col-sm-12">
+                            <label class="col-sm-2 col-form-label">Status <span class="text-danger">*</span></label>
+                            <div class="col-sm-10">
                                 <div class="icheck-success d-inline pull-right">
-                                    <input  type="radio" id="active" name="status" value="1" {{ old('status',$activity->status) == '1' ? 'checked' : '' }}>
+                                    <input  type="radio" id="active" name="status" value="1" {{ old('status',$wcu->status) == '1' ? 'checked' : '' }}>
                                     <label for="active">
                                         Active
                                     </label>
                                 </div>
                                 <div class="icheck-danger d-inline pull-right">
-                                    <input type="radio" id="inactive" name="status" value="0" {{ old('status',$activity->status) == '0' ? 'checked' : '' }}>
+                                    <input type="radio" id="inactive" name="status" value="0" {{ old('status',$wcu->status) == '0' ? 'checked' : '' }}>
                                     <label for="inactive">
                                         Inactive
                                     </label>
@@ -146,40 +118,11 @@
                                 <span id="status-error" class="text-danger error-message"></span>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-sm-12">Attachments</label>
-                            <div class="col-sm-12">
-                                <div class="upload-container">
-                                    <span class="flow-text" onclick="triggerFileInput()">Click or drag and drop attachments files here</span>
-                                    <input type="file" accept=".jpg, .jpeg, .png" class="file-upload" name="attachments[]"
-                                           onchange="displayFilePreviews(this)" multiple>
-                                </div>
-
-                                <div id="file-previews" class="file-preview row">
-                                    @foreach($activity->attachments as $attachment)
-                                        @php
-                                            $pathExtension = pathinfo($attachment->file,PATHINFO_EXTENSION);
-                                            $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'webp'];
-                                        @endphp
-                                        <div class="wrapper-list-item">
-                                            <input type="number" value="{{ $attachment->sort }}" placeholder="Sort" class="file-title-input old-file-sort-update">
-                                            @if(in_array($pathExtension,$imageExtensions))
-                                                <a download href="{{ asset($attachment->file) }}"><img class="preview-image" src="{{ asset($attachment->file) }}"></a>
-                                            @endif
-                                            <input type="hidden" value="{{ $attachment->id }}" class="attachment_id">
-                                            <div data-id="{{ $attachment->id }}" class="remove-button old-file-remove">Remove</div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                                <span id="attachments-error" class="text-danger error-message"></span>
-                            </div>
-                        </div>
-
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <button type="button" id="news-form-btn" class="btn btn-primary bg-gradient-primary btn-sm">Save</button>
-                        <a href="{{ route('activity.index') }}" class="btn btn-danger bg-gradient-danger btn-sm float-right">Cancel</a>
+                        <a href="{{ route('home-backend.wcu') }}" class="btn btn-danger bg-gradient-danger btn-sm float-right">Cancel</a>
                     </div>
                     <!-- /.card-footer -->
                 </form>

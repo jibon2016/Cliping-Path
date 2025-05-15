@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\HomeContent;
+use App\Models\WCU;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid;
 use Yajra\DataTables\Facades\DataTables;
@@ -112,4 +114,119 @@ class BackendHomeController extends Controller
         }
 
     }
+
+    public function wcu()
+    {
+        return view('backend.home_page.wcu.index');
+    }
+
+    public function wcuDataTable()
+    {
+        $query = WCU::query();
+        return DataTables::eloquent($query)
+            ->addIndexColumn()
+            ->addColumn('action', function(WCU $wcu) {
+                return '<a href="'.route('home-backend.wcu.edit',['wcu'=>$wcu->id]).'" class="btn btn-primary bg-gradient-primary btn-sm btn-edit"><i class="fa fa-edit"></i></a> <a role="button" data-id="'.$wcu->id.'" class="btn btn-danger btn-sm btn-delete"><i class="fa fa-trash"></i></a>';
+
+            })
+            ->rawColumns(['action'])
+            ->toJson();
+    }
+
+    public function wcuCreate()
+    {
+        return view('backend.home_page.wcu.create');
+    }
+
+    public function wcuStore(Request $request)
+    {
+
+        // Validate the request data
+        $validatedData = $request->validate([
+            'title' =>[
+                'required','max:255',
+            ],
+            'description' => 'nullable',
+            'status' => 'required|boolean',
+        ]);
+
+        // Start a database transaction
+        DB::beginTransaction();
+
+        try {
+
+            WCU::create([
+                'title' => $validatedData['title'],
+                'description' => $validatedData['description'],
+                'status' => $validatedData['status'],
+            ]);
+
+            DB::commit();
+
+
+            return response()->json([
+                'status'=>true,
+                'redirect_url'=>route('home-backend.wcu'),
+                'message'=>'WCU created successfully',
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'status'=>false,
+                'message'=>$e->getMessage(),
+            ]);
+        }
+    }
+
+    public function wcuEdit(WCU $wcu)
+    {
+        return view('backend.home_page.wcu.edit', compact('wcu'));
+    }
+
+    public function wcuUpdate(WCU $wcu, Request $request)
+    {
+        // Validate the request data
+        $validatedData = $request->validate([
+            'title' =>[
+                'required','max:255',
+            ],
+            'description' => 'nullable',
+            'status' => 'required|boolean',
+        ]);
+
+        // Start a database transaction
+        DB::beginTransaction();
+
+        try {
+
+            $wcu->update($validatedData);
+
+            DB::commit();
+            return response()->json([
+                'status'=>true,
+                'redirect_url'=>route('home-backend.wcu'),
+                'message'=>'WCU updated successfully',
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'status'=>false,
+                'message'=>$e->getMessage(),
+            ]);
+        }
+    }
+
+    public function wcuDestroy(WCU $wcu)
+    {
+        try {
+
+            $wcu->delete();
+            // Return a JSON success response
+            return response()->json(['success'=>true,'message' => 'WCU deleted successfully'], Response::HTTP_OK);
+        } catch (\Exception $e) {
+            // Handle any errors, such as record not found
+            return response()->json(['success'=>false,'message' =>$e->getMessage()], Response::HTTP_NOT_FOUND);
+        }
+    }
 }
+

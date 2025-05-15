@@ -1,6 +1,8 @@
 @extends('layouts.app')
-@section('title','Activity Category Create')
+@section('title','WCU Create')
 @section('style')
+
+    <link rel="stylesheet" href="{{ asset('themes/backend/plugins/summernote/summernote-bs4.min.css') }}">
     <style>
         .image-upload {
             position: relative;
@@ -44,25 +46,25 @@
             <!-- jquery validation -->
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title">Category Information</h3>
+                    <h3 class="card-title">WCU Information</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form enctype="multipart/form-data" id="category-form" action="{{ route('activity-category.store') }}" class="form-horizontal" method="post">
+                <form enctype="multipart/form-data" id="category-form" action="{{ route('home-backend.wcu.store') }}" class="form-horizontal" method="post">
                     @csrf
                     <div class="card-body">
                         <div class="form-group row">
-                            <label for="name" class="col-sm-2 col-form-label">Category Name <span class="text-danger">*</span></label>
+                            <label for="title" class="col-sm-2 col-form-label">Title <span class="text-danger">*</span></label>
                             <div class="col-sm-10">
-                                <input type="text" value="{{ old('name') }}" name="name" class="form-control" id="name" placeholder="Enter Name">
-                                <span id="name-error" class="help-block error-message"></span>
+                                <input type="text" value="{{ old('title') }}" name="title" class="form-control" id="title" placeholder="Enter Title">
+                                <span id="title-error" class="help-block error-message"></span>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="sort" class="col-sm-2 col-form-label">Sort <span class="text-danger">*</span></label>
+                            <label for="description" class="col-sm-2 col-form-label">Description <span class="text-danger">*</span></label>
                             <div class="col-sm-10">
-                                <input type="number" value="{{ old('sort',$sortMax) }}" name="sort" class="form-control" id="sort" placeholder="Enter Sort">
-                                <span id="sort-error" class="help-block error-message"></span>
+                                <textarea name="description" class="form-control" id="description">{{ old('description') }}</textarea>
+                                <span id="description-error" class="text-danger error-message"></span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -83,23 +85,11 @@
                                 <span id="status-error" class="help-block error-message"></span>
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Image Attachment</label>
-                            <div class="col-sm-10">
-                                <div class="image-upload">
-                                    <label for="upload" class="file-label">Choose Image</label>
-                                    <input type="file" name="attachments" id="upload" accept="image/*">
-                                    <div id="preview" class="image-preview"></div>
-                                </div>
-                                <span id="attachments-error" class="help-block error-message"></span>
-                            </div>
-                        </div>
-
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <button type="button" id="category-form-btn" class="btn btn-primary bg-gradient-primary btn-sm">Save</button>
-                        <a href="{{ route('activity-category.index') }}" class="btn btn-danger bg-gradient-danger btn-sm float-right">Cancel</a>
+                        <a href="{{ route('home-backend.wcu') }}" class="btn btn-danger bg-gradient-danger btn-sm float-right">Cancel</a>
                     </div>
                     <!-- /.card-footer -->
                 </form>
@@ -111,7 +101,13 @@
 @endsection
 
 @section('script')
+    <script src="{{ asset('themes/backend/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
+        // Summernote
+        $('#description').summernote({
+            height: 150 // Set height in pixels
+        });
+
         $('#category-form-btn').click(function() {
             preloaderToggle(true);
             // Create a FormData object

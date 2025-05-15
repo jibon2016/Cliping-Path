@@ -1,11 +1,11 @@
 @extends('layouts.app')
-@section('title','Categories')
+@section('title','Why Choose Us')
 @section('content')
     <div class="row">
         <div class="col-12">
             <div class="card card-default">
                 <div class="card-header">
-                    <a href="{{ route('activity-category.create') }}" class="btn btn-primary bg-gradient-primary btn-sm">Create Category <i class="fa fa-plus"></i></a>
+                    <a href="{{ route('home-backend.wcu.create') }}" class="btn btn-primary bg-gradient-primary btn-sm">Create WCU <i class="fa fa-plus"></i></a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -14,9 +14,9 @@
                             <thead>
                             <tr>
                                 <th class="text-center">S/L</th>
-                                <th class="text-center">Category</th>
+                                <th class="text-center">Title</th>
                                 <th class="text-center">Status</th>
-                                <th class="text-center">Image</th>
+                                <th class="text-center">Icon</th>
                                 <th class="text-center">Action</th>
                             </tr>
                             </thead>
@@ -35,13 +35,13 @@
             $('#table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('activity-category.datatable') }}',
+                ajax: '{{ route('home-backend.wcu.datatable') }}',
                 "pagingType": "full_numbers",
                 "lengthMenu": [[10, 25, 50, -1],[10, 25, 50, "All"]
                 ],
                 columns: [
-                    {data: 'sort', name: 'sort',className:'text-center'},
-                    {data: 'name', name: 'name'},
+                    {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false,className:'text-center'},
+                    {data: 'title', name: 'title'},
                     {
                         data: 'status',
                         name: 'status',
@@ -54,7 +54,7 @@
                             return data;
                         },className:'text-center'
                     },
-                    {data: 'image', name: 'image'},
+                    {data:'description', name:'description'},
                     {data: 'action', name: 'action', orderable: false},
                 ],
                 "dom": 'lBfrtip',
@@ -102,7 +102,7 @@
                         preloaderToggle(true);
                         $.ajax({
                             method: "DELETE",
-                            url: "{{ route('activity-category.destroy', ['activity_category' => 'REPLACE_WITH_ID_HERE']) }}".replace('REPLACE_WITH_ID_HERE', id),
+                            url: "{{ route('home-backend.wcu.delete', ['wcu' => 'REPLACE_WITH_ID_HERE']) }}".replace('REPLACE_WITH_ID_HERE', id),
                             data: { id: id }
                         }).done(function( response ) {
                             preloaderToggle(false);

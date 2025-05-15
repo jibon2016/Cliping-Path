@@ -37,6 +37,7 @@ use App\Models\TeamMember;
 use App\Models\Transaction;
 use App\Models\Type;
 use App\Models\User;
+use App\Models\WCU;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -67,12 +68,14 @@ class HomeController extends Controller
                 ->where('status', 1); // Filter galleries where status is 1
         })->latest()->take(12)->get();
 
+        $wcus= WCU::where('status',1)->get();
+
         $homePageVideo = HomeContent::where('title','Video')
             ->with('attachments')
             ->first();
 
         return view('frontend.home',compact('sliders',
-            'customers','stories','galleries', 'homePageVideo'));
+            'customers','stories','galleries','wcus', 'homePageVideo'));
     }
     public function imageGallery()
     {
