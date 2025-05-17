@@ -10,6 +10,7 @@ use App\Models\Attachment;
 use App\Models\Brand;
 use App\Models\Catalogue;
 use App\Models\Category;
+use App\Models\ClientFeedback;
 use App\Models\Collection;
 use App\Models\Color;
 use App\Models\CompanyInformation;
@@ -71,13 +72,14 @@ class HomeController extends Controller
 
         $wcus= WCU::where('status',1)->get();
         $services= Service::where('status',1)->get();
+        $clientFeedbacks = ClientFeedback::where('status', 1)->get();
 
         $homePageVideo = HomeContent::where('title','Video')
             ->with('attachments')
             ->first();
 
-        return view('frontend.home',compact('sliders',
-            'customers','stories','galleries', 'services' ,'wcus', 'homePageVideo'));
+        return view('frontend.home',compact('sliders','customers','stories','galleries',
+            'services', 'clientFeedbacks' ,'wcus', 'homePageVideo'));
     }
     public function imageGallery()
     {

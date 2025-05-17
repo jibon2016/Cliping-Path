@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\BackendHomeController;
 use App\Http\Controllers\BackendServiceController;
+use App\Http\Controllers\ClientFeedbackController;
 
 Route::get('home-backend', [BackendHomeController::class, 'index'])->name('home-backend.index');
 Route::get('home-backend-datatable', [BackendHomeController::class, 'dataTable'])->name('home-backend.datatable');
@@ -16,5 +17,8 @@ Route::get('home-backend-wcu-edit/{wcu}', [BackendHomeController::class, 'wcuEdi
 Route::put('home-backend-wcu-update/{wcu}', [BackendHomeController::class, 'wcuUpdate'])->name('home-backend.wcu.update');
 Route::delete('home-backend-wcu-delete/{wcu}', [BackendHomeController::class, 'wcuDestroy'])->name('home-backend.wcu.delete');
 
-Route::resource('home-backend/services', BackendServiceController::class);
-Route::get('/home-backend/services-datatable', [BackendServiceController::class, 'dataTable'])->name('home-backend.services.datatable');
+Route::resource('home-backend/services', BackendServiceController::class)->except(['show']);
+Route::get('home-backend/services-datatable', [BackendServiceController::class, 'dataTable'])->name('home-backend.services.datatable');
+
+Route::resource('home-backend/client-feedback', ClientFeedbackController::class)->except(['show']);
+Route::get('home-backend/client-feedback-datatable', [ClientFeedbackController::class, 'dataTable'])->name('home-backend.client-feedback.datatable');

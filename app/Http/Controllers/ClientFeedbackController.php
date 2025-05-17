@@ -3,35 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Models\Attachment;
-use App\Models\Service;
+use App\Models\ClientFeedback;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid;
 use Yajra\DataTables\Facades\DataTables;
 
-class BackendServiceController extends Controller
+class ClientFeedbackController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('backend.home_page.services.index');
+        return view('backend.home_page.client_feedback.index');
     }
 
     public function dataTable()
     {
-        $query = Service::query();
+        $query = ClientFeedback::query();
         return DataTables::eloquent($query)
             ->addIndexColumn()
-            ->addColumn('action', function(Service $service) {
-                $btn ='<a href="'.route('services.edit',['service'=>$service->id]).'" class="btn btn-primary bg-gradient-primary btn-sm btn-edit"><i class="fa fa-edit"></i></a>
-                        <a role="button" data-id="'.$service->id.'" class="btn btn-danger btn-sm btn-delete"><i class="fa fa-trash"></i></a>';
+            ->addColumn('action', function(ClientFeedback $clientFeedback) {
+                $btn ='<a href="'.route('client-feedback.edit',['client_feedback'=>$clientFeedback->id]).'" class="btn btn-primary bg-gradient-primary btn-sm btn-edit"><i class="fa fa-edit"></i></a>
+                        <a role="button" data-id="'.$clientFeedback->id.'" class="btn btn-danger btn-sm btn-delete"><i class="fa fa-trash"></i></a>';
                 return $btn;
             })
-            ->addColumn('image', function(Service $service) {
-                return '<img height="100px" src="'.asset($service->attachments->first()->file ?? '').'">';
+            ->addColumn('image', function(ClientFeedback $clientFeedback) {
+                return '<img height="100px" src="'.asset($clientFeedback->attachments->file ?? '').'">';
 
             })
             ->rawColumns(['action','image'])
@@ -43,21 +43,26 @@ class BackendServiceController extends Controller
      */
     public function create()
     {
-        return view('backend.home_page.services.create');
+        return view('backend.home_page.client_feedback.create');
     }
-
     /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-
         // Validate the request data
         $validatedData = $request->validate([
-            'title' =>[
-                'required','max:255',
+            'client_name' => [
+                'required', 'max:255',
             ],
-            'description' => 'nullable',
+            'subject' => [
+                'required', 'max:255',
+            ],
+            'location' => [
+                'required', 'max:255',
+            ],
+            'feedback' => 'nullable',
+            'date' => 'nullable',
             'status' => 'required|boolean',
             'attachments' => 'nullable',
         ]);
@@ -68,20 +73,23 @@ class BackendServiceController extends Controller
         try {
 
             // Create a new Product record in the database
-            $service = Service::create([
-                'title' => $validatedData['title'],
-                'description' => $validatedData['description'],
+            $clientFeedback = ClientFeedback::create([
+                'client_name' => $validatedData['client_name'],
+                'subject' => $validatedData['subject'],
+                'location' => $validatedData['location'],
+                'feedback' => $validatedData['feedback'],
+                'date' => $validatedData['date'],
                 'status' => $validatedData['status'],
             ]);
 
             if ($request->file('attachments')) {
                 $counter = 0;
                 foreach ($request->file('attachments') as $key => $attachmentFile) {
-                    $filename = Uuid::uuid1()->toString().$service->id.'-'.$key.'.' .$attachmentFile->extension();
+                    $filename = Uuid::uuid1()->toString() . $clientFeedback->id . '-' . $key . '.' . $attachmentFile->extension();
 
-                    $destinationPath = 'uploads/attachments/services';
+                    $destinationPath = 'uploads/attachments/client_feedback';
                     $attachmentFile->move(public_path($destinationPath), $filename);
-                    $path = 'uploads/attachments/services/' . $filename;
+                    $path = 'uploads/attachments/client_feedback/' . $filename;
 
 
                     $attachment = new Attachment([
@@ -89,7 +97,7 @@ class BackendServiceController extends Controller
                         'file' => $path,
                         'sort' => $request->attachment_sort[$counter],
                     ]);
-                    $service->attachments()->save($attachment);
+                    $clientFeedback->attachments()->save($attachment);
 
 
                     $counter++;
@@ -102,9 +110,9 @@ class BackendServiceController extends Controller
 
             // Redirect to the index page with a success message
             return response()->json([
-                'status'=>true,
-                'redirect_url'=>route('services.index'),
-                'message'=>'Service created successfully',
+                'status' => true,
+                'redirect_url' => route('client-feedback.index'),
+                'message' => 'Client Feedback created successfully',
             ]);
         } catch (\Exception $e) {
             // Roll back the transaction in case of an error
@@ -112,37 +120,44 @@ class BackendServiceController extends Controller
 
             // Handle the error and redirect with an error message
             return response()->json([
-                'status'=>false,
-                'message'=>$e->getMessage(),
+                'status' => false,
+                'message' => $e->getMessage(),
             ]);
         }
     }
 
-
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Service $service)
+    public function edit(ClientFeedback $clientFeedback)
     {
         try {
-            return view('backend.home_page.services.edit', compact('service',));
+            return view('backend.home_page.client_feedback.edit', compact('clientFeedback',));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             // Handle the case where the Product is not found
-            return redirect()->route('services.index')->with('error',$e->getMessage());
+            return redirect()->route('client-feedback.index')->with('error',$e->getMessage());
         }
+
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Service $service)
+    public function update(Request $request, ClientFeedback $clientFeedback)
     {
         $validatedData = $request->validate([
-            'title' =>[
-                'required','max:255',
+            'client_name' => [
+                'required', 'max:255',
             ],
-            'description' => 'nullable',
-            'status' => 'required|boolean', // Ensure 'status' is boolean
+            'subject' => [
+                'required', 'max:255',
+            ],
+            'location' => [
+                'required', 'max:255',
+            ],
+            'feedback' => 'nullable',
+            'date' => 'nullable',
+            'status' => 'required|boolean',
         ]);
 
         // Start a database transaction
@@ -150,22 +165,25 @@ class BackendServiceController extends Controller
 
         try {
 
-            $service->update([
-                'title' => $validatedData['title'],
-                'description' => $validatedData['description'],
+            $clientFeedback->update([
+                'client_name' => $validatedData['client_name'],
+                'subject' => $validatedData['subject'],
+                'location' => $validatedData['location'],
+                'feedback' => $validatedData['feedback'],
+                'date' => $validatedData['date'],
                 'status' => $validatedData['status'],
             ]);
             if ($request->file('attachments')) {
                 $counter = 0;
                 foreach ($request->file('attachments') as $key => $attachmentFile) {
-                    $filename = Uuid::uuid1()->toString().$service->id.'-'.$key.'.' .$attachmentFile->extension();
+                    $filename = Uuid::uuid1()->toString().$clientFeedback->id.'-'.$key.'.' .$attachmentFile->extension();
 
-                    $destinationPath = 'uploads/attachments/services';
+                    $destinationPath = 'uploads/attachments/client_feedback';
                     $attachmentFile->move(public_path($destinationPath), $filename);
-                    $path = 'uploads/attachments/services/' . $filename;
+                    $path = 'uploads/attachments/client_feedback/' . $filename;
 
 
-                    $service->attachments()->create([
+                    $clientFeedback->attachments()->create([
                         'user_id' => auth()->id(),
                         'file' => $path,
                         'sort' => $request->attachment_sort[$counter],
@@ -181,8 +199,8 @@ class BackendServiceController extends Controller
             // Redirect to the index page with a success message
             return response()->json([
                 'status'=>true,
-                'redirect_url'=>route('services.index'),
-                'message'=>'Service Updated successfully',
+                'redirect_url'=>route('client-feedback.index'),
+                'message'=>'Client Feedback Updated successfully',
             ]);
         } catch (\Exception $e) {
             // Roll back the transaction in case of an error
@@ -196,26 +214,28 @@ class BackendServiceController extends Controller
         }
     }
 
+
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy(ClientFeedback $clientFeedback)
     {
         try {
             // Delete the Product record
-            foreach ($service->attachments as $attachment){
+            if ( $attachment = $clientFeedback->attachments){
                 if (file_exists(public_path($attachment->file))){
                     unlink(public_path($attachment->file));
                 }
                 $attachment->delete();
             }
 
-            $service->delete();
+            $clientFeedback->delete();
             // Return a JSON success response
-            return response()->json(['success'=>true,'message' => 'Service deleted successfully'], Response::HTTP_OK);
+            return response()->json(['success'=>true,'message' => 'Client Feedback deleted successfully'], Response::HTTP_OK);
         } catch (\Exception $e) {
             // Handle any errors, such as record not found
             return response()->json(['success'=>false,'message' =>$e->getMessage()], Response::HTTP_NOT_FOUND);
         }
     }
+
 }

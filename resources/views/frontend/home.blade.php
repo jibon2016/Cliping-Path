@@ -684,258 +684,302 @@
                             <div class="spacer-20"></div>
                         </div>
                         <div class="item-carousel owl-carousel owl-reponsive wow fadeInUp" id="testimonial-carousel">
-                            <div class="item">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-3">
-                                                <!-- Circular Image -->
-                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">
-                                                <span class="tick">
+                            @foreach($clientFeedbacks as $feedback)
+                                <div class="item">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <div class="col-3">
+                                                    <!-- Circular Image -->
+                                                    <img loading="lazy" src="{{asset($feedback->attachments->file )}}" class="ImageProfile" alt="Profile Image">
+                                                    <span class="tick">
                                             <i class="fas fa-check-double"></i>
                                         </span>
+                                                </div>
+
+                                                <div class="col p-2" style="line-height: 1;">
+                                                    <p class="card-text">{{ $feedback->client_name }}</p>
+                                                    <i class="fas fa-map-marker-alt" style="color: green;"></i> {{ $feedback->location }}
+                                                </div>
                                             </div>
 
-                                            <div class="col p-2" style="line-height: 1;">
-                                                <p class="card-text">Dave Rogers</p>
-                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US
+                                            <!-- Line -->
+                                            <hr class="grey-line">
+
+                                            <!-- Start Date -->
+                                            <div class="d-flex align-items-center">
+                                                <div class="col-star">
+                                                    <i class="icon_green_star"></i>
+                                                    <i class="icon_green_star"></i>
+                                                    <i class="icon_green_star"></i>
+                                                    <i class="icon_green_star"></i>
+                                                    <i class="icon_green_star"></i>
+                                                </div>
+                                                <div class="text-end customers__date d-">
+                                                    <small>{{ $feedback->date->format('d M, Y') }}</small>
+                                                </div>
                                             </div>
+
+                                            <!-- Short Description -->
+                                            <span class="txt-lim4">
+                                <h5 class="card-text">{{ $feedback->subject }}</h5>
+                                <small>{!! $feedback->feedback !!}</small></span>
                                         </div>
-
-                                        <!-- Line -->
-                                        <hr class="grey-line">
-
-                                        <!-- Start Date -->
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-star">
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                            </div>
-                                            <div class="text-end customers__date d-">
-                                                <small>Jan 2, 2024</small>
-                                            </div>
-                                        </div>
-
-                                        <!-- Short Description -->
-                                        <span class="txt-lim4">
-                                <h5 class="card-text">Very Pleased with the Result!</h5>
-                                <small>LivingColors Studio exceeded my expectations! Image editing was flawless, and I&#039;m thrilled with the remarkable results.</small></span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-3">
-                                                <!-- Circular Image -->
-                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">
-                                                <span class="tick">
-                                            <i class="fas fa-check-double"></i>
-                                        </span>
-                                            </div>
+                            @endforeach
+{{--                            <div class="item">--}}
+{{--                                <div class="card">--}}
+{{--                                    <div class="card-body">--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-3">--}}
+{{--                                                <!-- Circular Image -->--}}
+{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+{{--                                                <span class="tick">--}}
+{{--                                            <i class="fas fa-check-double"></i>--}}
+{{--                                        </span>--}}
+{{--                                            </div>--}}
 
-                                            <div class="col p-2" style="line-height: 1;">
-                                                <p class="card-text">Don Warshaw</p>
-                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US
-                                            </div>
-                                        </div>
+{{--                                            <div class="col p-2" style="line-height: 1;">--}}
+{{--                                                <p class="card-text">Dave Rogers</p>--}}
+{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- Line -->
-                                        <hr class="grey-line">
+{{--                                        <!-- Line -->--}}
+{{--                                        <hr class="grey-line">--}}
 
-                                        <!-- Start Date -->
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-star">
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_grey"></i>
-                                            </div>
-                                            <div class="text-end customers__date d-">
-                                                <small>Jan 8, 2024</small>
-                                            </div>
-                                        </div>
+{{--                                        <!-- Start Date -->--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-star">--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="text-end customers__date d-">--}}
+{{--                                                <small>Jan 2, 2024</small>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- Short Description -->
-                                        <span class="txt-lim4">
-                                <h5 class="card-text">Accurate and Super Fast!</h5>
-                                <small>Thrilled with the speedy and precise image editing! A game-changer for my business. Highly recommend.</small></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-3">
-                                                <!-- Circular Image -->
-                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">
-                                                <span class="tick">
-                                            <i class="fas fa-check-double"></i>
-                                        </span>
-                                            </div>
+{{--                                        <!-- Short Description -->--}}
+{{--                                        <span class="txt-lim4">--}}
+{{--                                <h5 class="card-text">Very Pleased with the Result!</h5>--}}
+{{--                                <small>LivingColors Studio exceeded my expectations! Image editing was flawless, and I&#039;m thrilled with the remarkable results.</small></span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="item">--}}
+{{--                                <div class="card">--}}
+{{--                                    <div class="card-body">--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-3">--}}
+{{--                                                <!-- Circular Image -->--}}
+{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+{{--                                                <span class="tick">--}}
+{{--                                            <i class="fas fa-check-double"></i>--}}
+{{--                                        </span>--}}
+{{--                                            </div>--}}
 
-                                            <div class="col p-2" style="line-height: 1;">
-                                                <p class="card-text">Dawn Snyder</p>
-                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> CA
-                                            </div>
-                                        </div>
+{{--                                            <div class="col p-2" style="line-height: 1;">--}}
+{{--                                                <p class="card-text">Don Warshaw</p>--}}
+{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- Line -->
-                                        <hr class="grey-line">
+{{--                                        <!-- Line -->--}}
+{{--                                        <hr class="grey-line">--}}
 
-                                        <!-- Start Date -->
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-star">
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                            </div>
-                                            <div class="text-end customers__date d-">
-                                                <small>Jan 23, 2024</small>
-                                            </div>
-                                        </div>
+{{--                                        <!-- Start Date -->--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-star">--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_grey"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="text-end customers__date d-">--}}
+{{--                                                <small>Jan 8, 2024</small>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- Short Description -->
-                                        <span class="txt-lim4">
-                                <h5 class="card-text">Background Was Nicely Removed.</h5>
-                                <small>Impressed with the background removal service. Exceptional attention to detail. Highly satisfied with the result.</small></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-3">
-                                                <!-- Circular Image -->
-                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">
-                                                <span class="tick">
-                                            <i class="fas fa-check-double"></i>
-                                        </span>
-                                            </div>
+{{--                                        <!-- Short Description -->--}}
+{{--                                        <span class="txt-lim4">--}}
+{{--                                <h5 class="card-text">Accurate and Super Fast!</h5>--}}
+{{--                                <small>Thrilled with the speedy and precise image editing! A game-changer for my business. Highly recommend.</small></span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="item">--}}
+{{--                                <div class="card">--}}
+{{--                                    <div class="card-body">--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-3">--}}
+{{--                                                <!-- Circular Image -->--}}
+{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+{{--                                                <span class="tick">--}}
+{{--                                            <i class="fas fa-check-double"></i>--}}
+{{--                                        </span>--}}
+{{--                                            </div>--}}
 
-                                            <div class="col p-2" style="line-height: 1;">
-                                                <p class="card-text">Michael Lehtonen</p>
-                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> AU
-                                            </div>
-                                        </div>
+{{--                                            <div class="col p-2" style="line-height: 1;">--}}
+{{--                                                <p class="card-text">Dawn Snyder</p>--}}
+{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> CA--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- Line -->
-                                        <hr class="grey-line">
+{{--                                        <!-- Line -->--}}
+{{--                                        <hr class="grey-line">--}}
 
-                                        <!-- Start Date -->
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-star">
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                            </div>
-                                            <div class="text-end customers__date d-">
-                                                <small>Feb 3, 2024</small>
-                                            </div>
-                                        </div>
+{{--                                        <!-- Start Date -->--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-star">--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="text-end customers__date d-">--}}
+{{--                                                <small>Jan 23, 2024</small>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- Short Description -->
-                                        <span class="txt-lim4">
-                                <h5 class="card-text">Flawless Extraction Delivered</h5>
-                                <small>Received flawless image extraction. Remarkable precision, ideal for business needs.</small></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-3">
-                                                <!-- Circular Image -->
-                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">
-                                                <span class="tick">
-                                            <i class="fas fa-check-double"></i>
-                                        </span>
-                                            </div>
+{{--                                        <!-- Short Description -->--}}
+{{--                                        <span class="txt-lim4">--}}
+{{--                                <h5 class="card-text">Background Was Nicely Removed.</h5>--}}
+{{--                                <small>Impressed with the background removal service. Exceptional attention to detail. Highly satisfied with the result.</small></span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="item">--}}
+{{--                                <div class="card">--}}
+{{--                                    <div class="card-body">--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-3">--}}
+{{--                                                <!-- Circular Image -->--}}
+{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+{{--                                                <span class="tick">--}}
+{{--                                            <i class="fas fa-check-double"></i>--}}
+{{--                                        </span>--}}
+{{--                                            </div>--}}
 
-                                            <div class="col p-2" style="line-height: 1;">
-                                                <p class="card-text">Stephany Perry</p>
-                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US
-                                            </div>
-                                        </div>
+{{--                                            <div class="col p-2" style="line-height: 1;">--}}
+{{--                                                <p class="card-text">Michael Lehtonen</p>--}}
+{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> AU--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- Line -->
-                                        <hr class="grey-line">
+{{--                                        <!-- Line -->--}}
+{{--                                        <hr class="grey-line">--}}
 
-                                        <!-- Start Date -->
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-star">
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_grey"></i>
-                                            </div>
-                                            <div class="text-end customers__date d-">
-                                                <small>Feb 9, 2024</small>
-                                            </div>
-                                        </div>
+{{--                                        <!-- Start Date -->--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-star">--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="text-end customers__date d-">--}}
+{{--                                                <small>Feb 3, 2024</small>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- Short Description -->
-                                        <span class="txt-lim4">
-                                <h5 class="card-text">Photos are sharp and clean</h5>
-                                <small>Photos returned sharp – impeccable work! LivingColors Studio consistently exceeds expectations.</small></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-3">
-                                                <!-- Circular Image -->
-                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">
-                                                <span class="tick">
-                                            <i class="fas fa-check-double"></i>
-                                        </span>
-                                            </div>
+{{--                                        <!-- Short Description -->--}}
+{{--                                        <span class="txt-lim4">--}}
+{{--                                <h5 class="card-text">Flawless Extraction Delivered</h5>--}}
+{{--                                <small>Received flawless image extraction. Remarkable precision, ideal for business needs.</small></span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="item">--}}
+{{--                                <div class="card">--}}
+{{--                                    <div class="card-body">--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-3">--}}
+{{--                                                <!-- Circular Image -->--}}
+{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+{{--                                                <span class="tick">--}}
+{{--                                            <i class="fas fa-check-double"></i>--}}
+{{--                                        </span>--}}
+{{--                                            </div>--}}
 
-                                            <div class="col p-2" style="line-height: 1;">
-                                                <p class="card-text">Mike Simonski</p>
-                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US
-                                            </div>
-                                        </div>
+{{--                                            <div class="col p-2" style="line-height: 1;">--}}
+{{--                                                <p class="card-text">Stephany Perry</p>--}}
+{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- Line -->
-                                        <hr class="grey-line">
+{{--                                        <!-- Line -->--}}
+{{--                                        <hr class="grey-line">--}}
 
-                                        <!-- Start Date -->
-                                        <div class="d-flex align-items-center">
-                                            <div class="col-star">
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                                <i class="icon_green_star"></i>
-                                            </div>
-                                            <div class="text-end customers__date d-">
-                                                <small>Mar 1, 2024</small>
-                                            </div>
-                                        </div>
+{{--                                        <!-- Start Date -->--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-star">--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_grey"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="text-end customers__date d-">--}}
+{{--                                                <small>Feb 9, 2024</small>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <!-- Short Description -->
-                                        <span class="txt-lim4">
-                                <h5 class="card-text">No Fuss Right on Time</h5>
-                                <small>No fuss, right on time. LivingColors Studio delivers hassle-free image editing, meeting deadlines without compromising quality.</small></span>
-                                    </div>
-                                </div>
-                            </div>
+{{--                                        <!-- Short Description -->--}}
+{{--                                        <span class="txt-lim4">--}}
+{{--                                <h5 class="card-text">Photos are sharp and clean</h5>--}}
+{{--                                <small>Photos returned sharp – impeccable work! LivingColors Studio consistently exceeds expectations.</small></span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div class="item">--}}
+{{--                                <div class="card">--}}
+{{--                                    <div class="card-body">--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-3">--}}
+{{--                                                <!-- Circular Image -->--}}
+{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+{{--                                                <span class="tick">--}}
+{{--                                            <i class="fas fa-check-double"></i>--}}
+{{--                                        </span>--}}
+{{--                                            </div>--}}
+
+{{--                                            <div class="col p-2" style="line-height: 1;">--}}
+{{--                                                <p class="card-text">Mike Simonski</p>--}}
+{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+
+{{--                                        <!-- Line -->--}}
+{{--                                        <hr class="grey-line">--}}
+
+{{--                                        <!-- Start Date -->--}}
+{{--                                        <div class="d-flex align-items-center">--}}
+{{--                                            <div class="col-star">--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                                <i class="icon_green_star"></i>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="text-end customers__date d-">--}}
+{{--                                                <small>Mar 1, 2024</small>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+
+{{--                                        <!-- Short Description -->--}}
+{{--                                        <span class="txt-lim4">--}}
+{{--                                <h5 class="card-text">No Fuss Right on Time</h5>--}}
+{{--                                <small>No fuss, right on time. LivingColors Studio delivers hassle-free image editing, meeting deadlines without compromising quality.</small></span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                 </div>
