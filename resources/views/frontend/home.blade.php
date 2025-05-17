@@ -415,92 +415,117 @@
             <div class="row text-center">
                 <div class="col-lg-12">
                     <div class="feature-slider owl-carousel testimonials-slider-3">
-                        <div>
-                            <div class="mt-4 pt-2">
-                                {{--<a href="background-removal.html">--}}
-                                <div class="solution borderx rounded position-relative px-2 py-3">
+                        @foreach($services as $service)
+                            <div>
+                                <div class="mt-4 pt-2">
+                                    {{--<a href="background-removal.html">--}}
+                                    <div class="solution borderx rounded position-relative px-2 py-3">
 
-                                    <div class="preview_image custom_animation">
-                                        <span class="circle_prev_one position-absolute"></span>
-                                        <span class="circle_prev_two position-absolute"></span>
-                                        <span class="circle_prev_three position-absolute"></span>
-                                        <div class="container1" class='twentytwenty-container'>
-                                            <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">
-                                            <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">
-                                            <!-- <img src="./assets/img/preview/02.jpg"> -->
+                                        <div class="preview_image custom_animation">
+                                            <span class="circle_prev_one position-absolute"></span>
+                                            <span class="circle_prev_two position-absolute"></span>
+                                            <span class="circle_prev_three position-absolute"></span>
+                                            <div class="container1" class='twentytwenty-container'>
+                                                @foreach($service->attachments as $attachment )
+                                                    <img src="{{asset($attachment->file)}}" alt="jn">
+                                                @endforeach
+                                            </div>
                                         </div>
+                                        <h3 class="lh-base fs-16 mb-2">{{ $service->title }}</h3>
+                                        <span class="service-descr service-lim">
+                                            {!! $service->description !!}
+                                        </span>
                                     </div>
-
-                                    <h3 class="lh-base fs-16 mb-2">Background Removal</h3>
-                                    <p class="service-descr service-lim">Removing the Background is easy; replacing it with something better is tough. And that’s what our image editing company is good at. We’ll remove the background of your image and replace it with something better that blends.</p>
+                                    {{--</a>--}}
                                 </div>
-                                {{--</a>--}}
                             </div>
-                        </div>
-                        <div>
-                            <div class="mt-4 pt-2">
+                        @endforeach
+{{--                        <div>--}}
+{{--                            <div class="mt-4 pt-2">--}}
+{{--                                --}}{{--<a href="background-removal.html">--}}
+{{--                                <div class="solution borderx rounded position-relative px-2 py-3">--}}
+
+{{--                                    <div class="preview_image custom_animation">--}}
+{{--                                        <span class="circle_prev_one position-absolute"></span>--}}
+{{--                                        <span class="circle_prev_two position-absolute"></span>--}}
+{{--                                        <span class="circle_prev_three position-absolute"></span>--}}
+{{--                                        <div class="container1" class='twentytwenty-container'>--}}
+{{--                                            <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
+{{--                                            <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
+{{--                                            <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+
+{{--                                    <h3 class="lh-base fs-16 mb-2">Background Removal</h3>--}}
+{{--                                    <p class="service-descr service-lim">Removing the Background is easy; replacing it with something better is tough. And that’s what our image editing company is good at. We’ll remove the background of your image and replace it with something better that blends.</p>--}}
+{{--                                </div>--}}
+{{--                                --}}{{--</a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div>--}}
+{{--                            <div class="mt-4 pt-2">--}}
 {{--                                <a href="clipping-path.html">--}}
-                                    <div class="solution borderx rounded position-relative px-2 py-3">
-                                        <div class="preview_image custom_animation">
-                                            <span class="circle_prev_one position-absolute"></span>
-                                            <span class="circle_prev_two position-absolute"></span>
-                                            <span class="circle_prev_three position-absolute"></span>
-                                            <div class="container1" class='twentytwenty-container'>
-                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">
-                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">
-                                                <!-- <img src="./assets/img/preview/02.jpg"> -->
-                                            </div>
-                                        </div>
+{{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
+{{--                                        <div class="preview_image custom_animation">--}}
+{{--                                            <span class="circle_prev_one position-absolute"></span>--}}
+{{--                                            <span class="circle_prev_two position-absolute"></span>--}}
+{{--                                            <span class="circle_prev_three position-absolute"></span>--}}
+{{--                                            <div class="container1" class='twentytwenty-container'>--}}
+{{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
+{{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
+{{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <h3 class="lh-base fs-16 mb-2">Clipping Path</h3>
-                                        <p class="service-descr service-lim">With completely hand-drawn clipping paths using the Photoshop pen tool, we give extra attention to the slightest of details. We guarantee professional image editing services to give you the cleanest images that bring you more conversion.</p>
-                                    </div>
+{{--                                        <h3 class="lh-base fs-16 mb-2">Clipping Path</h3>--}}
+{{--                                        <p class="service-descr service-lim">With completely hand-drawn clipping paths using the Photoshop pen tool, we give extra attention to the slightest of details. We guarantee professional image editing services to give you the cleanest images that bring you more conversion.</p>--}}
+{{--                                    </div>--}}
 {{--                                </a>--}}
-                            </div>
-                        </div>
-                        <div>
-                            <div class="mt-4 pt-2">
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <div>--}}
+{{--                            <div class="mt-4 pt-2">--}}
 {{--                                <a href="photo-retouching.html">--}}
-                                    <div class="solution borderx rounded position-relative px-2 py-3">
-                                        <div class="preview_image custom_animation">
-                                            <span class="circle_prev_one position-absolute"></span>
-                                            <span class="circle_prev_two position-absolute"></span>
-                                            <span class="circle_prev_three position-absolute"></span>
-                                            <div class="container1" class='twentytwenty-container'>
-                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">
-                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">
-                                                <!-- <img src="./assets/img/preview/02.jpg"> -->
-                                            </div>
-                                        </div>
+{{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
+{{--                                        <div class="preview_image custom_animation">--}}
+{{--                                            <span class="circle_prev_one position-absolute"></span>--}}
+{{--                                            <span class="circle_prev_two position-absolute"></span>--}}
+{{--                                            <span class="circle_prev_three position-absolute"></span>--}}
+{{--                                            <div class="container1" class='twentytwenty-container'>--}}
+{{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
+{{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
+{{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <h3 class="lh-base fs-16 mb-2">Photo Retouching</h3>
-                                        <p class="service-descr service-lim">You’ve captured your image once, you don’t have to shoot it again. Send your image to us. We’ll enhance it, remove the unwanted and add the essentials. That way, even the once ‘not-so-perfect’ image you’ve captured will start to bring you sales.</p>
-                                    </div>
+{{--                                        <h3 class="lh-base fs-16 mb-2">Photo Retouching</h3>--}}
+{{--                                        <p class="service-descr service-lim">You’ve captured your image once, you don’t have to shoot it again. Send your image to us. We’ll enhance it, remove the unwanted and add the essentials. That way, even the once ‘not-so-perfect’ image you’ve captured will start to bring you sales.</p>--}}
+{{--                                    </div>--}}
 {{--                                </a>--}}
-                            </div>
-                        </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
 
-                        <div>
-                            <div class="mt-4 pt-2">
+{{--                        <div>--}}
+{{--                            <div class="mt-4 pt-2">--}}
 {{--                                <a href="color-adjustment.html">--}}
-                                    <div class="solution borderx rounded position-relative px-2 py-3">
-                                        <div class="preview_image custom_animation">
-                                            <span class="circle_prev_one position-absolute"></span>
-                                            <span class="circle_prev_two position-absolute"></span>
-                                            <span class="circle_prev_three position-absolute"></span>
-                                            <div class="container1" class='twentytwenty-container'>
-                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">
-                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">
-                                                <!-- <img src="./assets/img/preview/02.jpg"> -->
-                                            </div>
-                                        </div>
+{{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
+{{--                                        <div class="preview_image custom_animation">--}}
+{{--                                            <span class="circle_prev_one position-absolute"></span>--}}
+{{--                                            <span class="circle_prev_two position-absolute"></span>--}}
+{{--                                            <span class="circle_prev_three position-absolute"></span>--}}
+{{--                                            <div class="container1" class='twentytwenty-container'>--}}
+{{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
+{{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
+{{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
 
-                                        <h3 class="lh-base fs-16 mb-2">Color Adjustment</h3>
-                                        <p class="service-descr service-lim">Stop worrying about buying the same product with different color variants for showcasing. Get the shade that you desire with the life-like color vibrancy. We’ll make different color variants for you and help you cut down on expenses.</p>
-                                    </div>
+{{--                                        <h3 class="lh-base fs-16 mb-2">Color Adjustment</h3>--}}
+{{--                                        <p class="service-descr service-lim">Stop worrying about buying the same product with different color variants for showcasing. Get the shade that you desire with the life-like color vibrancy. We’ll make different color variants for you and help you cut down on expenses.</p>--}}
+{{--                                    </div>--}}
 {{--                                </a>--}}
-                            </div>
-                        </div>
+{{--                            </div>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
             </div>

@@ -100,7 +100,8 @@
 
             <?php
             $subMenu = [
-                'home-backend.index','home-backend-video.edit','home-backend-video.update','home-backend.wcu','home-backend.wcu.create', 'home-backend.wcu.edit'
+                'home-backend.index','home-backend-video.edit','home-backend-video.update','home-backend.wcu','home-backend.wcu.create', 'home-backend.wcu.edit',
+                'services.index','services.create', 'services.edit'
             ];
             ?>
             <li class="nav-item {{ in_array(Route::currentRouteName(), $subMenu) ? 'menu-open' : '' }}">
@@ -135,10 +136,10 @@
                         </a>
                     </li>
                     <?php
-                    $subSubMenu = ['home-backend.services','home-backend.wcu.create', 'home-backend.wcu.edit'];
+                    $subSubMenu = ['services.index','services.create', 'services.edit'];
                     ?>
                     <li class="nav-item">
-                        <a href="{{ route('home-backend.services') }}"
+                        <a href="{{ route('services.index') }}"
                            class="nav-link {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'active' : '' }}">
                             <i class="far  {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'fa-check-circle' : 'fa-circle' }} nav-icon"></i>
                             <p>Services</p>

@@ -23,6 +23,7 @@ use App\Models\HomeContent;
 use App\Models\Look;
 use App\Models\News;
 use App\Models\Program;
+use App\Models\Service;
 use App\Models\Size;
 use App\Models\Space;
 use App\Models\ContactMessage;
@@ -69,13 +70,14 @@ class HomeController extends Controller
         })->latest()->take(12)->get();
 
         $wcus= WCU::where('status',1)->get();
+        $services= Service::where('status',1)->get();
 
         $homePageVideo = HomeContent::where('title','Video')
             ->with('attachments')
             ->first();
 
         return view('frontend.home',compact('sliders',
-            'customers','stories','galleries','wcus', 'homePageVideo'));
+            'customers','stories','galleries', 'services' ,'wcus', 'homePageVideo'));
     }
     public function imageGallery()
     {
