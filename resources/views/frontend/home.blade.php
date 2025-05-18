@@ -194,6 +194,139 @@
         <!-- End Scroll Down -->
     </section>
 
+    <!-- start Service -->
+    <section class="page-section mt-4 mb-4 bg-green position-relative" id="service">
+        <div class="divider top d-none d-sm-block"></div>
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="text-center" style="background-size: cover;">
+                    <h3 class="section-title mb-30 mb-xs-20 wow fadeInUp">Our <span class="color-primary-1">Service</span> You Need</h3>
+                    <p class="section-descr mb-40 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1.2s" data-wow-offset="0">Discover the comprehensive range of services tailored to meet your every need. From image editing to video production and 3D modeling, we offer top-notch solutions to elevate your projects to new heights. Explore our services and unlock the potential for stunning visual content.</p>
+                    <div class="spacer-20" style="background-size: cover;"></div>
+                </div>
+            </div>
+            <div class="row text-center">
+                <div class="col-lg-12">
+                    <div class="feature-slider owl-carousel testimonials-slider-3">
+                        @foreach($services as $service)
+                            <div>
+                                <div class="mt-4 pt-2">
+                                    {{--<a href="background-removal.html">--}}
+                                    <div class="solution borderx rounded position-relative px-2 py-3">
+
+                                        <div class="preview_image custom_animation">
+                                            <span class="circle_prev_one position-absolute"></span>
+                                            <span class="circle_prev_two position-absolute"></span>
+                                            <span class="circle_prev_three position-absolute"></span>
+                                            <div class="container1" class='twentytwenty-container'>
+                                                @foreach($service->attachments as $attachment )
+                                                    <img src="{{asset($attachment->file)}}" alt="jn">
+                                                @endforeach
+                                            </div>
+                                        </div>
+                                        <h3 class="lh-base fs-16 mb-2">{{ $service->title }}</h3>
+                                        <span class="service-descr service-lim">
+                                            {!! $service->description !!}
+                                        </span>
+                                    </div>
+                                    {{--</a>--}}
+                                </div>
+                            </div>
+                        @endforeach
+                        {{--                        <div>--}}
+                        {{--                            <div class="mt-4 pt-2">--}}
+                        {{--                                --}}{{--<a href="background-removal.html">--}}
+                        {{--                                <div class="solution borderx rounded position-relative px-2 py-3">--}}
+
+                        {{--                                    <div class="preview_image custom_animation">--}}
+                        {{--                                        <span class="circle_prev_one position-absolute"></span>--}}
+                        {{--                                        <span class="circle_prev_two position-absolute"></span>--}}
+                        {{--                                        <span class="circle_prev_three position-absolute"></span>--}}
+                        {{--                                        <div class="container1" class='twentytwenty-container'>--}}
+                        {{--                                            <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
+                        {{--                                            <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
+                        {{--                                            <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
+                        {{--                                        </div>--}}
+                        {{--                                    </div>--}}
+
+                        {{--                                    <h3 class="lh-base fs-16 mb-2">Background Removal</h3>--}}
+                        {{--                                    <p class="service-descr service-lim">Removing the Background is easy; replacing it with something better is tough. And that’s what our image editing company is good at. We’ll remove the background of your image and replace it with something better that blends.</p>--}}
+                        {{--                                </div>--}}
+                        {{--                                --}}{{--</a>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                        {{--                        <div>--}}
+                        {{--                            <div class="mt-4 pt-2">--}}
+                        {{--                                <a href="clipping-path.html">--}}
+                        {{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
+                        {{--                                        <div class="preview_image custom_animation">--}}
+                        {{--                                            <span class="circle_prev_one position-absolute"></span>--}}
+                        {{--                                            <span class="circle_prev_two position-absolute"></span>--}}
+                        {{--                                            <span class="circle_prev_three position-absolute"></span>--}}
+                        {{--                                            <div class="container1" class='twentytwenty-container'>--}}
+                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
+                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
+                        {{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
+                        {{--                                            </div>--}}
+                        {{--                                        </div>--}}
+
+                        {{--                                        <h3 class="lh-base fs-16 mb-2">Clipping Path</h3>--}}
+                        {{--                                        <p class="service-descr service-lim">With completely hand-drawn clipping paths using the Photoshop pen tool, we give extra attention to the slightest of details. We guarantee professional image editing services to give you the cleanest images that bring you more conversion.</p>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </a>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                        {{--                        <div>--}}
+                        {{--                            <div class="mt-4 pt-2">--}}
+                        {{--                                <a href="photo-retouching.html">--}}
+                        {{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
+                        {{--                                        <div class="preview_image custom_animation">--}}
+                        {{--                                            <span class="circle_prev_one position-absolute"></span>--}}
+                        {{--                                            <span class="circle_prev_two position-absolute"></span>--}}
+                        {{--                                            <span class="circle_prev_three position-absolute"></span>--}}
+                        {{--                                            <div class="container1" class='twentytwenty-container'>--}}
+                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
+                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
+                        {{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
+                        {{--                                            </div>--}}
+                        {{--                                        </div>--}}
+
+                        {{--                                        <h3 class="lh-base fs-16 mb-2">Photo Retouching</h3>--}}
+                        {{--                                        <p class="service-descr service-lim">You’ve captured your image once, you don’t have to shoot it again. Send your image to us. We’ll enhance it, remove the unwanted and add the essentials. That way, even the once ‘not-so-perfect’ image you’ve captured will start to bring you sales.</p>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </a>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+
+                        {{--                        <div>--}}
+                        {{--                            <div class="mt-4 pt-2">--}}
+                        {{--                                <a href="color-adjustment.html">--}}
+                        {{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
+                        {{--                                        <div class="preview_image custom_animation">--}}
+                        {{--                                            <span class="circle_prev_one position-absolute"></span>--}}
+                        {{--                                            <span class="circle_prev_two position-absolute"></span>--}}
+                        {{--                                            <span class="circle_prev_three position-absolute"></span>--}}
+                        {{--                                            <div class="container1" class='twentytwenty-container'>--}}
+                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
+                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
+                        {{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
+                        {{--                                            </div>--}}
+                        {{--                                        </div>--}}
+
+                        {{--                                        <h3 class="lh-base fs-16 mb-2">Color Adjustment</h3>--}}
+                        {{--                                        <p class="service-descr service-lim">Stop worrying about buying the same product with different color variants for showcasing. Get the shade that you desire with the life-like color vibrancy. We’ll make different color variants for you and help you cut down on expenses.</p>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </a>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="divider bottom d-none d-sm-block"></div>
+    </section>
+    <!-- end Service -->
+
     <!-- Why Choose Us Section -->
     <section class="page-section bg-light-alpha-10 bg-scroll">
         <div class="container position-relative">
@@ -227,90 +360,90 @@
                                 </div>
                             </div>
                         @endforeach
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="text-center">--}}
-{{--                                        <!-- Icon for Faster Delivery -->--}}
-{{--                                        <i class="fas fa-shipping-fast fa-3x mb-3 color-primary-1"></i>--}}
-{{--                                        <h4>Faster Delivery</h4>--}}
-{{--                                        <p class="description txt-lim4">--}}
-{{--                                            Our TAT is flexible— 24 hours to 48 hours MAX for no race against time. For emergencies, WE LET YOU CHOOSE. Urgent deliveries within ASAP 1 hour, 4 hours, and 10 hours; you demand it, we do it.--}}
-{{--                                        </p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="text-center">--}}
-{{--                                        <!-- Icon for No Mediocre AI -->--}}
-{{--                                        <i class="fas fa-robot fa-3x mb-3 color-primary-1"></i>--}}
-{{--                                        <h4>No Mediocre AI</h4>--}}
-{{--                                        <p class="description txt-lim4">--}}
-{{--                                            Every project is closely carried out, monitored, and edited by HUMANS. We don’t hate AI; we simply prioritize hand-crafted works to make your images ‘picture perfect’.--}}
-{{--                                        </p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="text-center">--}}
-{{--                                        <!-- Icon for 24/7 Support -->--}}
-{{--                                        <i class="fas fa-headset fa-3x mb-3 color-primary-1"></i>--}}
-{{--                                        <h4>24/7 Support</h4>--}}
-{{--                                        <p class="description txt-lim4">--}}
-{{--                                            Rest assured, our dedicated team is always available to swiftly address your queries. Just reach out, and we'll provide immediate assistance round the clock.--}}
-{{--                                        </p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="text-center">--}}
-{{--                                        <!-- Icon for Dedicated Team -->--}}
-{{--                                        <i class="fas fa-users fa-3x mb-3 color-primary-1"></i>--}}
-{{--                                        <h4>Dedicated Team</h4>--}}
-{{--                                        <p class="description txt-lim4">--}}
-{{--                                            Picture this! A team working solely for your project. We make sure the team we assign your project to focuses on you and your project alone.--}}
-{{--                                        </p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="text-center">--}}
-{{--                                        <!-- Icon for Competitive Price -->--}}
-{{--                                        <i class="fas fa-dollar-sign fa-3x mb-3 color-primary-1"></i>--}}
-{{--                                        <h4>Competitive Price</h4>--}}
-{{--                                        <p class="description txt-lim4">--}}
-{{--                                            We’re not cheap; we EARN the price even you’ll agree we deserve. We just make sure you don’t have to break your bank to afford us.--}}
-{{--                                        </p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4">--}}
-{{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="text-center">--}}
-{{--                                        <!-- Icon for Secured Data -->--}}
-{{--                                        <i class="fas fa-lock fa-3x mb-3 color-primary-1"></i>--}}
-{{--                                        <h4>Secured Data</h4>--}}
-{{--                                        <p class="description txt-lim4">--}}
-{{--                                            Your images are always secured with us. We use firewalls and security that are strong enough to stop all types of unwanted breaches.--}}
-{{--                                        </p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
+                        {{--                        <div class="col-md-4">--}}
+                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+                        {{--                                <div class="card-body">--}}
+                        {{--                                    <div class="text-center">--}}
+                        {{--                                        <!-- Icon for Faster Delivery -->--}}
+                        {{--                                        <i class="fas fa-shipping-fast fa-3x mb-3 color-primary-1"></i>--}}
+                        {{--                                        <h4>Faster Delivery</h4>--}}
+                        {{--                                        <p class="description txt-lim4">--}}
+                        {{--                                            Our TAT is flexible— 24 hours to 48 hours MAX for no race against time. For emergencies, WE LET YOU CHOOSE. Urgent deliveries within ASAP 1 hour, 4 hours, and 10 hours; you demand it, we do it.--}}
+                        {{--                                        </p>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                        {{--                        <div class="col-md-4">--}}
+                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+                        {{--                                <div class="card-body">--}}
+                        {{--                                    <div class="text-center">--}}
+                        {{--                                        <!-- Icon for No Mediocre AI -->--}}
+                        {{--                                        <i class="fas fa-robot fa-3x mb-3 color-primary-1"></i>--}}
+                        {{--                                        <h4>No Mediocre AI</h4>--}}
+                        {{--                                        <p class="description txt-lim4">--}}
+                        {{--                                            Every project is closely carried out, monitored, and edited by HUMANS. We don’t hate AI; we simply prioritize hand-crafted works to make your images ‘picture perfect’.--}}
+                        {{--                                        </p>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                        {{--                        <div class="col-md-4">--}}
+                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+                        {{--                                <div class="card-body">--}}
+                        {{--                                    <div class="text-center">--}}
+                        {{--                                        <!-- Icon for 24/7 Support -->--}}
+                        {{--                                        <i class="fas fa-headset fa-3x mb-3 color-primary-1"></i>--}}
+                        {{--                                        <h4>24/7 Support</h4>--}}
+                        {{--                                        <p class="description txt-lim4">--}}
+                        {{--                                            Rest assured, our dedicated team is always available to swiftly address your queries. Just reach out, and we'll provide immediate assistance round the clock.--}}
+                        {{--                                        </p>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                        {{--                        <div class="col-md-4">--}}
+                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+                        {{--                                <div class="card-body">--}}
+                        {{--                                    <div class="text-center">--}}
+                        {{--                                        <!-- Icon for Dedicated Team -->--}}
+                        {{--                                        <i class="fas fa-users fa-3x mb-3 color-primary-1"></i>--}}
+                        {{--                                        <h4>Dedicated Team</h4>--}}
+                        {{--                                        <p class="description txt-lim4">--}}
+                        {{--                                            Picture this! A team working solely for your project. We make sure the team we assign your project to focuses on you and your project alone.--}}
+                        {{--                                        </p>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                        {{--                        <div class="col-md-4">--}}
+                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+                        {{--                                <div class="card-body">--}}
+                        {{--                                    <div class="text-center">--}}
+                        {{--                                        <!-- Icon for Competitive Price -->--}}
+                        {{--                                        <i class="fas fa-dollar-sign fa-3x mb-3 color-primary-1"></i>--}}
+                        {{--                                        <h4>Competitive Price</h4>--}}
+                        {{--                                        <p class="description txt-lim4">--}}
+                        {{--                                            We’re not cheap; we EARN the price even you’ll agree we deserve. We just make sure you don’t have to break your bank to afford us.--}}
+                        {{--                                        </p>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
+                        {{--                        <div class="col-md-4">--}}
+                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
+                        {{--                                <div class="card-body">--}}
+                        {{--                                    <div class="text-center">--}}
+                        {{--                                        <!-- Icon for Secured Data -->--}}
+                        {{--                                        <i class="fas fa-lock fa-3x mb-3 color-primary-1"></i>--}}
+                        {{--                                        <h4>Secured Data</h4>--}}
+                        {{--                                        <p class="description txt-lim4">--}}
+                        {{--                                            Your images are always secured with us. We use firewalls and security that are strong enough to stop all types of unwanted breaches.--}}
+                        {{--                                        </p>--}}
+                        {{--                                    </div>--}}
+                        {{--                                </div>--}}
+                        {{--                            </div>--}}
+                        {{--                        </div>--}}
                     </div>
                 </div>
 
@@ -401,279 +534,147 @@
     </section>
     <!-- End How it Works? -->
 
-  <!-- start Service -->
-    <section class="page-section mt-4 mb-4 bg-green position-relative" id="service">
-        <div class="divider top d-none d-sm-block"></div>
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="text-center" style="background-size: cover;">
-                    <h3 class="section-title mb-30 mb-xs-20 wow fadeInUp">Our <span class="color-primary-1">Service</span> You Need</h3>
-                    <p class="section-descr mb-40 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1.2s" data-wow-offset="0">Discover the comprehensive range of services tailored to meet your every need. From image editing to video production and 3D modeling, we offer top-notch solutions to elevate your projects to new heights. Explore our services and unlock the potential for stunning visual content.</p>
-                    <div class="spacer-20" style="background-size: cover;"></div>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-lg-12">
-                    <div class="feature-slider owl-carousel testimonials-slider-3">
-                        @foreach($services as $service)
-                            <div>
-                                <div class="mt-4 pt-2">
-                                    {{--<a href="background-removal.html">--}}
-                                    <div class="solution borderx rounded position-relative px-2 py-3">
-
-                                        <div class="preview_image custom_animation">
-                                            <span class="circle_prev_one position-absolute"></span>
-                                            <span class="circle_prev_two position-absolute"></span>
-                                            <span class="circle_prev_three position-absolute"></span>
-                                            <div class="container1" class='twentytwenty-container'>
-                                                @foreach($service->attachments as $attachment )
-                                                    <img src="{{asset($attachment->file)}}" alt="jn">
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                        <h3 class="lh-base fs-16 mb-2">{{ $service->title }}</h3>
-                                        <span class="service-descr service-lim">
-                                            {!! $service->description !!}
-                                        </span>
-                                    </div>
-                                    {{--</a>--}}
-                                </div>
-                            </div>
-                        @endforeach
-{{--                        <div>--}}
-{{--                            <div class="mt-4 pt-2">--}}
-{{--                                --}}{{--<a href="background-removal.html">--}}
-{{--                                <div class="solution borderx rounded position-relative px-2 py-3">--}}
-
-{{--                                    <div class="preview_image custom_animation">--}}
-{{--                                        <span class="circle_prev_one position-absolute"></span>--}}
-{{--                                        <span class="circle_prev_two position-absolute"></span>--}}
-{{--                                        <span class="circle_prev_three position-absolute"></span>--}}
-{{--                                        <div class="container1" class='twentytwenty-container'>--}}
-{{--                                            <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
-{{--                                            <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
-{{--                                            <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-
-{{--                                    <h3 class="lh-base fs-16 mb-2">Background Removal</h3>--}}
-{{--                                    <p class="service-descr service-lim">Removing the Background is easy; replacing it with something better is tough. And that’s what our image editing company is good at. We’ll remove the background of your image and replace it with something better that blends.</p>--}}
-{{--                                </div>--}}
-{{--                                --}}{{--</a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div>--}}
-{{--                            <div class="mt-4 pt-2">--}}
-{{--                                <a href="clipping-path.html">--}}
-{{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
-{{--                                        <div class="preview_image custom_animation">--}}
-{{--                                            <span class="circle_prev_one position-absolute"></span>--}}
-{{--                                            <span class="circle_prev_two position-absolute"></span>--}}
-{{--                                            <span class="circle_prev_three position-absolute"></span>--}}
-{{--                                            <div class="container1" class='twentytwenty-container'>--}}
-{{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
-{{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
-{{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                        <h3 class="lh-base fs-16 mb-2">Clipping Path</h3>--}}
-{{--                                        <p class="service-descr service-lim">With completely hand-drawn clipping paths using the Photoshop pen tool, we give extra attention to the slightest of details. We guarantee professional image editing services to give you the cleanest images that bring you more conversion.</p>--}}
-{{--                                    </div>--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div>--}}
-{{--                            <div class="mt-4 pt-2">--}}
-{{--                                <a href="photo-retouching.html">--}}
-{{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
-{{--                                        <div class="preview_image custom_animation">--}}
-{{--                                            <span class="circle_prev_one position-absolute"></span>--}}
-{{--                                            <span class="circle_prev_two position-absolute"></span>--}}
-{{--                                            <span class="circle_prev_three position-absolute"></span>--}}
-{{--                                            <div class="container1" class='twentytwenty-container'>--}}
-{{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
-{{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
-{{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                        <h3 class="lh-base fs-16 mb-2">Photo Retouching</h3>--}}
-{{--                                        <p class="service-descr service-lim">You’ve captured your image once, you don’t have to shoot it again. Send your image to us. We’ll enhance it, remove the unwanted and add the essentials. That way, even the once ‘not-so-perfect’ image you’ve captured will start to bring you sales.</p>--}}
-{{--                                    </div>--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-
-{{--                        <div>--}}
-{{--                            <div class="mt-4 pt-2">--}}
-{{--                                <a href="color-adjustment.html">--}}
-{{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
-{{--                                        <div class="preview_image custom_animation">--}}
-{{--                                            <span class="circle_prev_one position-absolute"></span>--}}
-{{--                                            <span class="circle_prev_two position-absolute"></span>--}}
-{{--                                            <span class="circle_prev_three position-absolute"></span>--}}
-{{--                                            <div class="container1" class='twentytwenty-container'>--}}
-{{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
-{{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
-{{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-
-{{--                                        <h3 class="lh-base fs-16 mb-2">Color Adjustment</h3>--}}
-{{--                                        <p class="service-descr service-lim">Stop worrying about buying the same product with different color variants for showcasing. Get the shade that you desire with the life-like color vibrancy. We’ll make different color variants for you and help you cut down on expenses.</p>--}}
-{{--                                    </div>--}}
-{{--                                </a>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="divider bottom d-none d-sm-block"></div>
-    </section>
-    <!-- end Service -->
     <!-- Portfolio Section -->
-{{--    <section class="page-section" id="portfolio" data-bgimage="url(https://cdn.livingcolors.studio/colors/images/background/3PRT.svg) top">--}}
-{{--        <div class="bg-line-1 z-index-1x opacity-035" data-rellax-y data-rellax-speed="-0.3" data-rellax-percentage="0.85">--}}
-{{--            <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/background/Line Art Gradient New.svg" alt="Line">--}}
-{{--        </div>--}}
-{{--        <div class="container position-relative">--}}
+    {{--    <section class="page-section" id="portfolio" data-bgimage="url(https://cdn.livingcolors.studio/colors/images/background/3PRT.svg) top">--}}
+    {{--        <div class="bg-line-1 z-index-1x opacity-035" data-rellax-y data-rellax-speed="-0.3" data-rellax-percentage="0.85">--}}
+    {{--            <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/background/Line Art Gradient New.svg" alt="Line">--}}
+    {{--        </div>--}}
+    {{--        <div class="container position-relative">--}}
 
-{{--            <div class="row mb-xs-40">--}}
-{{--                <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center">--}}
-{{--                    <h3 class="section-title mb-30 mb-xs-20 wow fadeInUp">See Our <span class="color-primary-1">Work </span> Yourself</h3>--}}
-{{--                    <p class="section-descr mb-40 mb-sm-20 wow fadeInUp" data-wow-delay="0.06s">--}}
-{{--                        We’ve tested methods that make us unique, implemented them and brought success to businesses. Even today, we have more than 80% of our clients returning to us OUT OF LOVE. See our work and you can relate.--}}
-{{--                    </p>--}}
-{{--                    <div class="local-scroll wow fadeInUp" data-wow-delay="0.12s">--}}
-{{--                        <a href="portfolio.html" class="btn btn-mod btn-circle btn-border btn-medium" data-link-animate="y">See Edited Images</a>--}}
-{{--                    </div>--}}
+    {{--            <div class="row mb-xs-40">--}}
+    {{--                <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center">--}}
+    {{--                    <h3 class="section-title mb-30 mb-xs-20 wow fadeInUp">See Our <span class="color-primary-1">Work </span> Yourself</h3>--}}
+    {{--                    <p class="section-descr mb-40 mb-sm-20 wow fadeInUp" data-wow-delay="0.06s">--}}
+    {{--                        We’ve tested methods that make us unique, implemented them and brought success to businesses. Even today, we have more than 80% of our clients returning to us OUT OF LOVE. See our work and you can relate.--}}
+    {{--                    </p>--}}
+    {{--                    <div class="local-scroll wow fadeInUp" data-wow-delay="0.12s">--}}
+    {{--                        <a href="portfolio.html" class="btn btn-mod btn-circle btn-border btn-medium" data-link-animate="y">See Edited Images</a>--}}
+    {{--                    </div>--}}
 
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <!-- Images Composition -->--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-sm-4 mb-xs-50">--}}
-{{--                    <div class="me-xl-4 pe-sm-2">--}}
-{{--                        <div class="composition-1">--}}
-{{--                            <div class="composition-1-image-1">--}}
-{{--                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\1711094783-65fd3bff26514.webp')}}" alt="Image Description" />--}}
-{{--                            </div>--}}
-{{--                            <div class="composition-1-image-2">--}}
-{{--                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\1709618533-65e6b565cce28.webp')}}" alt="Image Description" />--}}
-{{--                            </div>--}}
-{{--                            <div class="composition-1-decoration-1" data-rellax-y data-rellax-speed="-0.5" data-rellax-percentage="0.65">--}}
-{{--                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\1707924500-65ccdc1416466.webp')}}" alt="decoration" />--}}
-{{--                            </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--            <!-- Images Composition -->--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-sm-4 mb-xs-50">--}}
+    {{--                    <div class="me-xl-4 pe-sm-2">--}}
+    {{--                        <div class="composition-1">--}}
+    {{--                            <div class="composition-1-image-1">--}}
+    {{--                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\1711094783-65fd3bff26514.webp')}}" alt="Image Description" />--}}
+    {{--                            </div>--}}
+    {{--                            <div class="composition-1-image-2">--}}
+    {{--                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\1709618533-65e6b565cce28.webp')}}" alt="Image Description" />--}}
+    {{--                            </div>--}}
+    {{--                            <div class="composition-1-decoration-1" data-rellax-y data-rellax-speed="-0.5" data-rellax-percentage="0.65">--}}
+    {{--                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\1707924500-65ccdc1416466.webp')}}" alt="decoration" />--}}
+    {{--                            </div>--}}
 
-{{--                            <div class="composition-1-decoration-2 sw1" data-rellax-y data-rellax-speed="0.5" data-rellax-percentage="0.2">--}}
-{{--                            <span class="circle-svg">--}}
-{{--                            <dotlottie-player class="icon-xl center-xy" autoplay loop playMode="normal"--}}
-{{--                                              src="{{asset('themes\frontend\assets\images\work\11.webp')}}">--}}
-{{--                            </dotlottie-player>--}}
-{{--                        </span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-sm-4 mb-xs-50">--}}
-{{--                    <div class="ms-xl-5 ps-sm-2 me-xl-4 pe-sm-2 pe-xl-3">--}}
-{{--                        <div class="composition-2">--}}
+    {{--                            <div class="composition-1-decoration-2 sw1" data-rellax-y data-rellax-speed="0.5" data-rellax-percentage="0.2">--}}
+    {{--                            <span class="circle-svg">--}}
+    {{--                            <dotlottie-player class="icon-xl center-xy" autoplay loop playMode="normal"--}}
+    {{--                                              src="{{asset('themes\frontend\assets\images\work\11.webp')}}">--}}
+    {{--                            </dotlottie-player>--}}
+    {{--                        </span>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="col-sm-4 mb-xs-50">--}}
+    {{--                    <div class="ms-xl-5 ps-sm-2 me-xl-4 pe-sm-2 pe-xl-3">--}}
+    {{--                        <div class="composition-2">--}}
 
-{{--                            <div class="composition-2-image-1 mt-xs-0">--}}
-{{--                                <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/work/1710908772-65fa6564026d0.webp" alt="Image" />--}}
-{{--                            </div>--}}
-{{--                            <div class="composition-2-image-2">--}}
-{{--                                <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/work/1710908786-65fa65722003b.webp" alt="Image" />--}}
-{{--                            </div>--}}
-{{--                            <div class="composition-2-decoration" data-rellax-y data-rellax-speed="0.5" data-rellax-percentage="0.2">--}}
-{{--                            <span class="circle-svg">--}}
-{{--                            <dotlottie-player class="icon-xl center-xy" autoplay loop playMode="normal"--}}
-{{--                                              src="https://cdn.livingcolors.studio/colors/images/icons/json/service/Color-Adjustment.lottie">--}}
-{{--                            </dotlottie-player>--}}
-{{--                        </span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-sm-4">--}}
-{{--                    <div class="ms-xl-4 ps-sm-2">--}}
-{{--                        <div class="composition-3">--}}
-{{--                            <div class="composition-3-image-1">--}}
-{{--                                <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/work/clipping_before.webp" alt="Image" />--}}
-{{--                            </div>--}}
-{{--                            <div class="composition-3-image-2">--}}
-{{--                                <img loading="lazy" src="../cdn.livingcolors.studio/colors/images/work/1707924500-65ccdc1416466.html" alt="Image" />--}}
-{{--                            </div>--}}
-{{--                            <div class="composition-3-decoration-1" data-rellax-y data-rellax-speed="0.5" data-rellax-percentage="0.7">--}}
-{{--                            <span class="circle-svg">--}}
-{{--                                <dotlottie-player class="icon-lottie center-xy" autoplay loop playMode="normal"--}}
-{{--                                                  src="https://cdn.livingcolors.studio/colors/images/icons/json/service/Photo-Retouch.lottie">--}}
-{{--                                </dotlottie-player>--}}
-{{--                            </span>--}}
-{{--                            </div>--}}
-{{--                            <div class="composition-3-decoration-2" data-rellax-y data-rellax-speed="-0.5" data-rellax-percentage="0.5">--}}
-{{--                                <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/services/Background-Remove.svg" alt="Background-Remove" />--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            <!-- End Images Composition -->--}}
-{{--        </div>--}}
-{{--    </section>--}}
+    {{--                            <div class="composition-2-image-1 mt-xs-0">--}}
+    {{--                                <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/work/1710908772-65fa6564026d0.webp" alt="Image" />--}}
+    {{--                            </div>--}}
+    {{--                            <div class="composition-2-image-2">--}}
+    {{--                                <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/work/1710908786-65fa65722003b.webp" alt="Image" />--}}
+    {{--                            </div>--}}
+    {{--                            <div class="composition-2-decoration" data-rellax-y data-rellax-speed="0.5" data-rellax-percentage="0.2">--}}
+    {{--                            <span class="circle-svg">--}}
+    {{--                            <dotlottie-player class="icon-xl center-xy" autoplay loop playMode="normal"--}}
+    {{--                                              src="https://cdn.livingcolors.studio/colors/images/icons/json/service/Color-Adjustment.lottie">--}}
+    {{--                            </dotlottie-player>--}}
+    {{--                        </span>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--                <div class="col-sm-4">--}}
+    {{--                    <div class="ms-xl-4 ps-sm-2">--}}
+    {{--                        <div class="composition-3">--}}
+    {{--                            <div class="composition-3-image-1">--}}
+    {{--                                <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/work/clipping_before.webp" alt="Image" />--}}
+    {{--                            </div>--}}
+    {{--                            <div class="composition-3-image-2">--}}
+    {{--                                <img loading="lazy" src="../cdn.livingcolors.studio/colors/images/work/1707924500-65ccdc1416466.html" alt="Image" />--}}
+    {{--                            </div>--}}
+    {{--                            <div class="composition-3-decoration-1" data-rellax-y data-rellax-speed="0.5" data-rellax-percentage="0.7">--}}
+    {{--                            <span class="circle-svg">--}}
+    {{--                                <dotlottie-player class="icon-lottie center-xy" autoplay loop playMode="normal"--}}
+    {{--                                                  src="https://cdn.livingcolors.studio/colors/images/icons/json/service/Photo-Retouch.lottie">--}}
+    {{--                                </dotlottie-player>--}}
+    {{--                            </span>--}}
+    {{--                            </div>--}}
+    {{--                            <div class="composition-3-decoration-2" data-rellax-y data-rellax-speed="-0.5" data-rellax-percentage="0.5">--}}
+    {{--                                <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/services/Background-Remove.svg" alt="Background-Remove" />--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--            <!-- End Images Composition -->--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
     <!-- End Portfolio Section -->
     <!-- Expart Section -->
-{{--    <section class="section-highlight bg-gray-light-1 overflow-hidden">--}}
+    {{--    <section class="section-highlight bg-gray-light-1 overflow-hidden">--}}
 
-{{--        <!-- Decoration Circles -->--}}
-{{--        <div class="decoration-14"></div>--}}
-{{--        <div class="decoration-15"></div>--}}
-{{--        <!-- End Decoration Circles -->--}}
+    {{--        <!-- Decoration Circles -->--}}
+    {{--        <div class="decoration-14"></div>--}}
+    {{--        <div class="decoration-15"></div>--}}
+    {{--        <!-- End Decoration Circles -->--}}
 
-{{--        <div class="container position-relative">--}}
-{{--            <div class="row">--}}
-{{--                <div class="col-md-12">--}}
-{{--                    <div class="expand-custom">--}}
-{{--                        <div class="row align-items-center">--}}
-{{--                            <div class="col-lg-8  wow fadeInLeft" data-wow-delay="0s">--}}
-{{--                                <h3 class="offer-section">Let <span class="color-primary-1">Experts</span> Take the Headache</h3>--}}
-{{--                                <p class="section-descr">--}}
-{{--                                    This is what we are good at. Let us do the brainwork while you focus on other nooks and crannies of your business.--}}
-{{--                                </p>--}}
-{{--                                <!-- <div class="spacer-half"></div> -->--}}
-{{--                                <div class="spacer-double"></div>--}}
-{{--                                <a class="btn btn-mod btn-color btn-small btn-circle" href="contact-us.html">Contact Us Now</a>--}}
-{{--                            </div>--}}
-{{--                            <div class="col-lg-3 d-none d-lg-block d-xl-block text-center wow fadeInRight gallery zoom" data-wow-delay="0s">--}}
-{{--                                <img loading="lazy" class="relative img-fluid" src="https://cdn.livingcolors.studio/colors/images/icons/professional_help.webp" alt="Professional Help" />--}}
-{{--                            </div>--}}
-{{--                            <div class="col-lg-1 d-none d-lg-block d-xl-block text-center wow fadeInTop" data-wow-delay="0s">--}}
-{{--                                <span class="toggle"></span>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                        <div class="details">--}}
-{{--                            <div class="row">--}}
-{{--                                <div class="col-md-12">--}}
-{{--                                    <div class="box-custom">--}}
-{{--                                        <h2 class='offer-section-h2 mt-4'>Premier Image Editing Company for All Your Visual Needs</h2><p class='section-descr'>Achieve the pinnacle of image perfection with our top-notch image editing services. We bring out the best or your raw photos. If your images require complex modifications, our team of expert editors is here to assist. We ensure every detail is polished to your satisfaction Utilizing state-of-the-art tools and techniques. Let us transform your visuals into works of art that speak volumes.</p><h2 class='offer-section-h2 mt-4'>Professional Photo Editing Services for Ecommerce Excellence</h2><p class='section-descr'>Scale up your online store's appearance with our professional photo editing services tailored for ecommerce. Crisp, clear, and captivating images can significantly boost your product sales. Our skilled editors specialize in enhancing product photos to highlight their best features. Means you can attract more customers and show off your brand's visual appeal. Partner with us to create stunning visuals that convert visitors into buyers.</p><h2 class='offer-section-h2 mt-4'>Outsource Photo Editing for Seamless Image Enhancements</h2><p class='section-descr'>Streamline your workflow by outsourcing photo editing to our team of expert professionals. We offer a seamless integration of our services into your existing processes. So, you can ensure quick turnarounds and consistent, high-quality results. From simple touch-ups to complex image alterations, our experts handle it all with precision and care. Focus on growing your business while we perfect your images.</p>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                                <div class="spacer-half"></div>--}}
-{{--                                <div class="col-md-12">--}}
-{{--                                    <a class="btn btn-mod btn-color btn-small btn-circle" href="https://order.livingcolors.studio/">Order Now</a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </section>--}}
+    {{--        <div class="container position-relative">--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-md-12">--}}
+    {{--                    <div class="expand-custom">--}}
+    {{--                        <div class="row align-items-center">--}}
+    {{--                            <div class="col-lg-8  wow fadeInLeft" data-wow-delay="0s">--}}
+    {{--                                <h3 class="offer-section">Let <span class="color-primary-1">Experts</span> Take the Headache</h3>--}}
+    {{--                                <p class="section-descr">--}}
+    {{--                                    This is what we are good at. Let us do the brainwork while you focus on other nooks and crannies of your business.--}}
+    {{--                                </p>--}}
+    {{--                                <!-- <div class="spacer-half"></div> -->--}}
+    {{--                                <div class="spacer-double"></div>--}}
+    {{--                                <a class="btn btn-mod btn-color btn-small btn-circle" href="contact-us.html">Contact Us Now</a>--}}
+    {{--                            </div>--}}
+    {{--                            <div class="col-lg-3 d-none d-lg-block d-xl-block text-center wow fadeInRight gallery zoom" data-wow-delay="0s">--}}
+    {{--                                <img loading="lazy" class="relative img-fluid" src="https://cdn.livingcolors.studio/colors/images/icons/professional_help.webp" alt="Professional Help" />--}}
+    {{--                            </div>--}}
+    {{--                            <div class="col-lg-1 d-none d-lg-block d-xl-block text-center wow fadeInTop" data-wow-delay="0s">--}}
+    {{--                                <span class="toggle"></span>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                        <div class="details">--}}
+    {{--                            <div class="row">--}}
+    {{--                                <div class="col-md-12">--}}
+    {{--                                    <div class="box-custom">--}}
+    {{--                                        <h2 class='offer-section-h2 mt-4'>Premier Image Editing Company for All Your Visual Needs</h2><p class='section-descr'>Achieve the pinnacle of image perfection with our top-notch image editing services. We bring out the best or your raw photos. If your images require complex modifications, our team of expert editors is here to assist. We ensure every detail is polished to your satisfaction Utilizing state-of-the-art tools and techniques. Let us transform your visuals into works of art that speak volumes.</p><h2 class='offer-section-h2 mt-4'>Professional Photo Editing Services for Ecommerce Excellence</h2><p class='section-descr'>Scale up your online store's appearance with our professional photo editing services tailored for ecommerce. Crisp, clear, and captivating images can significantly boost your product sales. Our skilled editors specialize in enhancing product photos to highlight their best features. Means you can attract more customers and show off your brand's visual appeal. Partner with us to create stunning visuals that convert visitors into buyers.</p><h2 class='offer-section-h2 mt-4'>Outsource Photo Editing for Seamless Image Enhancements</h2><p class='section-descr'>Streamline your workflow by outsourcing photo editing to our team of expert professionals. We offer a seamless integration of our services into your existing processes. So, you can ensure quick turnarounds and consistent, high-quality results. From simple touch-ups to complex image alterations, our experts handle it all with precision and care. Focus on growing your business while we perfect your images.</p>--}}
+    {{--                                    </div>--}}
+    {{--                                </div>--}}
+    {{--                                <div class="spacer-half"></div>--}}
+    {{--                                <div class="col-md-12">--}}
+    {{--                                    <a class="btn btn-mod btn-color btn-small btn-circle" href="https://order.livingcolors.studio/">Order Now</a>--}}
+    {{--                                </div>--}}
+    {{--                            </div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </section>--}}
 
     <section class="section-testimonial" id="section-testimonial">
-{{--        data-bgimage="url(https://cdn.livingcolors.studio/colors/images/background/11.svg) top">--}}
+        {{--        data-bgimage="url(https://cdn.livingcolors.studio/colors/images/background/11.svg) top">--}}
         <div class="container-fluid">
             <div class="container">
                 <div class="row">
@@ -728,258 +729,258 @@
                                     </div>
                                 </div>
                             @endforeach
-{{--                            <div class="item">--}}
-{{--                                <div class="card">--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-3">--}}
-{{--                                                <!-- Circular Image -->--}}
-{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
-{{--                                                <span class="tick">--}}
-{{--                                            <i class="fas fa-check-double"></i>--}}
-{{--                                        </span>--}}
-{{--                                            </div>--}}
+                            {{--                            <div class="item">--}}
+                            {{--                                <div class="card">--}}
+                            {{--                                    <div class="card-body">--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-3">--}}
+                            {{--                                                <!-- Circular Image -->--}}
+                            {{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+                            {{--                                                <span class="tick">--}}
+                            {{--                                            <i class="fas fa-check-double"></i>--}}
+                            {{--                                        </span>--}}
+                            {{--                                            </div>--}}
 
-{{--                                            <div class="col p-2" style="line-height: 1;">--}}
-{{--                                                <p class="card-text">Dave Rogers</p>--}}
-{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                            <div class="col p-2" style="line-height: 1;">--}}
+                            {{--                                                <p class="card-text">Dave Rogers</p>--}}
+                            {{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Line -->--}}
-{{--                                        <hr class="grey-line">--}}
+                            {{--                                        <!-- Line -->--}}
+                            {{--                                        <hr class="grey-line">--}}
 
-{{--                                        <!-- Start Date -->--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-star">--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="text-end customers__date d-">--}}
-{{--                                                <small>Jan 2, 2024</small>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                        <!-- Start Date -->--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-star">--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                            </div>--}}
+                            {{--                                            <div class="text-end customers__date d-">--}}
+                            {{--                                                <small>Jan 2, 2024</small>--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Short Description -->--}}
-{{--                                        <span class="txt-lim4">--}}
-{{--                                <h5 class="card-text">Very Pleased with the Result!</h5>--}}
-{{--                                <small>LivingColors Studio exceeded my expectations! Image editing was flawless, and I&#039;m thrilled with the remarkable results.</small></span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="item">--}}
-{{--                                <div class="card">--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-3">--}}
-{{--                                                <!-- Circular Image -->--}}
-{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
-{{--                                                <span class="tick">--}}
-{{--                                            <i class="fas fa-check-double"></i>--}}
-{{--                                        </span>--}}
-{{--                                            </div>--}}
+                            {{--                                        <!-- Short Description -->--}}
+                            {{--                                        <span class="txt-lim4">--}}
+                            {{--                                <h5 class="card-text">Very Pleased with the Result!</h5>--}}
+                            {{--                                <small>LivingColors Studio exceeded my expectations! Image editing was flawless, and I&#039;m thrilled with the remarkable results.</small></span>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="item">--}}
+                            {{--                                <div class="card">--}}
+                            {{--                                    <div class="card-body">--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-3">--}}
+                            {{--                                                <!-- Circular Image -->--}}
+                            {{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+                            {{--                                                <span class="tick">--}}
+                            {{--                                            <i class="fas fa-check-double"></i>--}}
+                            {{--                                        </span>--}}
+                            {{--                                            </div>--}}
 
-{{--                                            <div class="col p-2" style="line-height: 1;">--}}
-{{--                                                <p class="card-text">Don Warshaw</p>--}}
-{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                            <div class="col p-2" style="line-height: 1;">--}}
+                            {{--                                                <p class="card-text">Don Warshaw</p>--}}
+                            {{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Line -->--}}
-{{--                                        <hr class="grey-line">--}}
+                            {{--                                        <!-- Line -->--}}
+                            {{--                                        <hr class="grey-line">--}}
 
-{{--                                        <!-- Start Date -->--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-star">--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_grey"></i>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="text-end customers__date d-">--}}
-{{--                                                <small>Jan 8, 2024</small>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                        <!-- Start Date -->--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-star">--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_grey"></i>--}}
+                            {{--                                            </div>--}}
+                            {{--                                            <div class="text-end customers__date d-">--}}
+                            {{--                                                <small>Jan 8, 2024</small>--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Short Description -->--}}
-{{--                                        <span class="txt-lim4">--}}
-{{--                                <h5 class="card-text">Accurate and Super Fast!</h5>--}}
-{{--                                <small>Thrilled with the speedy and precise image editing! A game-changer for my business. Highly recommend.</small></span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="item">--}}
-{{--                                <div class="card">--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-3">--}}
-{{--                                                <!-- Circular Image -->--}}
-{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
-{{--                                                <span class="tick">--}}
-{{--                                            <i class="fas fa-check-double"></i>--}}
-{{--                                        </span>--}}
-{{--                                            </div>--}}
+                            {{--                                        <!-- Short Description -->--}}
+                            {{--                                        <span class="txt-lim4">--}}
+                            {{--                                <h5 class="card-text">Accurate and Super Fast!</h5>--}}
+                            {{--                                <small>Thrilled with the speedy and precise image editing! A game-changer for my business. Highly recommend.</small></span>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="item">--}}
+                            {{--                                <div class="card">--}}
+                            {{--                                    <div class="card-body">--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-3">--}}
+                            {{--                                                <!-- Circular Image -->--}}
+                            {{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+                            {{--                                                <span class="tick">--}}
+                            {{--                                            <i class="fas fa-check-double"></i>--}}
+                            {{--                                        </span>--}}
+                            {{--                                            </div>--}}
 
-{{--                                            <div class="col p-2" style="line-height: 1;">--}}
-{{--                                                <p class="card-text">Dawn Snyder</p>--}}
-{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> CA--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                            <div class="col p-2" style="line-height: 1;">--}}
+                            {{--                                                <p class="card-text">Dawn Snyder</p>--}}
+                            {{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> CA--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Line -->--}}
-{{--                                        <hr class="grey-line">--}}
+                            {{--                                        <!-- Line -->--}}
+                            {{--                                        <hr class="grey-line">--}}
 
-{{--                                        <!-- Start Date -->--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-star">--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="text-end customers__date d-">--}}
-{{--                                                <small>Jan 23, 2024</small>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                        <!-- Start Date -->--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-star">--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                            </div>--}}
+                            {{--                                            <div class="text-end customers__date d-">--}}
+                            {{--                                                <small>Jan 23, 2024</small>--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Short Description -->--}}
-{{--                                        <span class="txt-lim4">--}}
-{{--                                <h5 class="card-text">Background Was Nicely Removed.</h5>--}}
-{{--                                <small>Impressed with the background removal service. Exceptional attention to detail. Highly satisfied with the result.</small></span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="item">--}}
-{{--                                <div class="card">--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-3">--}}
-{{--                                                <!-- Circular Image -->--}}
-{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
-{{--                                                <span class="tick">--}}
-{{--                                            <i class="fas fa-check-double"></i>--}}
-{{--                                        </span>--}}
-{{--                                            </div>--}}
+                            {{--                                        <!-- Short Description -->--}}
+                            {{--                                        <span class="txt-lim4">--}}
+                            {{--                                <h5 class="card-text">Background Was Nicely Removed.</h5>--}}
+                            {{--                                <small>Impressed with the background removal service. Exceptional attention to detail. Highly satisfied with the result.</small></span>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="item">--}}
+                            {{--                                <div class="card">--}}
+                            {{--                                    <div class="card-body">--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-3">--}}
+                            {{--                                                <!-- Circular Image -->--}}
+                            {{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+                            {{--                                                <span class="tick">--}}
+                            {{--                                            <i class="fas fa-check-double"></i>--}}
+                            {{--                                        </span>--}}
+                            {{--                                            </div>--}}
 
-{{--                                            <div class="col p-2" style="line-height: 1;">--}}
-{{--                                                <p class="card-text">Michael Lehtonen</p>--}}
-{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> AU--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                            <div class="col p-2" style="line-height: 1;">--}}
+                            {{--                                                <p class="card-text">Michael Lehtonen</p>--}}
+                            {{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> AU--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Line -->--}}
-{{--                                        <hr class="grey-line">--}}
+                            {{--                                        <!-- Line -->--}}
+                            {{--                                        <hr class="grey-line">--}}
 
-{{--                                        <!-- Start Date -->--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-star">--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="text-end customers__date d-">--}}
-{{--                                                <small>Feb 3, 2024</small>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                        <!-- Start Date -->--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-star">--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                            </div>--}}
+                            {{--                                            <div class="text-end customers__date d-">--}}
+                            {{--                                                <small>Feb 3, 2024</small>--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Short Description -->--}}
-{{--                                        <span class="txt-lim4">--}}
-{{--                                <h5 class="card-text">Flawless Extraction Delivered</h5>--}}
-{{--                                <small>Received flawless image extraction. Remarkable precision, ideal for business needs.</small></span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="item">--}}
-{{--                                <div class="card">--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-3">--}}
-{{--                                                <!-- Circular Image -->--}}
-{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
-{{--                                                <span class="tick">--}}
-{{--                                            <i class="fas fa-check-double"></i>--}}
-{{--                                        </span>--}}
-{{--                                            </div>--}}
+                            {{--                                        <!-- Short Description -->--}}
+                            {{--                                        <span class="txt-lim4">--}}
+                            {{--                                <h5 class="card-text">Flawless Extraction Delivered</h5>--}}
+                            {{--                                <small>Received flawless image extraction. Remarkable precision, ideal for business needs.</small></span>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="item">--}}
+                            {{--                                <div class="card">--}}
+                            {{--                                    <div class="card-body">--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-3">--}}
+                            {{--                                                <!-- Circular Image -->--}}
+                            {{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+                            {{--                                                <span class="tick">--}}
+                            {{--                                            <i class="fas fa-check-double"></i>--}}
+                            {{--                                        </span>--}}
+                            {{--                                            </div>--}}
 
-{{--                                            <div class="col p-2" style="line-height: 1;">--}}
-{{--                                                <p class="card-text">Stephany Perry</p>--}}
-{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                            <div class="col p-2" style="line-height: 1;">--}}
+                            {{--                                                <p class="card-text">Stephany Perry</p>--}}
+                            {{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Line -->--}}
-{{--                                        <hr class="grey-line">--}}
+                            {{--                                        <!-- Line -->--}}
+                            {{--                                        <hr class="grey-line">--}}
 
-{{--                                        <!-- Start Date -->--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-star">--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_grey"></i>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="text-end customers__date d-">--}}
-{{--                                                <small>Feb 9, 2024</small>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                        <!-- Start Date -->--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-star">--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_grey"></i>--}}
+                            {{--                                            </div>--}}
+                            {{--                                            <div class="text-end customers__date d-">--}}
+                            {{--                                                <small>Feb 9, 2024</small>--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Short Description -->--}}
-{{--                                        <span class="txt-lim4">--}}
-{{--                                <h5 class="card-text">Photos are sharp and clean</h5>--}}
-{{--                                <small>Photos returned sharp – impeccable work! LivingColors Studio consistently exceeds expectations.</small></span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="item">--}}
-{{--                                <div class="card">--}}
-{{--                                    <div class="card-body">--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-3">--}}
-{{--                                                <!-- Circular Image -->--}}
-{{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
-{{--                                                <span class="tick">--}}
-{{--                                            <i class="fas fa-check-double"></i>--}}
-{{--                                        </span>--}}
-{{--                                            </div>--}}
+                            {{--                                        <!-- Short Description -->--}}
+                            {{--                                        <span class="txt-lim4">--}}
+                            {{--                                <h5 class="card-text">Photos are sharp and clean</h5>--}}
+                            {{--                                <small>Photos returned sharp – impeccable work! LivingColors Studio consistently exceeds expectations.</small></span>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
+                            {{--                            <div class="item">--}}
+                            {{--                                <div class="card">--}}
+                            {{--                                    <div class="card-body">--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-3">--}}
+                            {{--                                                <!-- Circular Image -->--}}
+                            {{--                                                <img loading="lazy" src="{{asset('themes\frontend\assets\images\work\sm_thumb.png')}}" class="ImageProfile" alt="Profile Image">--}}
+                            {{--                                                <span class="tick">--}}
+                            {{--                                            <i class="fas fa-check-double"></i>--}}
+                            {{--                                        </span>--}}
+                            {{--                                            </div>--}}
 
-{{--                                            <div class="col p-2" style="line-height: 1;">--}}
-{{--                                                <p class="card-text">Mike Simonski</p>--}}
-{{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                            <div class="col p-2" style="line-height: 1;">--}}
+                            {{--                                                <p class="card-text">Mike Simonski</p>--}}
+                            {{--                                                <i class="fas fa-map-marker-alt" style="color: green;"></i> US--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Line -->--}}
-{{--                                        <hr class="grey-line">--}}
+                            {{--                                        <!-- Line -->--}}
+                            {{--                                        <hr class="grey-line">--}}
 
-{{--                                        <!-- Start Date -->--}}
-{{--                                        <div class="d-flex align-items-center">--}}
-{{--                                            <div class="col-star">--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                                <i class="icon_green_star"></i>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="text-end customers__date d-">--}}
-{{--                                                <small>Mar 1, 2024</small>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
+                            {{--                                        <!-- Start Date -->--}}
+                            {{--                                        <div class="d-flex align-items-center">--}}
+                            {{--                                            <div class="col-star">--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                                <i class="icon_green_star"></i>--}}
+                            {{--                                            </div>--}}
+                            {{--                                            <div class="text-end customers__date d-">--}}
+                            {{--                                                <small>Mar 1, 2024</small>--}}
+                            {{--                                            </div>--}}
+                            {{--                                        </div>--}}
 
-{{--                                        <!-- Short Description -->--}}
-{{--                                        <span class="txt-lim4">--}}
-{{--                                <h5 class="card-text">No Fuss Right on Time</h5>--}}
-{{--                                <small>No fuss, right on time. LivingColors Studio delivers hassle-free image editing, meeting deadlines without compromising quality.</small></span>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            {{--                                        <!-- Short Description -->--}}
+                            {{--                                        <span class="txt-lim4">--}}
+                            {{--                                <h5 class="card-text">No Fuss Right on Time</h5>--}}
+                            {{--                                <small>No fuss, right on time. LivingColors Studio delivers hassle-free image editing, meeting deadlines without compromising quality.</small></span>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
                         </div>
                     </div>
                 </div>
