@@ -395,6 +395,8 @@
 
 
 <script src="{{asset('themes/frontend/assets/libs/jquery/3.7.1/jquery.min.js')}}"></script>
+<script src="{{asset('themes/frontend/assets/js/jquery.event.move.js')}}"></script>
+<script src="{{asset('themes/frontend/assets/js/jquery.twentytwenty.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/libs/bootstrap/5.3.3/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/libs/bodymovin/5.7.8/lottie.min.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/js/new-jquery.mb.YTPlayer.js')}}"></script>
@@ -421,7 +423,6 @@
 <script src="{{asset('themes/frontend/assets/js/contact-form.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/js/all.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/js/custom.js')}}"></script>
-<script src="{{asset('themes/frontend/assets/js/jquery.twentytwenty.js')}}"></script>
 
 
 <!-- End JS -->

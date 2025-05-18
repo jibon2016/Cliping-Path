@@ -76,62 +76,72 @@
     </style>
 
     <style>
-        /* Handle Style */
-        .twentytwenty-handle {
-            width: 40px;
-            height: 40px;
-            margin-left: -20px;
-            border: 3px solid white;
-            background-color: transparent; /* Transparent background */
-            border-radius: 50%;
-            cursor: ew-resize;
-            position: absolute;
-            z-index: 30;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        /*!* Handle Style *!*/
+        /*.twentytwenty-handle {*/
+        /*    width: 40px;*/
+        /*    height: 40px;*/
+        /*    margin-left: -20px;*/
+        /*    border: 3px solid white;*/
+        /*    background-color: transparent; !* Transparent background *!*/
+        /*    border-radius: 50%;*/
+        /*    cursor: ew-resize;*/
+        /*    position: absolute;*/
+        /*    z-index: 30;*/
+        /*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
+        /*    display: flex;*/
+        /*    align-items: center;*/
+        /*    justify-content: center;*/
+        /*}*/
+
+        /*!* Remove hover effect *!*/
+        /*.twentytwenty-handle:hover,*/
+        /*.twentytwenty-handle:focus,*/
+        /*.twentytwenty-handle:active {*/
+        /*    background-color: transparent !important; !* No hover background *!*/
+        /*    border-color: white !important; !* No hover border color change *!*/
+        /*}*/
+
+        /*!* Icon Style *!*/
+        /*.twentytwenty-handle:before,*/
+        /*.twentytwenty-handle:after {*/
+        /*    content: "";*/
+        /*    display: inline-block;*/
+        /*    width: 12px;*/
+        /*    height: 12px;*/
+        /*    background-color: white;*/
+        /*    border-radius: 50%;*/
+        /*}*/
+
+        /*!* Adjust the position of the icons *!*/
+        /*.twentytwenty-horizontal .twentytwenty-handle:before {*/
+        /*    margin-right: 4px;*/
+        /*}*/
+
+        /*.twentytwenty-horizontal .twentytwenty-handle:after {*/
+        /*    margin-left: 4px;*/
+        /*}*/
+
+        /*!* Hide labels *!*/
+        /*.twentytwenty-before-label,*/
+        /*.twentytwenty-after-label {*/
+        /*    display: none !important;*/
+        /*}*/
+
+        /*.twentytwenty-overlay:hover {*/
+        /*    background: rgba(255, 255, 255, 0.15);*/
+        /*}*/
+
+        .twentytwenty-container {
+            width: 100%;
+            max-width: 600px; /* optional fixed width */
+            margin: auto;
+            position: relative;
         }
 
-        /* Remove hover effect */
-        .twentytwenty-handle:hover,
-        .twentytwenty-handle:focus,
-        .twentytwenty-handle:active {
-            background-color: transparent !important; /* No hover background */
-            border-color: white !important; /* No hover border color change */
+        .twentytwenty-container img {
+            width: 100%;
+            display: block;
         }
-
-        /* Icon Style */
-        .twentytwenty-handle:before,
-        .twentytwenty-handle:after {
-            content: "";
-            display: inline-block;
-            width: 12px;
-            height: 12px;
-            background-color: white;
-            border-radius: 50%;
-        }
-
-        /* Adjust the position of the icons */
-        .twentytwenty-horizontal .twentytwenty-handle:before {
-            margin-right: 4px;
-        }
-
-        .twentytwenty-horizontal .twentytwenty-handle:after {
-            margin-left: 4px;
-        }
-
-        /* Hide labels */
-        .twentytwenty-before-label,
-        .twentytwenty-after-label {
-            display: none !important;
-        }
-
-        .twentytwenty-overlay:hover {
-            background: rgba(255, 255, 255, 0.15);
-        }
-
-
     </style>
 
 @endsection
@@ -208,28 +218,47 @@
             <div class="row text-center">
                 <div class="col-lg-12">
                     <div class="feature-slider owl-carousel testimonials-slider-3">
-                        @foreach($services as $service)
+{{--                        @foreach($services as $service)--}}
+{{--                            <div>--}}
+{{--                                <div class="mt-4 pt-2">--}}
+{{--                                    <a href="background-removal.html">--}}
+{{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
+
+{{--                                        <div class="preview_image custom_animation">--}}
+{{--                                            <span class="circle_prev_one position-absolute"></span>--}}
+{{--                                            <span class="circle_prev_two position-absolute"></span>--}}
+{{--                                            <span class="circle_prev_three position-absolute"></span>--}}
+{{--                                            <div class="container1" class='twentytwenty-container'>--}}
+{{--                                                @foreach($service->attachments as $attachment )--}}
+{{--                                                    <img src="{{asset($attachment->file)}}" alt="jn">--}}
+{{--                                                @endforeach--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <h3 class="lh-base fs-16 mb-2">{{ $service->title }}</h3>--}}
+{{--                                        <span class="service-descr service-lim">--}}
+{{--                                            {!! $service->description !!}--}}
+{{--                                        </span>--}}
+{{--                                    </div>--}}
+{{--                                    </a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        @endforeach--}}
+                            @foreach($services as $service)
                             <div>
                                 <div class="mt-4 pt-2">
-                                    {{--<a href="background-removal.html">--}}
-                                    <div class="solution borderx rounded position-relative px-2 py-3">
-
-                                        <div class="preview_image custom_animation">
-                                            <span class="circle_prev_one position-absolute"></span>
-                                            <span class="circle_prev_two position-absolute"></span>
-                                            <span class="circle_prev_three position-absolute"></span>
-                                            <div class="container1" class='twentytwenty-container'>
-                                                @foreach($service->attachments as $attachment )
-                                                    <img src="{{asset($attachment->file)}}" alt="jn">
-                                                @endforeach
-                                            </div>
+{{--                                    <a href="background-removal.html">--}}
+                                    <div class="solution borderx rounded px-2 py-3">
+                                        <div class="twentytwenty-container">
+                                            @foreach($service->attachments->take(2) as $attachment )
+                                                <img src="{{asset($attachment->file)}}" alt="jn">
+                                            @endforeach
                                         </div>
                                         <h3 class="lh-base fs-16 mb-2">{{ $service->title }}</h3>
                                         <span class="service-descr service-lim">
                                             {!! $service->description !!}
                                         </span>
                                     </div>
-                                    {{--</a>--}}
+{{--                                    </a>--}}
                                 </div>
                             </div>
                         @endforeach
@@ -992,32 +1021,42 @@
 @section('script')
     <script>
         $(window).on('load', function() {
-            $('.container1').twentytwenty({
-                default_offset_pct: 0.5,  // Start at 50% (center)
-                orientation: 'horizontal', // Horizontal slider
-                before_label: '', // Remove before label
-                after_label: '',  // Remove after label
-                no_overlay: true, // Disable overlay
-                move_with_handle_only: false, // Allow dragging anywhere
-                click_to_move: true // Enable click-to-move
+            $('.twentytwenty-container').twentytwenty({
+                default_offset_pct: 0.5,
+                click_to_move: true,
+                move_with_handle_only: true,
             });
-
-            // Fix for dragging not working
-            $('.container1').on('mousedown touchstart', function(e) {
+            $('.twentytwenty-container').on('mousedown touchstart', function(e) {
                 e.preventDefault();
-            });
-
-            // Optional: Add floating animation to circles
-            $('.circle_prev_one, .circle_prev_two, .circle_prev_three').each(function(index) {
-                $(this).css({
-                    'animation': `float 3s ease-in-out ${index * 0.3}s infinite alternate`
-                });
-            });
+            })
         });
-
-        // Adjust slider on window resize
-        $(window).on('resize', function() {
-            $('.container1').twentytwenty('redraw');
-        });
+        // $(window).on('load', function() {
+        //     $('.container1').twentytwenty({
+        //         default_offset_pct: 0.5,  // Start at 50% (center)
+        //         orientation: 'horizontal', // Horizontal slider
+        //         before_label: '', // Remove before label
+        //         after_label: '',  // Remove after label
+        //         no_overlay: true, // Disable overlay
+        //         move_with_handle_only: false, // Allow dragging anywhere
+        //         click_to_move: true // Enable click-to-move
+        //     });
+        //
+        //     // Fix for dragging not working
+        //     $('.container1').on('mousedown touchstart', function(e) {
+        //         e.preventDefault();
+        //     });
+        //
+        //     // Optional: Add floating animation to circles
+        //     $('.circle_prev_one, .circle_prev_two, .circle_prev_three').each(function(index) {
+        //         $(this).css({
+        //             'animation': `float 3s ease-in-out ${index * 0.3}s infinite alternate`
+        //         });
+        //     });
+        // });
+        //
+        // // Adjust slider on window resize
+        // $(window).on('resize', function() {
+        //     $('#before_after').twentytwenty('redraw');
+        // });
     </script>
 @endsection
