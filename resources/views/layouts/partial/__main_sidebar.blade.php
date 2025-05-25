@@ -162,6 +162,46 @@
 
 
             <?php
+            $subMenu = [
+                'service.index','service.create','service-details.index',
+            ];
+            ?>
+            <li class="nav-item {{ in_array(Route::currentRouteName(), $subMenu) ? 'menu-open' : '' }}">
+                <a href="#"
+                   class="nav-link {{ in_array(Route::currentRouteName(), $subMenu) ? 'active' : '' }}">
+                    <i class="nav-icon fas fa-tools"></i>
+                    <p>
+                        Services
+                        <i class="right fas fa-angle-left"></i>
+                    </p>
+                </a>
+                <ul class="nav nav-treeview">
+
+                    <?php
+                    $subSubMenu = ['service.index', 'service.create'];
+                    ?>
+                    <li class="nav-item">
+                        <a href="{{ route('service.index') }}"
+                           class="nav-link {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'active' : '' }}">
+                            <i class="far  {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'fa-check-circle' : 'fa-circle' }} nav-icon"></i>
+                            <p>Services</p>
+                        </a>
+                    </li>
+
+                    <?php
+                    $subSubMenu = ['service-details.index',];
+                    ?>
+                    <li class="nav-item">
+                        <a href="{{ route('service-details.index') }}"
+                           class="nav-link {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'active' : '' }}">
+                            <i class="far  {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'fa-check-circle' : 'fa-circle' }} nav-icon"></i>
+                            <p>Service Details</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+                <?php
                 $subMenu = [
                     'about-us','management.message',
                 ];

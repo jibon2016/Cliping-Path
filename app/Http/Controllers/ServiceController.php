@@ -5,19 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Attachment;
 use App\Models\Service;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use Ramsey\Uuid\Uuid;
 use Yajra\DataTables\Facades\DataTables;
 
-class BackendServiceController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('backend.home_page.services.index');
+        return view('backend.services.index');
     }
 
     public function dataTable()
@@ -26,15 +25,15 @@ class BackendServiceController extends Controller
         return DataTables::eloquent($query)
             ->addIndexColumn()
             ->addColumn('action', function(Service $service) {
-                $btn ='<a href="'.route('services.edit',['service'=>$service->id]).'" class="btn btn-primary bg-gradient-primary btn-sm btn-edit"><i class="fa fa-edit"></i></a>
+                $btn ='<a href="'.route('service.edit',['service'=>$service->id]).'" class="btn btn-primary bg-gradient-primary btn-sm btn-edit"><i class="fa fa-edit"></i></a>
                         <a role="button" data-id="'.$service->id.'" class="btn btn-danger btn-sm btn-delete"><i class="fa fa-trash"></i></a>';
                 return $btn;
             })
-            ->addColumn('image', function(Service $service) {
-                return '<img height="100px" src="'.asset($service->attachments->first()->file ?? '').'">';
+            ->addColumn('icon', function(Service $service) {
+                return '<img height="100px" src="'.asset($service->icon ?? '').'">';
 
             })
-            ->rawColumns(['action','image'])
+            ->rawColumns(['action','icon'])
             ->toJson();
     }
 
@@ -43,7 +42,7 @@ class BackendServiceController extends Controller
      */
     public function create()
     {
-        return view('backend.home_page.services.create');
+        return view('backend.services.create');
     }
 
     /**
@@ -51,7 +50,6 @@ class BackendServiceController extends Controller
      */
     public function store(Request $request)
     {
-
         // Validate the request data
         $validatedData = $request->validate([
             'title' =>[
@@ -79,18 +77,21 @@ class BackendServiceController extends Controller
                 foreach ($request->file('attachments') as $key => $attachmentFile) {
                     $filename = Uuid::uuid1()->toString().$service->id.'-'.$key.'.' .$attachmentFile->extension();
 
-                    $destinationPath = 'uploads/attachments/services';
+                    $destinationPath = 'uploads/attachments/services/icon';
                     $attachmentFile->move(public_path($destinationPath), $filename);
-                    $path = 'uploads/attachments/services/' . $filename;
+                    $path = 'uploads/attachments/services/icon/' . $filename;
 
 
-                    $attachment = new Attachment([
-                        'user_id' => auth()->id(),
-                        'file' => $path,
-                        'sort' => $request->attachment_sort[$counter],
+//                    $attachment = new Attachment([
+//                        'user_id' => auth()->id(),
+//                        'file' => $path,
+//                        'sort' => $request->attachment_sort[$counter],
+//                    ]);
+//                    $service->attachments()->save($attachment);
+
+                    $service->update([
+                        'icon' => $path,
                     ]);
-                    $service->attachments()->save($attachment);
-
 
                     $counter++;
                 }
@@ -103,7 +104,7 @@ class BackendServiceController extends Controller
             // Redirect to the index page with a success message
             return response()->json([
                 'status'=>true,
-                'redirect_url'=>route('services.index'),
+                'redirect_url'=>route('service.index'),
                 'message'=>'Service created successfully',
             ]);
         } catch (\Exception $e) {
@@ -117,18 +118,16 @@ class BackendServiceController extends Controller
             ]);
         }
     }
-
-
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(Service $service)
     {
         try {
-            return view('backend.home_page.services.edit', compact('service',));
+            return view('backend.services.edit', compact('service',));
         } catch (\Illuminate\Database\Eloquent\ModelNotFoundException $e) {
             // Handle the case where the Product is not found
-            return redirect()->route('services.index')->with('error',$e->getMessage());
+            return redirect()->route('service.index')->with('error',$e->getMessage());
         }
     }
 
@@ -164,11 +163,16 @@ class BackendServiceController extends Controller
                     $attachmentFile->move(public_path($destinationPath), $filename);
                     $path = 'uploads/attachments/services/' . $filename;
 
+//
+//                    $service->attachments()->create([
+//                        'user_id' => auth()->id(),
+//                        'file' => $path,
+//                        'sort' => $request->attachment_sort[$counter],
+//                    ]);
 
-                    $service->attachments()->create([
-                        'user_id' => auth()->id(),
-                        'file' => $path,
-                        'sort' => $request->attachment_sort[$counter],
+
+                    $service->update([
+                        'icon' => $path,
                     ]);
 
                     $counter++;
@@ -181,7 +185,7 @@ class BackendServiceController extends Controller
             // Redirect to the index page with a success message
             return response()->json([
                 'status'=>true,
-                'redirect_url'=>route('services.index'),
+                'redirect_url'=>route('service.index'),
                 'message'=>'Service Updated successfully',
             ]);
         } catch (\Exception $e) {
@@ -199,27 +203,8 @@ class BackendServiceController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Service $service)
+    public function destroy(string $id)
     {
-        try {
-            // Delete the Product record
-            foreach ($service->attachments as $attachment){
-                if (file_exists(public_path($attachment->file))){
-                    unlink(public_path($attachment->file));
-                }
-                $attachment->delete();
-            }
 
-            if (file_exists(public_path($service->icon))){
-                unlink(public_path($service->icon));
-            }
-
-            $service->delete();
-            // Return a JSON success response
-            return response()->json(['success'=>true,'message' => 'Service deleted successfully'], Response::HTTP_OK);
-        } catch (\Exception $e) {
-            // Handle any errors, such as record not found
-            return response()->json(['success'=>false,'message' =>$e->getMessage()], Response::HTTP_NOT_FOUND);
-        }
     }
 }
