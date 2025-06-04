@@ -163,7 +163,8 @@
 
             <?php
             $subMenu = [
-                'service.index','service.create','service-details.index',
+                'service.index','service.create','service.edit',
+                'service-details.index','service-details.create', 'service-details.edit'
             ];
             ?>
             <li class="nav-item {{ in_array(Route::currentRouteName(), $subMenu) ? 'menu-open' : '' }}">
@@ -178,7 +179,7 @@
                 <ul class="nav nav-treeview">
 
                     <?php
-                    $subSubMenu = ['service.index', 'service.create'];
+                    $subSubMenu = ['service.index', 'service.create', 'service.edit'];
                     ?>
                     <li class="nav-item">
                         <a href="{{ route('service.index') }}"
@@ -189,7 +190,7 @@
                     </li>
 
                     <?php
-                    $subSubMenu = ['service-details.index',];
+                    $subSubMenu = ['service-details.index','service-details.create', 'service-details.edit'];
                     ?>
                     <li class="nav-item">
                         <a href="{{ route('service-details.index') }}"

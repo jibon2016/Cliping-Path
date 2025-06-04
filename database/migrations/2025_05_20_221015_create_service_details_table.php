@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('service_details', function (Blueprint $table) {
             $table->id();
+            $table->foreignIdFor(\App\Models\Service::class);
+            $table->text('description1')->nullable();
+            $table->text('description2')->nullable();
+            $table->boolean('status')->default(1)->comment('1= active, 0 = inactive');
             $table->timestamps();
         });
     }

@@ -72,6 +72,11 @@ class ServiceController extends Controller
                 'status' => $validatedData['status'],
             ]);
 
+            $slug = str_replace('--','-',strtolower(preg_replace('/[^a-zA-Z0-9\-]/', '-', $service->title)));
+            $service->update([
+                'slug'=>$slug
+            ]);
+
             if ($request->file('attachments')) {
                 $counter = 0;
                 foreach ($request->file('attachments') as $key => $attachmentFile) {
@@ -154,6 +159,12 @@ class ServiceController extends Controller
                 'description' => $validatedData['description'],
                 'status' => $validatedData['status'],
             ]);
+
+            $slug = str_replace('--','-',strtolower(preg_replace('/[^a-zA-Z0-9\-]/', '-', $service->title)));
+            $service->update([
+                'slug'=>$slug
+            ]);
+
             if ($request->file('attachments')) {
                 $counter = 0;
                 foreach ($request->file('attachments') as $key => $attachmentFile) {

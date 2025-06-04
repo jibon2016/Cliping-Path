@@ -25,7 +25,9 @@ Route::get('home-backend/services-datatable', [BackendServiceController::class, 
 Route::resource('home-backend/client-feedback', ClientFeedbackController::class)->except(['show']);
 Route::get('home-backend/client-feedback-datatable', [ClientFeedbackController::class, 'dataTable'])->name('home-backend.client-feedback.datatable');
 
-Route::resource('service-details', ServiceDetailsController::class)->except(['show']);
+Route::get('service-details', [ServiceDetailsController::class, 'index'])->name('service-details.index');
+Route::get('service-details/{service}/edit', [ServiceDetailsController::class, 'edit'])->name('service-details.edit');
+Route::put('service-details/{service}', [ServiceDetailsController::class, 'update'])->name('service-details.update');
 Route::get('service-details-datatable', [ServiceDetailsController::class, 'dataTable'])->name('service-details.datatable');
 
 Route::resource('service', ServiceController::class)->except(['show']);

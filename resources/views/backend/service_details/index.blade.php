@@ -5,7 +5,7 @@
         <div class="col-12">
             <div class="card card-default">
                 <div class="card-header">
-                    <a href="{{ route('service-details.create') }}" class="btn btn-primary bg-gradient-primary btn-sm">Create Service Details <i class="fa fa-plus"></i></a>
+{{--                    <a href="{{ route('service-details.create') }}" class="btn btn-primary bg-gradient-primary btn-sm">Create Service Details <i class="fa fa-plus"></i></a>--}}
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -35,14 +35,14 @@
             $('#table').DataTable({
                 processing: true,
                 serverSide: true,
-                ajax: '{{ route('home-backend.services.datatable') }}',
+                ajax: '{{ route('service-details.datatable') }}',
                 "pagingType": "full_numbers",
                 "lengthMenu": [[10, 25, 50, -1],[10, 25, 50, "All"]
                 ],
                 columns: [
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false, searchable: false,className:'text-center'},
                     {data: 'title', name: 'title'},
-                    {data:'image', name:'image'},
+                    {data:'icon', name:'icon'},
                     {
                         data: 'status',
                         name: 'status',

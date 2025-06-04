@@ -14,4 +14,9 @@ class Service extends Model
             ->orderBy('sort');
     }
 
+    public function serviceDetails()
+    {
+        return $this->hasOne(ServiceDetail::class);
+    }
+
 }
