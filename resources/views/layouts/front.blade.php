@@ -119,7 +119,7 @@
             <div class="nav-logo-wrap position-static local-scroll">
                 <div class="top__bar__logo">
                     <a href="{{route('home')}}" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
-                        <img src="{{asset('img/logo.png')}}" style="height:75px;width:120px;margin-top: -42px;">
+                        <img src="{{asset('img/logo.png')}}" style="height:75px;width:110px;margin-top: -42px;">
                     </a>
                 </div>
             </div>
@@ -395,12 +395,12 @@
 
 
 <script src="{{asset('themes/frontend/assets/libs/jquery/3.7.1/jquery.min.js')}}"></script>
-<script src="{{asset('themes/frontend/assets/js/jquery.event.move.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/js/jquery.twentytwenty.js')}}"></script>
+<script src="{{asset('themes/frontend/assets/js/jquery.event.move.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/libs/bootstrap/5.3.3/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/libs/bodymovin/5.7.8/lottie.min.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/js/new-jquery.mb.YTPlayer.js')}}"></script>
-{{--<script type="module" src="https://unpkg.com/@dotlottie/player-component@2.3.0/dist/dotlottie-player.mjs" ></script>--}}
+{{--<script type="module" src="https://unpkg.com/@dotlottie-playertie/player-component@2.3.0/dist/dotlottie-player.mjs" ></script>--}}
 <script src="{{asset('themes/frontend/assets/js/new-isotope.pkgd.min.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/js/new-jquery.easing.js')}}"></script>
 <script src="{{asset('themes/frontend/assets/js/new-jquery.parallax-1.1.3.js')}}"></script>

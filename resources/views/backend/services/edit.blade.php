@@ -120,7 +120,7 @@
                                             $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'webp', 'svg'];
                                         @endphp
                                         <div class="wrapper-list-item">
-                                            <input type="number" value="{{ $attachment->sort }}" placeholder="Sort" class="file-title-input old-file-sort-update">
+                                            <input type="number" value="{{ $attachment->sort }}" placeholder="Sort" class="file-title-input old-file-sort-update" multiple>
                                             @if(in_array($pathExtension,$imageExtensions))
                                                 <a download href="{{ asset($attachment->icon) }}"><img class="preview-image" src="{{ asset($attachment->icon) }}"></a>
                                             @endif

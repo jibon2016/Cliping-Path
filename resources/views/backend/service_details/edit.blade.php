@@ -82,7 +82,7 @@
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="news-form" enctype="multipart/form-data" action="{{ route('service-details.update',['service'=>$service->id]) }}" class="form-horizontal" method="post">
+                <form id="news-form" enctype="multipart/form-data"  action="{{ route('service-details.update',['service'=>$service->id]) }}" class="form-horizontal" method="post">
                     @csrf
                     @method('PUT')
                     <div class="card-body">

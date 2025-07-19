@@ -164,7 +164,6 @@ class BackendServiceController extends Controller
                     $attachmentFile->move(public_path($destinationPath), $filename);
                     $path = 'uploads/attachments/services/' . $filename;
 
-
                     $service->attachments()->create([
                         'user_id' => auth()->id(),
                         'file' => $path,

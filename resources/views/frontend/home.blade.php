@@ -217,7 +217,24 @@
             </div>
             <div class="row text-center">
                 <div class="col-lg-12">
-                    <div class="feature-slider owl-carousel testimonials-slider-3">
+                    <div class="d-flex flex-wrap flex-row justify-content-start">
+                        @foreach($services as $service)
+                            <div class="card" style="width: 18rem;margin-right:10px; ">
+                                <div class="">
+                                    <div class="solution borderx rounded px-2 py-3">
+                                        <div class="twentytwenty-container">
+                                            @foreach($service->attachments->take(2) as $attachment )
+                                                <img src="{{asset($attachment->file)}}" alt="jn">
+                                            @endforeach
+                                        </div>
+                                        <h3 class="lh-base fs-16 mb-2">{{ $service->title }}</h3>
+                                        <span class="service-descr service-lim">
+                                            {!! $service->description !!}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
 {{--                        @foreach($services as $service)--}}
 {{--                            <div>--}}
 {{--                                <div class="mt-4 pt-2">--}}
@@ -234,7 +251,7 @@
 {{--                                                @endforeach--}}
 {{--                                            </div>--}}
 {{--                                        </div>--}}
-{{--                                        <h3 class="lh-base fs-16 mb-2">{{ $service->title }}</h3>--}}
+{{--                                        <h3 class="lh-base fs-16 mb-2 ">{{ $service->title }}</h3>--}}
 {{--                                        <span class="service-descr service-lim">--}}
 {{--                                            {!! $service->description !!}--}}
 {{--                                        </span>--}}
@@ -243,25 +260,7 @@
 {{--                                </div>--}}
 {{--                            </div>--}}
 {{--                        @endforeach--}}
-                            @foreach($services as $service)
-                            <div>
-                                <div class="mt-4 pt-2">
-{{--                                    <a href="background-removal.html">--}}
-                                    <div class="solution borderx rounded px-2 py-3">
-                                        <div class="twentytwenty-container">
-                                            @foreach($service->attachments->take(2) as $attachment )
-                                                <img src="{{asset($attachment->file)}}" alt="jn">
-                                            @endforeach
-                                        </div>
-                                        <h3 class="lh-base fs-16 mb-2">{{ $service->title }}</h3>
-                                        <span class="service-descr service-lim">
-                                            {!! $service->description !!}
-                                        </span>
-                                    </div>
-{{--                                    </a>--}}
-                                </div>
-                            </div>
-                        @endforeach
+
                         {{--                        <div>--}}
                         {{--                            <div class="mt-4 pt-2">--}}
                         {{--                                --}}{{--<a href="background-removal.html">--}}
@@ -1022,13 +1021,11 @@
     <script>
         $(window).on('load', function() {
             $('.twentytwenty-container').twentytwenty({
-                default_offset_pct: 0.5,
-                click_to_move: true,
-                move_with_handle_only: true,
+                move_slider_on_hover: true,
+                default_offset_pct:0.5,
+                orientation:'horizontal',
+                no_overlay:true,
             });
-            $('.twentytwenty-container').on('mousedown touchstart', function(e) {
-                e.preventDefault();
-            })
         });
         // $(window).on('load', function() {
         //     $('.container1').twentytwenty({
