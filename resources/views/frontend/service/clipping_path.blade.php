@@ -92,8 +92,8 @@
                                     <div class="col-sm-12 wow fadeInUp delay-3">
                                         <div class="card">
                                             <div class="card-body">
-                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303092-65f1277468706.webp" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303092-65f1277468706.webp" width="100" height="100" alt="clipping-path Image" />
+                                                <a href="" class="work-lightbox-link mfp-image">
+                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303823-65f12a4f37537.webp" width="100" height="100" alt="clipping-path Image" />
                                                 </a>
                                             </div>
                                         </div>
@@ -105,8 +105,8 @@
                                     <div class="col-sm-12 wow fadeInUp delay-3">
                                         <div class="card">
                                             <div class="card-body">
-                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303112-65f1278813803.webp" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303112-65f1278813803.webp" width="100" height="100" alt="clipping-path Image" />
+                                                <a href="" class="work-lightbox-link mfp-image">
+                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303838-65f12a5eec3f3.webp" width="100" height="100" alt="clipping-path Image" />
                                                 </a>
                                             </div>
                                         </div>
@@ -118,8 +118,8 @@
                                     <div class="col-sm-12 wow fadeInUp delay-3">
                                         <div class="card">
                                             <div class="card-body">
-                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303160-65f127b8da070.webp" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303160-65f127b8da070.webp" width="100" height="100" alt="clipping-path Image" />
+                                                <a href="" class="work-lightbox-link mfp-image">
+                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303823-65f12a4f37537.webp" width="100" height="100" alt="clipping-path Image" />
                                                 </a>
                                             </div>
                                         </div>
@@ -131,8 +131,8 @@
                                     <div class="col-sm-12 wow fadeInUp delay-3">
                                         <div class="card">
                                             <div class="card-body">
-                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303199-65f127df09d73.webp" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303199-65f127df09d73.webp" width="100" height="100" alt="clipping-path Image" />
+                                                <a href="" class="work-lightbox-link mfp-image">
+                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303838-65f12a5eec3f3.webp" width="100" height="100" alt="clipping-path Image" />
                                                 </a>
                                             </div>
                                         </div>
@@ -144,8 +144,8 @@
                                     <div class="col-sm-12 wow fadeInUp delay-3">
                                         <div class="card">
                                             <div class="card-body">
-                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303310-65f1284ee91f2.webp" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303310-65f1284ee91f2.webp" width="100" height="100" alt="clipping-path Image" />
+                                                <a href="" class="work-lightbox-link mfp-image">
+                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303823-65f12a4f37537.webp" width="100" height="100" alt="clipping-path Image" />
                                                 </a>
                                             </div>
                                         </div>
@@ -157,65 +157,118 @@
                                     <div class="col-sm-12 wow fadeInUp delay-3">
                                         <div class="card">
                                             <div class="card-body">
-                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303328-65f128603ccb0.webp" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303328-65f128603ccb0.webp" width="100" height="100" alt="clipping-path Image" />
+                                                <a href="" class="work-lightbox-link mfp-image">
+                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303838-65f12a5eec3f3.webp" width="100" height="100" alt="clipping-path Image" />
                                                 </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="item odd">
-                                    <div class="col-sm-12 wow fadeInUp delay-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303633-65f129911ae46.webp" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303633-65f129911ae46.webp" width="100" height="100" alt="clipping-path Image" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="item even">
-                                    <div class="col-sm-12 wow fadeInUp delay-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303650-65f129a2b8f53.webp" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303650-65f129a2b8f53.webp" width="100" height="100" alt="clipping-path Image" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="item odd">
-                                    <div class="col-sm-12 wow fadeInUp delay-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908016-65fa6270c5043.webp" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908016-65fa6270c5043.webp" width="100" height="100" alt="clipping-path Image" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="item even">
-                                    <div class="col-sm-12 wow fadeInUp delay-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908029-65fa627df253b.webp" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908029-65fa627df253b.webp" width="100" height="100" alt="clipping-path Image" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
+{{--                            <div>--}}
+{{--                                <div class="item odd">--}}
+{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
+{{--                                        <div class="card">--}}
+{{--                                            <div class="card-body">--}}
+{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303160-65f127b8da070.webp" class="work-lightbox-link mfp-image">--}}
+{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303160-65f127b8da070.webp" width="100" height="100" alt="clipping-path Image" />--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <div class="item even">--}}
+{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
+{{--                                        <div class="card">--}}
+{{--                                            <div class="card-body">--}}
+{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303199-65f127df09d73.webp" class="work-lightbox-link mfp-image">--}}
+{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303199-65f127df09d73.webp" width="100" height="100" alt="clipping-path Image" />--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <div class="item odd">--}}
+{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
+{{--                                        <div class="card">--}}
+{{--                                            <div class="card-body">--}}
+{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303310-65f1284ee91f2.webp" class="work-lightbox-link mfp-image">--}}
+{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303310-65f1284ee91f2.webp" width="100" height="100" alt="clipping-path Image" />--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <div class="item even">--}}
+{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
+{{--                                        <div class="card">--}}
+{{--                                            <div class="card-body">--}}
+{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303328-65f128603ccb0.webp" class="work-lightbox-link mfp-image">--}}
+{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303328-65f128603ccb0.webp" width="100" height="100" alt="clipping-path Image" />--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <div class="item odd">--}}
+{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
+{{--                                        <div class="card">--}}
+{{--                                            <div class="card-body">--}}
+{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303633-65f129911ae46.webp" class="work-lightbox-link mfp-image">--}}
+{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303633-65f129911ae46.webp" width="100" height="100" alt="clipping-path Image" />--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <div class="item even">--}}
+{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
+{{--                                        <div class="card">--}}
+{{--                                            <div class="card-body">--}}
+{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303650-65f129a2b8f53.webp" class="work-lightbox-link mfp-image">--}}
+{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303650-65f129a2b8f53.webp" width="100" height="100" alt="clipping-path Image" />--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <div class="item odd">--}}
+{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
+{{--                                        <div class="card">--}}
+{{--                                            <div class="card-body">--}}
+{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908016-65fa6270c5043.webp" class="work-lightbox-link mfp-image">--}}
+{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908016-65fa6270c5043.webp" width="100" height="100" alt="clipping-path Image" />--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            <div>--}}
+{{--                                <div class="item even">--}}
+{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
+{{--                                        <div class="card">--}}
+{{--                                            <div class="card-body">--}}
+{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908029-65fa627df253b.webp" class="work-lightbox-link mfp-image">--}}
+{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908029-65fa627df253b.webp" width="100" height="100" alt="clipping-path Image" />--}}
+{{--                                                </a>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
                         </div>
                     </div>
@@ -507,9 +560,9 @@
                     </div>
                     <!-- End Accordion -->
                 </div>
-
             </div>
         </div>
-
     </section>
+@endsection
+@section('script')
 @endsection

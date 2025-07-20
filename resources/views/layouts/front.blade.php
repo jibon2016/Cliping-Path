@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-{{--<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">--}}
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -35,6 +35,7 @@
     <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/splitting.css')}}">
 
 
+    <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/work.css')}}">
     <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/style.min.css')}}">
     <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/style-responsive.css')}}">
 
@@ -440,6 +441,4 @@
 @yield('script')
 
 </body>
-
-<!-- Mirrored from livingcolors.studio/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 20 Apr 2025 16:48:23 GMT -->
 </html>
