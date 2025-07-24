@@ -151,7 +151,7 @@ Route::get('/managing-director-message', [HomeController::class, 'managingDirect
 
 //Services Page
 Route::get('/services', [HomeController::class, 'services'])->name('services');
-Route::get('/clipping-path', [HomeController::class, 'serviceClipping'])->name('services.clipping');
+Route::get('/services/{service:slug}', [HomeController::class, 'serviceClipping'])->name('services.all');
 
 Route::get('/background-page', [HomeController::class, 'background'])->name('background.show');
 Route::get('vision-mission-objectives', [HomeController::class, 'visionMissionObjectives'])->name('vision-mission-objectives');

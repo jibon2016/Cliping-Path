@@ -1,4 +1,7 @@
 @extends('layouts.front')
+@push('style')
+    <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/work.css')}}">
+@endpush
 @section('title','Clipping Path '.config('app.name'))
 @section('content')
     <!-- Service Hero Section -->
@@ -23,7 +26,7 @@
                     </div>
                     <!-- Div 2: Button (Aligned to bottom) -->
                     <div class="hero-button">
-                        <a href="index.html" class="btn btn-mod btn-circle btn-color btn-large mb-xs-10" data-btn-animate="y">Snag Free Samples</a>
+                        <a href="{{ url('/') }}" class="btn btn-mod btn-circle btn-color btn-large mb-xs-10" data-btn-animate="y">Snag Free Samples</a>
                     </div>
                 </div>
                 <!-- Second Column -->
@@ -31,11 +34,11 @@
                     <!-- Div 1: Service Background -->
                     <div class="service-hero-image-combination">
                         <div class="service-bg">
-                            <dotlottie-player class="center-xy" autoplay loop playMode="normal" src="https://cdn.livingcolors.studio/colors/images/icons/json/BG/colors_pattel.lottie"></dotlottie-player>
+                            <dotlottie-player class="center-xy" autoplay loop playMode="normal" src="{{ asset('/img/cir_ani_purple.lottie') }}"></dotlottie-player>
                         </div>
                         <!-- Div 2: Service Hero Image -->
                         <div class="service-hero-img">
-                            <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path/1713332512-661f6120408fd.webp" class="img-fluid animated" alt="clipping-path">
+                            <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path/1714451998-6630761ebb2de.webp" class="img-fluid animated" alt="clipping-path">
                         </div>
                         <!-- Div 3: Service Decoration -->
                         <div class="service-deco">
@@ -87,6 +90,21 @@
                         <h3 class="section-title-tiny">Explore Our Latest Work</h3>
                         <div class="spacer-single"></div>
                         <div class="work-item-carousel black owl-carousel mb-0">
+                            @foreach($service->serviceDetails->attachments->sortBy('sort') as $attachment)
+                                <div>
+                                    <div class="item {{ $loop->iteration++ % 2 == 0 ? 'even' : 'odd' }}">
+                                        <div class="col-sm-12 wow fadeInUp delay-3">
+                                            <div class="card">
+                                                <div class="card-body">
+                                                    <a href="{{ asset($attachment->file) }}" class="work-lightbox-link mfp-image">
+                                                        <img loading="lazy" src="{{ asset($attachment->file) }}" width="100" height="100" alt="clipping-path Image" />
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                             <div>
                                 <div class="item odd">
                                     <div class="col-sm-12 wow fadeInUp delay-3">
@@ -128,10 +146,10 @@
                             </div>
                             <div>
                                 <div class="item even">
-                                    <div class="col-sm-12 wow fadeInUp delay-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <a href="" class="work-lightbox-link mfp-image">
+                                    <div class="c*ol-sm-12 wow fadeInUp delay-3">
+                                        <div class*="card">
+                                            <div cl*ass="card-body">
+                                                <a h*ref="" class="work-lightbox-link mfp-image">
                                                     <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303838-65f12a5eec3f3.webp" width="100" height="100" alt="clipping-path Image" />
                                                 </a>
                                             </div>
@@ -165,118 +183,12 @@
                                     </div>
                                 </div>
                             </div>
-
-{{--                            <div>--}}
-{{--                                <div class="item odd">--}}
-{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
-{{--                                        <div class="card">--}}
-{{--                                            <div class="card-body">--}}
-{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303160-65f127b8da070.webp" class="work-lightbox-link mfp-image">--}}
-{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303160-65f127b8da070.webp" width="100" height="100" alt="clipping-path Image" />--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div>--}}
-{{--                                <div class="item even">--}}
-{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
-{{--                                        <div class="card">--}}
-{{--                                            <div class="card-body">--}}
-{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303199-65f127df09d73.webp" class="work-lightbox-link mfp-image">--}}
-{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303199-65f127df09d73.webp" width="100" height="100" alt="clipping-path Image" />--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div>--}}
-{{--                                <div class="item odd">--}}
-{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
-{{--                                        <div class="card">--}}
-{{--                                            <div class="card-body">--}}
-{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303310-65f1284ee91f2.webp" class="work-lightbox-link mfp-image">--}}
-{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303310-65f1284ee91f2.webp" width="100" height="100" alt="clipping-path Image" />--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div>--}}
-{{--                                <div class="item even">--}}
-{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
-{{--                                        <div class="card">--}}
-{{--                                            <div class="card-body">--}}
-{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303328-65f128603ccb0.webp" class="work-lightbox-link mfp-image">--}}
-{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303328-65f128603ccb0.webp" width="100" height="100" alt="clipping-path Image" />--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div>--}}
-{{--                                <div class="item odd">--}}
-{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
-{{--                                        <div class="card">--}}
-{{--                                            <div class="card-body">--}}
-{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303633-65f129911ae46.webp" class="work-lightbox-link mfp-image">--}}
-{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303633-65f129911ae46.webp" width="100" height="100" alt="clipping-path Image" />--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div>--}}
-{{--                                <div class="item even">--}}
-{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
-{{--                                        <div class="card">--}}
-{{--                                            <div class="card-body">--}}
-{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303650-65f129a2b8f53.webp" class="work-lightbox-link mfp-image">--}}
-{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710303650-65f129a2b8f53.webp" width="100" height="100" alt="clipping-path Image" />--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div>--}}
-{{--                                <div class="item odd">--}}
-{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
-{{--                                        <div class="card">--}}
-{{--                                            <div class="card-body">--}}
-{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908016-65fa6270c5043.webp" class="work-lightbox-link mfp-image">--}}
-{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908016-65fa6270c5043.webp" width="100" height="100" alt="clipping-path Image" />--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div>--}}
-{{--                                <div class="item even">--}}
-{{--                                    <div class="col-sm-12 wow fadeInUp delay-3">--}}
-{{--                                        <div class="card">--}}
-{{--                                            <div class="card-body">--}}
-{{--                                                <a href="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908029-65fa627df253b.webp" class="work-lightbox-link mfp-image">--}}
-{{--                                                    <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path-slider/1710908029-65fa627df253b.webp" width="100" height="100" alt="clipping-path Image" />--}}
-{{--                                                </a>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <!-- End Grid -->
-
         </div>
     </section>
     <!-- End  Our Work Section -->
@@ -341,7 +253,7 @@
                             <div class="tab-pane show fade active" id="services-item-1a" role="tabpanel">
                                 <div class="services-7-content">
                                     <div class="services-7-image">
-                                        <img loading="lazy" src="https://cdn.livingcolors.studio/uploads/clipping-path/1708930110-65dc343eda8d1.webp" alt="Original Image" class="placeholder-image">
+                                        <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path/1708930110-65dc343eda8d1.webp" alt="Original Image" class="placeholder-image">
                                     </div>
                                 </div>
                             </div>
@@ -446,7 +358,7 @@
                             <div class="col-lg-3 d-none d-lg-block d-xl-block text-center wow fadeInRight gallery zoom" data-wow-delay="0s">
                                 <div class="text-center">
                                     <dotlottie-player class="icon-lottie" autoplay loop playMode="normal"
-                                                      src="https://cdn.livingcolors.studio/colors/images/icons/json/others/upload.lottie">
+                                                      src="{{ asset('/img/upload.lottie') }}">
                                     </dotlottie-player>
                                 </div>
                             </div>
@@ -477,24 +389,24 @@
     <!-- End Expart Section -->    <!-- End First 3 Edits Section -->
 
     <!-- 3 Steps -->
-    <section id="section-highlight" data-bgimage="url(colors/images/background/2P.svg) top">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="text-center">
-                        <h3  class="section-title mb-30 mb-xs-20 wow fadeInUp" style="text-align: left;">Multiple <span class="color-primary-1">Clipping Path Services</span> to Meet All Your Editing Needs</h3>
-                        <p class="section-descr mb-50 mb-sm-40 wow fadeInUp animated text-left">Multi clipping path services use potent tools. And the visual content of your products can be significantly enhanced with the help of these tools. Complex image multi clipping services are the ones that your business product photos need. It can have a significant impact on your online presence. Multiple clipping path services help increase engagement, conversion rates, and overall business success. You can maximize your business’s development and profitability with high-quality clipping path services.</p>
-                        <p class="section-descr mb-50 mb-sm-40 wow fadeInUp animated text-left">We Living Colors is a professional multiple-clipping path provider in the USA. Our experts can quickly turn any picture into a realistic and attractive image. A high-quality image can easily capture the hearts and attention of your audience.</p>
-                        <div class="spacer-20"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="spacer-20"></div>
-            <div class="col-md-12 text-center">
-                <a class="btn btn-mod btn-color btn-large btn-circle scrollto" href="index.html">Get Your Quote</a>
-            </div>
-        </div>
-    </section>
+{{--    <section id="section-highlight" data-bgimage="url(colors/images/background/2P.svg) top">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-12">--}}
+{{--                    <div class="text-center">--}}
+{{--                        <h3  class="section-title mb-30 mb-xs-20 wow fadeInUp" style="text-align: left;">Multiple <span class="color-primary-1">Clipping Path Services</span> to Meet All Your Editing Needs</h3>--}}
+{{--                        <p class="section-descr mb-50 mb-sm-40 wow fadeInUp animated text-left">Multi clipping path services use potent tools. And the visual content of your products can be significantly enhanced with the help of these tools. Complex image multi clipping services are the ones that your business product photos need. It can have a significant impact on your online presence. Multiple clipping path services help increase engagement, conversion rates, and overall business success. You can maximize your business’s development and profitability with high-quality clipping path services.</p>--}}
+{{--                        <p class="section-descr mb-50 mb-sm-40 wow fadeInUp animated text-left">We Living Colors is a professional multiple-clipping path provider in the USA. Our experts can quickly turn any picture into a realistic and attractive image. A high-quality image can easily capture the hearts and attention of your audience.</p>--}}
+{{--                        <div class="spacer-20"></div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="spacer-20"></div>--}}
+{{--            <div class="col-md-12 text-center">--}}
+{{--                <a class="btn btn-mod btn-color btn-large btn-circle scrollto" href="index.html">Get Your Quote</a>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 
     <!-- End 3 Steps -->
     <!-- FAQ Section -->

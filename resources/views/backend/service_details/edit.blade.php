@@ -100,7 +100,7 @@
                         <div class="form-group row">
                             <label for="description1" class="col-sm-2 col-form-label">Description1</label>
                             <div class="col-sm-10">
-                                <textarea name="description1" id="description1">{{ old('description1',$service->serviceDetails->description1) }}</textarea>
+                                <textarea name="description1" id="description1">{{ old('description1',$service->serviceDetails->description1 ?? '') }}</textarea>
                                 <span id="description1-error" class="text-danger error-message"></span>
                             </div>
                         </div>
@@ -108,12 +108,12 @@
                         <div class="form-group row">
                             <label for="description2" class="col-sm-2 col-form-label">Description2</label>
                             <div class="col-sm-10">
-                                <textarea name="description2" id="description2">{{ old('description2',$service->serviceDetails->description2) }}</textarea>
+                                <textarea name="description2" id="description2">{{ old('description2',$service->serviceDetails->description2 ?? "") }}</textarea>
                                 <span id="description2-error" class="text-danger error-message"></span>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Attachments</label>
+                            <label class="col-sm-2 col-form-label">Slider Imaage</label>
                             <div class="col-sm-10">
                                 <div class="upload-container">
                                     <span class="flow-text" onclick="triggerFileInput()">Click or drag and drop attachments files here</span>

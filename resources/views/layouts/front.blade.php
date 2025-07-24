@@ -17,6 +17,13 @@
 
     <link href="{{asset('themes/frontend/assets/css/css/twentytwenty.css')}}" rel="stylesheet">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/style.min.css')}}">
+    <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/icomoon.css')}}">
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
 
     <!-- CSS -->
 {{--    <link href="{{asset('themes/frontend/assets/dist/css/bootstrap.min.css')}}" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">--}}
@@ -34,10 +41,17 @@
     <link rel="preload" href="{{asset('themes/frontend/assets/css/splitting.css')}}" as="style" onload="this.rel='stylesheet'">
     <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/splitting.css')}}">
 
+    @stack('style')
 
-    <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/work.css')}}">
+    <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/hero-sub.css')}}">
+    <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/ai-human.css')}}">
+    <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/faq.css')}}">
     <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/style.min.css')}}">
     <link rel="stylesheet" href="{{asset('themes/frontend/assets/css/style-responsive.css')}}">
+
+    <!-- Link to Lottie library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.8/lottie.min.js"></script>
+    <script type="module" src="https://unpkg.com/@dotlottie/player-component@2.3.0/dist/dotlottie-player.mjs" ></script>
 
     <style>
         :root {
@@ -141,7 +155,7 @@
                             <ul class="mn-sub servicemenu to-left" id="service-menu">
 {{--                            <ul class="mn-sub service-mobile servicemenu to-left  d-md-none " id="service-menu">--}}
                                 <li>
-                                    <a href="{{route('services.clipping')}}">
+                                    <a href="{{route('services.all', ['service' => 'clipping-path'])}}">
                                         <img src="{{asset('themes/frontend/assets/images/services/clipping-path.svg')}}">
                                         <p class="submenu-text">Clipping Path</p>
                                     </a>
@@ -153,7 +167,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="">
+                                    <a href="{{route('services.all', ['service' => 'photo-retouching'])}}">
                                         <img src="{{asset('themes/frontend/assets/images/services/Photo-Retouch.svg')}}">
                                         <p class="submenu-text">Photo Retouching</p>
                                     </a>
@@ -438,6 +452,54 @@
     });
 </script>
 
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const anim = bodymovin.loadAnimation({
+            wrapper: document.getElementById('lottieContainer449089028'),
+            animType: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://livingcolors.studio/uploads/home-page/1709102630-65ded626d2239.json',
+        });
+        anim.addEventListener('DOMLoaded', () => document.getElementById('loader-lottieContainer449089028').style.display = 'none');
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const anim = bodymovin.loadAnimation({
+            wrapper: document.getElementById('lottieContainer1116465637'),
+            animType: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://livingcolors.studio/uploads/home-page/1709102790-65ded6c6abcdd.json',
+        });
+        anim.addEventListener('DOMLoaded', () => document.getElementById('loader-lottieContainer1116465637').style.display = 'none');
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const anim = bodymovin.loadAnimation({
+            wrapper: document.getElementById('lottieContainer1084052335'),
+            animType: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://livingcolors.studio/uploads/home-page/1709102760-65ded6a88c85b.json',
+        });
+        anim.addEventListener('DOMLoaded', () => document.getElementById('loader-lottieContainer1084052335').style.display = 'none');
+    });
+</script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const anim = bodymovin.loadAnimation({
+            wrapper: document.getElementById('lottieContainer1766977791'),
+            animType: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://livingcolors.studio/uploads/contact/1707856311-65cbd1b7f2bf6.json',
+        });
+        anim.addEventListener('DOMLoaded', () => document.getElementById('loader-lottieContainer1766977791').style.display = 'none');
+    });
+</script>
 @yield('script')
 
 </body>

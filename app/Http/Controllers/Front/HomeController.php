@@ -202,9 +202,9 @@ class HomeController extends Controller
     {
         return view('frontend.service.all_services');
     }
-    public function serviceClipping()
+    public function serviceClipping(Service $service)
     {
-        return view('frontend.service.clipping_path');
+        return view('frontend.service.single_service', compact('service'));
     }
 
     public function aboutUs()
