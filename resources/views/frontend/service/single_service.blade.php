@@ -12,17 +12,7 @@
                 <div class="col-lg-6 service-text">
                     <!-- Div 1: Title and Text -->
                     <div class="hero-content">
-                        <h1 class="title-45 mb-40 mb-sm-20 wow fadeInUp">
-                            <span class="color-primary-1">Clipping</span> <span class="color-primary-1">Path</span> Services
-                        </h1>
-                        <div class="col-lg-10">
-                    <span class="sub-title wow fadeInUp" data-wow-delay="0.15s">
-                        Hand-Drawn Clipping Path That Makes a Difference
-                    </span>
-                            <p class="section-descr mb-50 mb-sm-40 wow fadeInUp" data-wow-delay="0.15s">
-                                Sell stories, not backgrounds. Let our clipping artistry turn your images into powerful product narratives.
-                            </p>
-                        </div>
+                        {!! $service->serviceDetails->description1 ?? '' !!}
                     </div>
                     <!-- Div 2: Button (Aligned to bottom) -->
                     <div class="hero-button">
@@ -38,7 +28,7 @@
                         </div>
                         <!-- Div 2: Service Hero Image -->
                         <div class="service-hero-img">
-                            <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path/1714451998-6630761ebb2de.webp" class="img-fluid animated" alt="clipping-path">
+                            <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path/1713332512-661f6120408fd.webp" class="img-fluid animated" alt="clipping-path">
                         </div>
                         <!-- Div 3: Service Decoration -->
                         <div class="service-deco">
@@ -90,7 +80,7 @@
                         <h3 class="section-title-tiny">Explore Our Latest Work</h3>
                         <div class="spacer-single"></div>
                         <div class="work-item-carousel black owl-carousel mb-0">
-                            @foreach($service->serviceDetails->attachments->sortBy('sort') as $attachment)
+                            @foreach(!is_null($service->serviceDetails) ? $service->serviceDetails->attachments->sortBy('sort') : []  as $attachment)
                                 <div>
                                     <div class="item {{ $loop->iteration++ % 2 == 0 ? 'even' : 'odd' }}">
                                         <div class="col-sm-12 wow fadeInUp delay-3">
@@ -105,84 +95,6 @@
                                     </div>
                                 </div>
                             @endforeach
-                            <div>
-                                <div class="item odd">
-                                    <div class="col-sm-12 wow fadeInUp delay-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <a href="" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303823-65f12a4f37537.webp" width="100" height="100" alt="clipping-path Image" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="item even">
-                                    <div class="col-sm-12 wow fadeInUp delay-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <a href="" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303838-65f12a5eec3f3.webp" width="100" height="100" alt="clipping-path Image" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="item odd">
-                                    <div class="col-sm-12 wow fadeInUp delay-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <a href="" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303823-65f12a4f37537.webp" width="100" height="100" alt="clipping-path Image" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="item even">
-                                    <div class="c*ol-sm-12 wow fadeInUp delay-3">
-                                        <div class*="card">
-                                            <div cl*ass="card-body">
-                                                <a h*ref="" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303838-65f12a5eec3f3.webp" width="100" height="100" alt="clipping-path Image" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="item odd">
-                                    <div class="col-sm-12 wow fadeInUp delay-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <a href="" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303823-65f12a4f37537.webp" width="100" height="100" alt="clipping-path Image" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="item even">
-                                    <div class="col-sm-12 wow fadeInUp delay-3">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <a href="" class="work-lightbox-link mfp-image">
-                                                    <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path-slider/1710303838-65f12a5eec3f3.webp" width="100" height="100" alt="clipping-path Image" />
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
                             </div>
                         </div>
                     </div>
@@ -198,8 +110,7 @@
         <div class="container position-relative" data-aos="zoom-out">
             <div class="row">
                 <div class="col-lg-8 offset-lg-2 text-center">
-                    <h3 class="section-title-service"><span class="color-primary-1">Experience</span> a New Breed of <span class="color-primary-1">Human</span> Creatives!</h3>
-                    <p><p>Don’t fall for the average Ctrl+X.&nbsp; While AI can give you ‘somewhat’ of a good image, it still is not enough to bring money to the table.&nbsp;</p><p>If you want images that look professional and bear a symbol of artistic craftsmanship, you need years of experience, creativity, and brainwork PUT TOGETHER.&nbsp;</p><p>After all, it’s ART you’re talking about; something humans are better at.</p></p>
+                    {!! $service->serviceDetails->description2 ?? " " !!}
                 </div>
             </div>
             <div class="container d-none d-lg-block d-xl-block wow fadeIn infinite">

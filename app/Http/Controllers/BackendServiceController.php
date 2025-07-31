@@ -72,6 +72,7 @@ class BackendServiceController extends Controller
                 'title' => $validatedData['title'],
                 'description' => $validatedData['description'],
                 'status' => $validatedData['status'],
+                'slug' => str_slug($validatedData['title']),
             ]);
 
             if ($request->file('attachments')) {
@@ -154,6 +155,7 @@ class BackendServiceController extends Controller
                 'title' => $validatedData['title'],
                 'description' => $validatedData['description'],
                 'status' => $validatedData['status'],
+                'slug' => str_slug($validatedData['title']),
             ]);
             if ($request->file('attachments')) {
                 $counter = 0;

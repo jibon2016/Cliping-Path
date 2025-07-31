@@ -153,79 +153,86 @@
                         <a href="{{route('services')}}" class="mn-has-sub " id="sub-service">Services <i class="fas fa-chevron-down"></i></a>
                         <div id="mega-menu" class="d-none d-lg-block d-xl-block">
                             <ul class="mn-sub servicemenu to-left" id="service-menu">
-{{--                            <ul class="mn-sub service-mobile servicemenu to-left  d-md-none " id="service-menu">--}}
-                                <li>
-                                    <a href="{{route('services.all', ['service' => 'clipping-path'])}}">
-                                        <img src="{{asset('themes/frontend/assets/images/services/clipping-path.svg')}}">
-                                        <p class="submenu-text">Clipping Path</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="{{asset('themes/frontend/assets/images/services/Background-Remove.svg')}}">
-                                        <p class="submenu-text">Background Removal</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{route('services.all', ['service' => 'photo-retouching'])}}">
-                                        <img src="{{asset('themes/frontend/assets/images/services/Photo-Retouch.svg')}}">
-                                        <p class="submenu-text">Photo Retouching</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="{{asset('themes/frontend/assets/images/services/Color-Adjustment.svg')}}">
-                                        <p class="submenu-text">Color Adjustment</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="{{asset('themes/frontend/assets/images/services/Ghost-Mannequin.svg')}}">
-                                        <p class="submenu-text">Ghost Mannequin</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="{{asset('themes/frontend/assets/images/services/Shdow-Creation.svg')}}">
-                                        <p class="submenu-text">Shadow Creation</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="{{asset('themes/frontend/assets/images/services/Product-Photo-Editing.svg')}}">
-                                        <p class="submenu-text">Product Photo Editing</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="{{asset('themes/frontend/assets/images/services/Video-Editing.svg')}}">
-                                        <p class="submenu-text">Video Editing</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="{{asset('themes/frontend/assets/images/services/3D-Modeling.svg')}}">
-                                        <p class="submenu-text">3D Modeling</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="{{asset('themes/frontend/assets/images/services/3D-Rendering.svg')}}">
-                                        <p class="submenu-text">3D Rendering</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="{{route('services')}}">
-                                        <img src="{{asset('themes/frontend/assets/images/services/select-service.svg')}}">
-                                        <p class="submenu-text">All Our Service</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="">
-                                        <img src="{{asset('themes/frontend/assets/images/services/professional_help_.png')}}">
-                                        <p class="submenu-text">Try For Free</p>
-                                    </a>
-                                </li>
+                                @foreach(\App\Models\Service::where('status', 1)->orderBy('id')->get() as $service)
+                                    <li>
+                                        <a href="{{route('services.all', ['service' => $service->slug])}}">
+                                            <img src="{{asset($service->icon)}}" alt="{{ $service->title }}">
+                                            <p class="submenu-text">{{ $service->title }}</p>
+                                        </a>
+                                    </li>
+                                @endforeach
+{{--                                <li>--}}
+{{--                                    <a href="{{route('services.all', ['service' => 'clipping-path'])}}">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/clipping-path.svg')}}">--}}
+{{--                                        <p class="submenu-text">Clipping Path</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/Background-Remove.svg')}}">--}}
+{{--                                        <p class="submenu-text">Background Removal</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="{{route('services.all', ['service' => 'photo-retouching'])}}">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/Photo-Retouch.svg')}}">--}}
+{{--                                        <p class="submenu-text">Photo Retouching</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/Color-Adjustment.svg')}}">--}}
+{{--                                        <p class="submenu-text">Color Adjustment</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/Ghost-Mannequin.svg')}}">--}}
+{{--                                        <p class="submenu-text">Ghost Mannequin</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/Shdow-Creation.svg')}}">--}}
+{{--                                        <p class="submenu-text">Shadow Creation</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/Product-Photo-Editing.svg')}}">--}}
+{{--                                        <p class="submenu-text">Product Photo Editing</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/Video-Editing.svg')}}">--}}
+{{--                                        <p class="submenu-text">Video Editing</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/3D-Modeling.svg')}}">--}}
+{{--                                        <p class="submenu-text">3D Modeling</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/3D-Rendering.svg')}}">--}}
+{{--                                        <p class="submenu-text">3D Rendering</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="{{route('services')}}">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/select-service.svg')}}">--}}
+{{--                                        <p class="submenu-text">All Our Service</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
+{{--                                <li>--}}
+{{--                                    <a href="">--}}
+{{--                                        <img src="{{asset('themes/frontend/assets/images/services/professional_help_.png')}}">--}}
+{{--                                        <p class="submenu-text">Try For Free</p>--}}
+{{--                                    </a>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
 {{--                        <ul class="mn-sub service-mobile to-left  d-md-none">--}}

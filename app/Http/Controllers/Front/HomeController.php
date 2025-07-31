@@ -204,6 +204,7 @@ class HomeController extends Controller
     }
     public function serviceClipping(Service $service)
     {
+        $service->load(['serviceDetails.attachments', 'serviceDetails' ]);
         return view('frontend.service.single_service', compact('service'));
     }
 

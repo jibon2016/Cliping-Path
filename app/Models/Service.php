@@ -16,7 +16,7 @@ class Service extends Model
 
     public function serviceDetails()
     {
-        return $this->hasOne(ServiceDetail::class);
+        return $this->hasOne(ServiceDetail::class, 'service_id', 'id');
     }
 
 }
