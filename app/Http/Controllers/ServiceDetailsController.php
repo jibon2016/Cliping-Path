@@ -60,7 +60,9 @@ class ServiceDetailsController extends Controller
         $validatedData = $request->validate([
             'description1' => 'nullable',
             'description2' => 'nullable',
-            'status' => 'required|boolean', // Ensure 'status' is boolean
+            'status' => 'required|boolean',
+            'lottie_json' => 'nullable|mimes:lottie,json,zip|max:1024',
+            'header_image' => 'nullable|mimes:jpg,jpeg,webp,png|max:2048',
         ]);
 
         // Start a database transaction
@@ -97,7 +99,28 @@ class ServiceDetailsController extends Controller
                 }
             }
 
-            DB::commit();
+            if ($request->file('lottie_json')) {
+                $filename = Uuid::uuid1()->toString().$service->id .'.lottie';
+                $destinationPath = 'uploads/attachments/services-details/lottie';
+                $request->file('lottie_json')->move(public_path($destinationPath), $filename);
+                $path = 'uploads/attachments/services-details/lottie/' . $filename;
+
+                $serviceDetails->update([
+                    'lottie_json' => $path,
+                ]);
+            }
+            if ($request->file('header_image')) {
+                $filename = Uuid::uuid1()->toString() . $service->id . '.' . $request->file('header_image')->getClientOriginalExtension();
+                $destinationPath = 'uploads/attachments/services-details/header_image';
+                $request->file('header_image')->move(public_path($destinationPath), $filename);
+                $path = 'uploads/attachments/services-details/header_image/' . $filename;
+
+                $serviceDetails->update([
+                    'header_image' => $path,
+                ]);
+            }
+
+                DB::commit();
             return response()->json([
                 'status'=>true,
                 'redirect_url'=>route('service-details.index'),

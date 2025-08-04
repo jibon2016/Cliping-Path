@@ -24,16 +24,15 @@
                     <!-- Div 1: Service Background -->
                     <div class="service-hero-image-combination">
                         <div class="service-bg">
-                            <dotlottie-player class="center-xy" autoplay loop playMode="normal" src="{{ asset('/img/cir_ani_purple.lottie') }}"></dotlottie-player>
+                            <dotlottie-player class="center-xy" autoplay loop playMode="normal" src="{{ asset($service->serviceDetails?->lottie_json) }}"></dotlottie-player>
                         </div>
                         <!-- Div 2: Service Hero Image -->
                         <div class="service-hero-img">
-                            <img loading="lazy" src="https://livingcolors.studio/uploads/clipping-path/1713332512-661f6120408fd.webp" class="img-fluid animated" alt="clipping-path">
+                            <img loading="lazy" src="{{ asset($service->serviceDetails?->header_image) }}" class="img-fluid animated" alt="{{ $service->title }}">
                         </div>
                         <!-- Div 3: Service Decoration -->
                         <div class="service-deco">
                             <!-- Content for service decoration -->
-
                         </div>
                     </div>
                     <div class="service-price-title">
