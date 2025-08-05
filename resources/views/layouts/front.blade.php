@@ -134,7 +134,7 @@
             <div class="nav-logo-wrap position-static local-scroll">
                 <div class="top__bar__logo">
                     <a href="{{route('home')}}" class="logo d-flex align-items-center scrollto me-auto me-lg-0">
-                        <img src="{{asset('img/logo.png')}}" style="height:75px;width:110px;margin-top: -42px;">
+                        <img src="{{asset('img/logo.png')}}" style="height:75px;width:100px;margin-top: -42px;">
                     </a>
                 </div>
             </div>
@@ -153,7 +153,10 @@
                         <a href="{{route('services')}}" class="mn-has-sub " id="sub-service">Services <i class="fas fa-chevron-down"></i></a>
                         <div id="mega-menu" class="d-none d-lg-block d-xl-block">
                             <ul class="mn-sub servicemenu to-left" id="service-menu">
-                                @foreach(\App\Models\Service::where('status', 1)->orderBy('id')->get() as $service)
+                                @php
+                                    $services = \App\Models\Service::where('status', 1)->orderBy('id')->get();
+                                @endphp
+                                @foreach($services as $service)
                                     <li>
                                         <a href="{{route('services.all', ['service' => $service->slug])}}">
                                             <img src="{{asset($service->icon)}}" alt="{{ $service->title }}">
@@ -306,7 +309,7 @@
                         <div class="footer-info">
                             <div style="position: relative;width: 70%;" class="">
                                 <div class="loader" id="loader-lottieContainer4" style="display: none;"></div>
-                                <div class="small-logo">
+                                <div class="small-logo text-center">
                                     <img loading="lazy" src="{{asset('img/logo.png')}}" alt="Colors Logo">
                                 </div>
                             </div>
@@ -317,21 +320,11 @@
                     <div class="col-lg-3 col-md-6 footer-link no-circle">
                         <h3 class="mb-4">Services</h3>
                         <ul>
-                            <li><i class="fas fa-chevron-right"></i>
-                                <a href="product-photo-editing.html">Product Photo Editing</a>
-                            </li>
-                            <li><i class="fas fa-chevron-right"></i>
-                                <a href="photo-retouching.html">Photo Retouching</a>
-                            </li>
-                            <li><i class="fas fa-chevron-right"></i>
-                                <a href="video-editing.html">Video Editing</a>
-                            </li>
-                            <li><i class="fas fa-chevron-right"></i>
-                                <a href="3d-modeling.html">3D Modeling</a>
-                            </li>
-                            <li><i class="fas fa-chevron-right"></i>
-                                <a href="3d-rendering.html">3D Rendering</a>
-                            </li>
+                            @foreach($services as $service)
+                                <li><i class="fas fa-chevron-right"></i>
+                                    <a href="{{route('services.all', ['service' => $service->slug])}}">{{ $service->title }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
 
