@@ -331,28 +331,27 @@
                     <div class="col-lg-2 col-md-6 footer-link no-circle">
                         <h3 class="mb-4">Quick Links</h3>
                         <ul>
-                            <li><i class="fas fa-chevron-right"></i> <a href="about-us.html">Who We Are</a></li>
-                            <li><i class="fas fa-chevron-right"></i> <a href="portfolio.html">Portfolio</a></li>
-                            <li><i class="fas fa-chevron-right"></i> <a href="pricing.html">Pricing</a></li>
-                            <li><i class="fas fa-chevron-right"></i> <a href="blog/index.html">Blog</a></li>
-                            <li><i class="fas fa-chevron-right"></i> <a href="contact-us.html">Contact</a></li>
+                            <li><i class="fas fa-chevron-right"></i> <a href="{{ route('contact_us') }}">Contact Us</a></li>
+                            <li><i class="fas fa-chevron-right"></i> <a href="{{ route('about_us') }}">About Us</a></li>
                         </ul>
                     </div>
-
+                    @php
+                        $contact = \App\Models\ContactInformation::first();
+                    @endphp
                     <div class="col-lg-4 col-md-6 footer-links contact__us">
                         <h3 class="mb-4">Contact Us</h3>
                         <ul>
                             <li class="pb-2">
                                 <i class="fas fa-phone"></i>
-                                +1 (000) 666 7777
+                                {{ $contact->mobile_no }}
                             </li>
                             <li class="pb-2">
                                 <i class="fas fa-paper-plane"></i>
-                                js@clippa
+                                {{ $contact->email }}
                             </li>
                             <li class="pb-2">
                                 <i class="fas fa-map-marker"></i>
-                                Mirpur,Dhaka Bangladesh
+                                {{ $contact->address }}
                             </li>
                         </ul>
                     </div>

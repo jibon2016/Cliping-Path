@@ -7,6 +7,7 @@ use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Ramsey\Uuid\Uuid;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -72,7 +73,7 @@ class BackendServiceController extends Controller
                 'title' => $validatedData['title'],
                 'description' => $validatedData['description'],
                 'status' => $validatedData['status'],
-                'slug' => str_slug($validatedData['title']),
+                'slug' => Str::slug($validatedData['title'], '-'),
             ]);
 
             if ($request->file('attachments')) {
@@ -155,7 +156,7 @@ class BackendServiceController extends Controller
                 'title' => $validatedData['title'],
                 'description' => $validatedData['description'],
                 'status' => $validatedData['status'],
-                'slug' => str_slug($validatedData['title']),
+                'slug' => Str::slug($validatedData['title'], '-'),
             ]);
             if ($request->file('attachments')) {
                 $counter = 0;
