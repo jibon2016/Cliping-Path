@@ -100,9 +100,21 @@
 
             <?php
             $subMenu = [
-                'home-backend.index','home-backend-video.edit','home-backend-video.update','home-backend.wcu','home-backend.wcu.create', 'home-backend.wcu.edit',
-                'services.index','services.create', 'services.edit',
-                'client-feedback.index','client-feedback.crate', 'client-feedback.edit',
+                'home-backend.index',
+                'home-backend-video.edit',
+                'home-backend-video.update',
+                'home-backend.wcu',
+                'home-backend.wcu.create',
+                'home-backend.wcu.edit',
+                'services.index',
+                'services.create',
+                'services.edit',
+                'client-feedback.index',
+                'client-feedback.crate',
+                'client-feedback.edit',
+                'how-it-works.index',
+                'how-it-works.create',
+                'how-it-works.edit',
             ];
             ?>
             <li class="nav-item {{ in_array(Route::currentRouteName(), $subMenu) ? 'menu-open' : '' }}">
@@ -144,6 +156,21 @@
                            class="nav-link {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'active' : '' }}">
                             <i class="far  {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'fa-check-circle' : 'fa-circle' }} nav-icon"></i>
                             <p>Services</p>
+                        </a>
+                    </li>
+
+                    <?php
+                    $subSubMenu = [
+                        'how-it-works.index',
+                        'how-it-works.create',
+                        'how-it-works.edit',
+                    ];
+                    ?>
+                    <li class="nav-item">
+                        <a href="{{ route('how-it-works.index') }}"
+                           class="nav-link {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'active' : '' }}">
+                            <i class="far  {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'fa-check-circle' : 'fa-circle' }} nav-icon"></i>
+                            <p>How It works</p>
                         </a>
                     </li>
 

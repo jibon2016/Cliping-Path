@@ -93,6 +93,13 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="price" class="col-sm-2 col-form-label">Price <span class="text-danger">*</span></label>
+                            <div class="col-sm-10">
+                                <input type="number" value="{{ old('price') }}" name="price" class="form-control" id="price" placeholder="Enter Price">
+                                <span id="price-error" class="help-block error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Image Attachment</label>
                             <div class="col-sm-10">
                                 <div class="upload-container">

@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="service-price-title">
-                        <h5 class="price-title">Starting at $0.39 Per Image</h5>
+                        <h5 class="price-title">Starting at ${{ $service->price ?? 0 }} Per Image</h5>
                     </div>
                 </div>
             </div>

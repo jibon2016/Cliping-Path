@@ -1,7 +1,7 @@
 @extends('layouts.app')
-@section('title','Service Edit')
+@section('title','Client Feedback Create')
 @section('style')
-    <!-- summernote -->
+
     <link rel="stylesheet" href="{{ asset('themes/backend/plugins/summernote/summernote-bs4.min.css') }}">
     <style>
         .upload-container {
@@ -56,18 +56,11 @@
             cursor: pointer;
             margin-top: 10px;
         }
-
         .wrapper-list-item {
             display: inline-block;
             width: 18%;
             margin: 1%;
             text-align: center;
-        }
-        /* Media query for screens with a maximum width of 767 pixels (typical for mobile devices) */
-        @media only screen and (max-width: 767px) {
-            .wrapper-list-item {
-                width: 45%;
-            }
         }
     </style>
 @endsection
@@ -78,64 +71,36 @@
             <!-- jquery validation -->
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title">Services Information</h3>
+                    <h3 class="card-title">How It Works Information</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="news-form" enctype="multipart/form-data" action="{{ route('services.update',['service'=>$service->id]) }}" class="form-horizontal" method="post">
+                <form enctype="multipart/form-data" id="service-form" action="{{ route('how-it-works.store') }}" class="form-horizontal" method="post">
                     @csrf
-                    @method('PUT')
                     <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="form-group row">
-                                    <label for="title" class="col-sm-2 col-form-label">Title <span class="text-danger">*</span></label>
-                                    <div class="col-sm-10">
-                                        <input type="text" value="{{ old('title',$service->title) }}" name="title" class="form-control" id="title" placeholder="Enter Title">
-                                        <span id="title-error" class="text-danger error-message"></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div class="form-group row">
-                            <label for="description" class="col-sm-2 col-form-label">Description</label>
+                            <label for="name" class="col-sm-2 col-form-label"> Name <span class="text-danger">*</span></label>
                             <div class="col-sm-10">
-                                <textarea name="description" id="description">{{ old('description',$service->description) }}</textarea>
-                                <span id="description-error" class="text-danger error-message"></span>
+                                <input type="text" value="{{ old('name') }}" name="name" class="form-control" id="name" placeholder="Enter Name">
+                                <span id="name-error" class="help-block error-message"></span>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="price" class="col-sm-2 col-form-label">Price <span class="text-danger">*</span></label>
+                            <label for="details" class="col-sm-2 col-form-label">Details <span class="text-danger">*</span></label>
                             <div class="col-sm-10">
-                                <input type="number" value="{{ old('price', $service->price ) }}" name="price" class="form-control" id="price" placeholder="Enter Price">
-                                <span id="price-error" class="help-block error-message"></span>
+                                <textarea name="details" class="form-control" id="details">{{ old('details') }}</textarea>
+                                <span id="details-error" class="text-danger error-message"></span>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Attachments</label>
+                            <label class="col-sm-2 col-form-label">Image</label>
                             <div class="col-sm-10">
                                 <div class="upload-container">
                                     <span class="flow-text" onclick="triggerFileInput()">Click or drag and drop attachments files here</span>
-                                    <input type="file" accept=".jpg, .jpeg, .png" class="file-upload" name="attachments[]"
-                                           onchange="displayFilePreviews(this)" multiple>
+                                    <input accept=".jpg, .jpeg, .png" type="file" class="file-upload" name="attachments[]" onchange="displayFilePreviews(this)">
                                 </div>
 
-                                <div id="file-previews" class="file-preview row">
-                                    @foreach($service->attachments as $attachment)
-                                        @php
-                                            $pathExtension = pathinfo($attachment->file,PATHINFO_EXTENSION);
-                                            $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'webp'];
-                                        @endphp
-                                        <div class="wrapper-list-item">
-                                            <input type="number" value="{{ $attachment->sort }}" placeholder="Sort" class="file-title-input old-file-sort-update">
-                                            @if(in_array($pathExtension,$imageExtensions))
-                                                <a download href="{{ asset($attachment->file) }}"><img class="preview-image" src="{{ asset($attachment->file) }}"></a>
-                                            @endif
-                                            <input type="hidden" value="{{ $attachment->id }}" class="attachment_id">
-                                            <div data-id="{{ $attachment->id }}" class="remove-button old-file-remove">Remove</div>
-                                        </div>
-                                    @endforeach
-                                </div>
+                                <div id="file-previews" class="file-preview row"></div>
                                 <span id="attachments-error" class="text-danger error-message"></span>
                             </div>
                         </div>
@@ -143,25 +108,25 @@
                             <label class="col-sm-2 col-form-label">Status <span class="text-danger">*</span></label>
                             <div class="col-sm-10">
                                 <div class="icheck-success d-inline pull-right">
-                                    <input  type="radio" id="active" name="status" value="1" {{ old('status',$service->status) == '1' ? 'checked' : '' }}>
+                                    <input checked type="radio" id="active" name="status" value="1" {{ old('status') == '1' ? 'checked' : '' }}>
                                     <label for="active">
                                         Active
                                     </label>
                                 </div>
                                 <div class="icheck-danger d-inline pull-right">
-                                    <input type="radio" id="inactive" name="status" value="0" {{ old('status',$service->status) == '0' ? 'checked' : '' }}>
+                                    <input type="radio" id="inactive" name="status" value="0" {{ old('status') == '0' ? 'checked' : '' }}>
                                     <label for="inactive">
                                         Inactive
                                     </label>
                                 </div>
-                                <span id="status-error" class="text-danger error-message"></span>
+                                <span id="status-error" class="help-block error-message"></span>
                             </div>
                         </div>
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
-                        <button type="button" id="news-form-btn" class="btn btn-primary bg-gradient-primary btn-sm">Save</button>
-                        <a href="{{ route('services.index') }}" class="btn btn-danger bg-gradient-danger btn-sm float-right">Cancel</a>
+                        <button type="button" id="service-form-btn" class="btn btn-primary bg-gradient-primary btn-sm">Save</button>
+                        <a href="{{ route('how-it-works.index') }}" class="btn btn-danger bg-gradient-danger btn-sm float-right">Cancel</a>
                     </div>
                     <!-- /.card-footer -->
                 </form>
@@ -171,29 +136,31 @@
         <!--/.col (left) -->
     </div>
 @endsection
+
 @section('script')
-    <!-- Summernote -->
     <script src="{{ asset('themes/backend/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
         // Summernote
-        $('#description').summernote();
+        $('#details').summernote({
+            height: 150 // Set height in pixels
+        });
 
-        $('#news-form-btn').click(function () {
+        $('#service-form-btn').click(function() {
             preloaderToggle(true);
             // Create a FormData object
-            var formData = new FormData(document.getElementById('news-form'));
+            var formData = new FormData(document.getElementById('service-form'));
             $.ajax({
                 type: 'POST',
-                url: $('#news-form').attr('action'),
+                url: $('#service-form').attr('action'),
                 data: formData,
                 processData: false,
                 contentType: false,
-                success: function (response) {
+                success: function(response) {
                     preloaderToggle(false);
-                    if (response.status) {
+                    if (response.status){
                         ajaxSuccessMessage(response.message)
                         window.location.href = response.redirect_url;
-                    } else {
+                    }else{
                         $(document).Toasts('create', {
                             icon: 'fas fa-envelope fa-lg',
                             class: 'bg-warning',
@@ -209,7 +176,7 @@
                         }
                     }
                 },
-                error: function (xhr) {
+                error: function(xhr) {
                     preloaderToggle(false);
                     // If the form submission encounters an error
                     // Display validation errors
@@ -233,44 +200,14 @@
                         $('.form-group.row').removeClass('has-error');
 
                         // Update error messages for each field
-                        $.each(errors, function (field, errorMessage) {
-                            $('#' + field + '-error').text(errorMessage[0]);
-                            $('#' + field + '-error').closest('.row').addClass('has-error')
+                        $.each(errors, function(field, errorMessage) {
+                            $('#'+field+'-error').text(errorMessage[0]);
+                            $('#'+field+'-error').closest('.row').addClass('has-error')
                         });
                     }
                 }
             });
         });
-
-        $('body').on('click', '.old-file-remove', function() {
-            let oldFileRemove = $(this);
-            let attachmentId = $(this).data('id');
-            if (confirm('are you sure delete?')){
-                preloaderToggle(true);
-
-                $.ajax({
-                    method: "post",
-                    url: "{{ route('attachment-delete') }}",
-                    data: { id: attachmentId }
-                }).done(function( response ) {
-                    oldFileRemove.closest('.wrapper-list-item').remove();
-                    preloaderToggle(false);
-                });
-            }
-        });
-        $('body').on('focusout', '.old-file-sort-update', function() {
-            let oldFileSortItem = $(this);
-            let oldFileSort = $(this).val();
-
-            let attachmentId = oldFileSortItem.closest('div').find('.attachment_id').val();
-            $.ajax({
-                method: "post",
-                url: "{{ route('attachment-sort-update') }}",
-                data: { id: attachmentId,sort:oldFileSort }
-            }).done(function( response ) {
-            });
-        });
-
         function triggerFileInput() {
             const fileInput = document.querySelector('.file-upload');
             fileInput.click();
@@ -280,7 +217,7 @@
             const newInput = document.createElement('input');
             newInput.type = 'file';
             newInput.classList.add('file-upload');
-            newInput.multiple = true;
+            newInput.multiple = false;
             newInput.onchange = function () {
                 displayFilePreviews(newInput);
             };
@@ -296,7 +233,6 @@
             previewItem.classList.add('file-preview');
 
             Array.from(fileInput.files).forEach(file => {
-                // Add input field for file title
                 const wrapperListItem = document.createElement('div');
                 wrapperListItem.classList.add('wrapper-list-item');
                 previewItem.appendChild(wrapperListItem);
@@ -307,7 +243,6 @@
                 sortInput.classList.add('file-title-input');
 
                 wrapperListItem.appendChild(sortInput);
-
 
                 if (file.type.startsWith('image/')) {
                     // Image preview

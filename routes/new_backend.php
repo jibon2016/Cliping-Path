@@ -3,6 +3,7 @@
 use App\Http\Controllers\BackendHomeController;
 use App\Http\Controllers\BackendServiceController;
 use App\Http\Controllers\ClientFeedbackController;
+use App\Http\Controllers\HowItWorksController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ServiceDetailsController;
 
@@ -21,6 +22,9 @@ Route::delete('home-backend-wcu-delete/{wcu}', [BackendHomeController::class, 'w
 
 Route::resource('home-backend/services', BackendServiceController::class)->except(['show']);
 Route::get('home-backend/services-datatable', [BackendServiceController::class, 'dataTable'])->name('home-backend.services.datatable');
+
+Route::resource('how-it-works', HowItWorksController::class)->except('show');
+Route::get('how-it-works/datatabel', [HowItWorksController::class, 'dataTable'])->name('how-it-works.datatable');
 
 Route::resource('home-backend/client-feedback', ClientFeedbackController::class)->except(['show']);
 Route::get('home-backend/client-feedback-datatable', [ClientFeedbackController::class, 'dataTable'])->name('home-backend.client-feedback.datatable');

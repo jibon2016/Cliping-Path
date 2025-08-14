@@ -21,6 +21,7 @@ use App\Models\DonationFund;
 use App\Models\ExecutiveCommittee;
 use App\Models\Gallery;
 use App\Models\HomeContent;
+use App\Models\HowItWorks;
 use App\Models\Look;
 use App\Models\News;
 use App\Models\Program;
@@ -77,9 +78,10 @@ class HomeController extends Controller
         $homePageVideo = HomeContent::where('title','Video')
             ->with('attachments')
             ->first();
+        $howItWorks = HowItWorks::where('status', 1)->get();
 
         return view('frontend.home',compact('sliders','customers','stories','galleries',
-            'services', 'clientFeedbacks' ,'wcus', 'homePageVideo'));
+            'services', 'clientFeedbacks' ,'wcus', 'homePageVideo', 'howItWorks'));
     }
     public function imageGallery()
     {

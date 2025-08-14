@@ -499,58 +499,19 @@
 
             <div class="row">
                 <!-- feature box begin -->
-                <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp text-center" data-wow-delay="0s">
-                    <div class="feature-box f-boxed style-3">
-                        <span class="step">1</span>
-                        <div id="lottie-container1" class="sw-1 mb-4 icon-xxl sol-icon"></div>
-                        <h4 class="features-2-title">Create an Account</h4>
-                        <div class="features-2-descr txt-lim5">
-                            Kickstart your journey by registering to access our free trial. Provide instructions via the form to begin seamlessly.
+               @foreach($howItWorks as $howItWork)
+                    <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp text-center" data-wow-delay="0s">
+                        <div class="feature-box f-boxed style-3">
+                            <img class="full-height mb-3" src="{{ asset($howItWork->attachments->file) }}" alt="{{ $howItWork->name }}">
+                            <span class="step">{{ $loop->iteration }}</span>
+{{--                            <div id="lottie-container1" class="sw-1 mb-4 icon-xxl sol-icon"></div>--}}
+                            <h4 class="features-2-title">{{ $howItWork->name }}</h4>
+                            <div class="features-2-descr txt-lim5">
+                                {!!   $howItWork->details !!}
+                            </div>
                         </div>
                     </div>
-                </div>
-                <!-- feature box close -->
-
-                <!-- feature box begin -->
-                <div class="col-lg-3 col-md-6 mb-4 sq-item wow fadeInUp text-center" data-wow-delay=".25s">
-                    <div class="feature-box f-boxed style-3">
-                        {{--                        <i class="fa fa-tasks step-icon"></i>--}}
-                        <span class="step">2</span>
-                        <div id="lottie-container2" class="sw-1 mb-4 icon-xxl sol-icon"></div>
-                        <h4 class="features-2-title">Choose Service</h4>
-                        <div class="features-2-descr txt-lim5">
-                            Opt for your desired editing options. Upon satisfaction, proceed to payment to complete the process seamlessly and efficiently.
-                        </div>
-                    </div>
-                </div>
-                <!-- feature box close -->
-
-                <!-- feature box begin -->
-                <div class="col-lg-3 col-md-6 mb-4 sq-item wow fadeInUp text-center" data-wow-delay=".25s">
-                    <div class="feature-box f-boxed style-3">
-                        {{--                        <i class="fa fa-upload step-icon"></i>--}}
-                        <span class="step">3</span>
-                        <div id="lottie-container3" class="sw-1 mb-4 icon-xxl sol-icon"></div>
-                        <h4 class="features-2-title">Upload Images</h4>
-                        <div class="features-2-descr txt-lim5">
-                            Following registration, effortlessly upload your images for editing. We'll transform them according to your instructions promptly.
-                        </div>
-                    </div>
-                </div>
-                <!-- feature box close -->
-
-                <!-- feature box begin -->
-                <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp text-center" data-wow-delay="0s">
-                    <div class="feature-box f-boxed style-3">
-                        {{--                        <i class="fa fa-coffee step-icon"></i>--}}
-                        <span class="step">4</span>
-                        <div id="lottie-container4" class="sw-1 mb-4 icon-xxl sol-icon"></div>
-                        <h4 class="features-2-title">Relax</h4>
-                        <div class="features-2-descr txt-lim5">
-                            Relax while we handle the rest. Sit back as your images are expertly edited and delivered hassle-free.
-                        </div>
-                    </div>
-                </div>
+               @endforeach
                 <!-- feature box close -->
             </div>
 

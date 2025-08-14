@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title','Service Edit')
+@section('title','How It Work Edit')
 @section('style')
     <!-- summernote -->
     <link rel="stylesheet" href="{{ asset('themes/backend/plugins/summernote/summernote-bs4.min.css') }}">
@@ -78,37 +78,31 @@
             <!-- jquery validation -->
             <div class="card card-default">
                 <div class="card-header">
-                    <h3 class="card-title">Services Information</h3>
+                    <h3 class="card-title">How It Works Information</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form id="news-form" enctype="multipart/form-data" action="{{ route('services.update',['service'=>$service->id]) }}" class="form-horizontal" method="post">
+                <form id="news-form" enctype="multipart/form-data" action="{{ route('how-it-works.update',['how_it_work'=>$howItWork->id]) }}" class="form-horizontal" method="post">
                     @csrf
                     @method('PUT')
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group row">
-                                    <label for="title" class="col-sm-2 col-form-label">Title <span class="text-danger">*</span></label>
+                                    <label for="name" class="col-sm-2 col-form-label">Name <span class="text-danger">*</span></label>
                                     <div class="col-sm-10">
-                                        <input type="text" value="{{ old('title',$service->title) }}" name="title" class="form-control" id="title" placeholder="Enter Title">
-                                        <span id="title-error" class="text-danger error-message"></span>
+                                        <input type="text" value="{{ old('name',$howItWork->name) }}" name="name" class="form-control" id="name" placeholder="Enter Client Name">
+                                        <span id="name-error" class="text-danger error-message"></span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="form-group row">
-                            <label for="description" class="col-sm-2 col-form-label">Description</label>
+                            <label for="details" class="col-sm-2 col-form-label">Details</label>
                             <div class="col-sm-10">
-                                <textarea name="description" id="description">{{ old('description',$service->description) }}</textarea>
-                                <span id="description-error" class="text-danger error-message"></span>
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="price" class="col-sm-2 col-form-label">Price <span class="text-danger">*</span></label>
-                            <div class="col-sm-10">
-                                <input type="number" value="{{ old('price', $service->price ) }}" name="price" class="form-control" id="price" placeholder="Enter Price">
-                                <span id="price-error" class="help-block error-message"></span>
+                                <textarea name="details" id="details">{{ old('details',$howItWork->details) }}</textarea>
+                                <span id="details-error" class="text-danger error-message"></span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -121,7 +115,8 @@
                                 </div>
 
                                 <div id="file-previews" class="file-preview row">
-                                    @foreach($service->attachments as $attachment)
+                                    @if($attachment = $howItWork->attachments)
+
                                         @php
                                             $pathExtension = pathinfo($attachment->file,PATHINFO_EXTENSION);
                                             $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'webp'];
@@ -134,7 +129,7 @@
                                             <input type="hidden" value="{{ $attachment->id }}" class="attachment_id">
                                             <div data-id="{{ $attachment->id }}" class="remove-button old-file-remove">Remove</div>
                                         </div>
-                                    @endforeach
+                                    @endif
                                 </div>
                                 <span id="attachments-error" class="text-danger error-message"></span>
                             </div>
@@ -143,13 +138,13 @@
                             <label class="col-sm-2 col-form-label">Status <span class="text-danger">*</span></label>
                             <div class="col-sm-10">
                                 <div class="icheck-success d-inline pull-right">
-                                    <input  type="radio" id="active" name="status" value="1" {{ old('status',$service->status) == '1' ? 'checked' : '' }}>
+                                    <input  type="radio" id="active" name="status" value="1" {{ old('status',$howItWork->status) == '1' ? 'checked' : '' }}>
                                     <label for="active">
                                         Active
                                     </label>
                                 </div>
                                 <div class="icheck-danger d-inline pull-right">
-                                    <input type="radio" id="inactive" name="status" value="0" {{ old('status',$service->status) == '0' ? 'checked' : '' }}>
+                                    <input type="radio" id="inactive" name="status" value="0" {{ old('status',$howItWork->status) == '0' ? 'checked' : '' }}>
                                     <label for="inactive">
                                         Inactive
                                     </label>
@@ -161,7 +156,7 @@
                     <!-- /.card-body -->
                     <div class="card-footer">
                         <button type="button" id="news-form-btn" class="btn btn-primary bg-gradient-primary btn-sm">Save</button>
-                        <a href="{{ route('services.index') }}" class="btn btn-danger bg-gradient-danger btn-sm float-right">Cancel</a>
+                        <a href="{{ route('how-it-works.index') }}" class="btn btn-danger bg-gradient-danger btn-sm float-right">Cancel</a>
                     </div>
                     <!-- /.card-footer -->
                 </form>
@@ -176,7 +171,7 @@
     <script src="{{ asset('themes/backend/plugins/summernote/summernote-bs4.min.js') }}"></script>
     <script>
         // Summernote
-        $('#description').summernote();
+        $('#details').summernote();
 
         $('#news-form-btn').click(function () {
             preloaderToggle(true);
@@ -280,7 +275,7 @@
             const newInput = document.createElement('input');
             newInput.type = 'file';
             newInput.classList.add('file-upload');
-            newInput.multiple = true;
+            newInput.multiple = false;
             newInput.onchange = function () {
                 displayFilePreviews(newInput);
             };
