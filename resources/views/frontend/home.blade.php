@@ -217,7 +217,7 @@
             </div>
             <div class="row text-center">
                 <div class="col-lg-12">
-                    <div class="d-flex flex-wrap flex-row justify-content-start">
+                    <div class="d-flex flex-wrap flex-row justify-content-center">
                         @foreach($services as $service)
                             <div class="card" style="width: 18rem;margin-right:10px; margin-bottom:10px; ">
                                 <div class="">

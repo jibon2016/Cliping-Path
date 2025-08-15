@@ -159,7 +159,7 @@
                                 @foreach($services as $service)
                                     <li>
                                         <a href="{{route('services.all', ['service' => $service->slug])}}">
-                                            <img src="{{asset($service->icon)}}" alt="{{ $service->title }}">
+{{--                                            <img src="{{asset($service->icon)}}" alt="{{ $service->title }}">--}}
                                             <p class="submenu-text">{{ $service->title }}</p>
                                         </a>
                                     </li>
@@ -307,13 +307,13 @@
 
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-info">
-                            <div style="position: relative;width: 70%;" class="">
+                            <div style="position: relative;width: 100%;" class="">
                                 <div class="loader" id="loader-lottieContainer4" style="display: none;"></div>
                                 <div class="small-logo text-center">
                                     <img loading="lazy" src="{{asset('img/logo.png')}}" alt="Colors Logo">
                                 </div>
                             </div>
-                            <span>Since 2001, we've been dedicated to helping brands scale up, boasting a talented team of 200+ editors who have assisted over 9,000 brands throughout the years.</span>
+                            <span class="text-justify">Since 2015, we have been passionately committed to helping brands grow and succeed. With a skilled team of over 30 editors, we’ve proudly supported more than 100 brands in scaling their vision and achieving their goals over the years.</span>
                         </div>
                     </div>
 
@@ -361,7 +361,7 @@
             <div class="footer-legal text-left">
                 <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
                     <div class="credits">
-                        Complete content including text and visuals in this website are copyrighted. Without prior consent from The Clipping., the information cannot be used by visitors in any manner. <br><a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-use.html">Terms of Use </a> | The Clipping © 2025 All rights reserved.
+                        <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-use.html">Terms of Use </a> | The Clipping © 2025 All rights reserved.
                     </div>
                     <div class="col-lg-3 col-md-12 social-links order-first order-lg-last mb-3 mb-lg-0 text-center social-links-container">
                         <a href="#"><i class="fab fa-facebook"></i></a>
