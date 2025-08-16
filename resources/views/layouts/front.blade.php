@@ -305,7 +305,7 @@
             <div class="container">
                 <div class="row">
 
-                    <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6" style="padding-right: 30px;">
                         <div class="footer-info">
                             <div style="position: relative;width: 100%;" class="">
                                 <div class="loader" id="loader-lottieContainer4" style="display: none;"></div>
@@ -317,10 +317,10 @@
                         </div>
                     </div>
 
-                    <div class="col-lg-2 col-md-6 footer-link no-circle">
+                    <div class="col-lg-2 col-md-6 footer-link no-circle" style="padding-left: 30px;">
                         <h3 class="mb-4">Services</h3>
                         <ul>
-                            @foreach($services->take(6) as $service)
+                            @foreach($services->take(7) as $service)
                                 <li><i class="fas fa-chevron-right"></i>
                                     <a href="{{route('services.all', ['service' => $service->slug])}}">{{ $service->title }}</a>
                                 </li>
@@ -330,7 +330,7 @@
                     <div class="col-lg-2 col-md-6 footer-link no-circle">
                         <h3 class="mb-4 pt-4"></h3>
                         <ul>
-                            @foreach($services->skip(6) as $service)
+                            @foreach($services->skip(7) as $service)
                                 <li><i class="fas fa-chevron-right"></i>
                                     <a href="{{route('services.all', ['service' => $service->slug])}}">{{ $service->title }}</a>
                                 </li>
@@ -374,10 +374,10 @@
                         <a href="privacy-policy.html">Privacy Policy</a> | <a href="terms-of-use.html">Terms of Use </a> | The Clipping © 2025 All rights reserved.
                     </div>
                     <div class="col-lg-3 col-md-12 social-links order-first order-lg-last mb-3 mb-lg-0 text-center social-links-container">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-x-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="{{ $contact->facebook_url }}"><i class="fab fa-facebook"></i></a>
+                        <a href="{{ $contact->instagram_url }}"><i class="fab fa-instagram"></i></a>
+                        <a href="{{ $contact->x_url }}"><i class="fab fa-x-twitter"></i></a>
+                        <a href="{{ $contact->linkedin_url }}"><i class="fab fa-linkedin"></i></a>
 
                     </div>
                 </div>
@@ -405,7 +405,7 @@
         <!-- Cookie Banner -->
         <div id="cb-cookie-banner" class="alert alert-dark text-center mb-0" role="alert">
             🍪 This website uses cookies to ensure you get the best experience on our website.
-            <a href="privacy-policy.html" target="blank">Learn more</a>
+            <a href="#" target="blank">Learn more</a>
             <button type="button" class="btn btn-success btn-sm ms-3" onclick="window.cb_hideCookieBanner()">
                 I Got It
             </button>

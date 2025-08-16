@@ -14,7 +14,7 @@
                 <div class="col-md-6 mb-md-50 mb-sm-30 z-index-1 input__section">
                     <h1 class="hero-title-small mb-10 mb-sm-10 wow fadeInUp">Contact- The Living Colors Studio</h1>
                     <h2 class="section-title mb-50 mb-sm-30">
-                        Let’s Create <span class="color-primary-1">Experiences!</span>
+                        Please verify our <span class="color-primary-1">skills!</span>
                     </h2>
 
                     <i style="display: none;" class="icon-arrow-left backButton"></i>
@@ -26,11 +26,11 @@
                             <input type="text" name="my_name" id="my_name" value="">
                         </div>
                         <div class="input-group">
-                            <label for="name pr-3">Hi! I am Jumman</label>
+                            <label for="name pr-3">For more information, please click here. </label>
                             <input class="contactInputCls" type="hidden" name="name" id="name" value="" placeholder=" MP. Martin" required>
                         </div>
                         <div class="input-group">
-                            <label for="email">Reach me at  hello@gmail.com</label>
+                            <label for="email">photopixelqa@gmail.com</label>
                             <input class="contactInputCls" type="hidden" name="email" id="email" value="" placeholder="  mp.hello@gmail.com" required>
                         </div>
                         <div class="additional-inputs" style="display: none;">
@@ -145,9 +145,9 @@
 
             </div>
         </div>
-        <div class="container contact__us">
+        <div class="container contact__us mt-5">
             <div class="row align-items-end">
-                <div class="col-lg-3 col-md-6 text-center"> <!-- Use col-md-6 for medium screens -->
+                <div class="col-lg-2 col-md-6 text-center"> <!-- Use col-md-6 for medium screens -->
                     <dotlottie-player
                         autoplay
                         mode="bounce"
@@ -159,13 +159,23 @@
                     </dotlottie-player>
                     <h4 class="local_time" id="usaTime">12:48 PM</h4>
                 </div>
-                <div class="col-lg-3 col-md-6"> <!-- Use col-md-6 for medium screens -->
+                <div class="col-lg-2 col-md-6"> <!-- Use col-md-6 for medium screens -->
                     <h3 class="location">USA Office</h3>
                     <p class="address">
-                        41-44, 75 Street, Suite# 1B, Elmhurst, New York – 11373, USA
+                        7405 S 45th Dr Laveen, Arizona, USA 85339
                     </p>
                 </div>
-                <div class="col-lg-3 col-md-6 text-center"> <!-- Use col-md-6 for medium screens -->
+                <div class="col-lg-2 col-md-6 text-center"> <!-- Use col-md-6 for medium screens -->
+                    <img src="{{ asset('/json/qatat.jpeg') }}" alt="qatar">
+                    <h4 class="local_time" id="qatarTime">10:48 PM</h4>
+                </div>
+                <div class="col-lg-2 col-md-6"> <!-- Use col-md-6 for medium screens -->
+                    <h3 class="location">Qatar Office</h3>
+                    <p class="address">
+                        Umm Al Amad, Line-01, Vila-06, Unit-45, Flat-F4, Doha, Qatar
+                    </p>
+                </div>
+                <div class="col-lg-2 col-md-6 text-center"> <!-- Use col-md-6 for medium screens -->
                     <dotlottie-player
                         autoplay
                         mode="bounce"
@@ -177,7 +187,7 @@
                     </dotlottie-player>
                     <h4 class="local_time" id="bangladeshTime">10:48 PM</h4>
                 </div>
-                <div class="col-lg-3 col-md-6"> <!-- Use col-md-6 for medium screens -->
+                <div class="col-lg-2 col-md-6"> <!-- Use col-md-6 for medium screens -->
                     <h3 class="location">Bangladesh Office</h3>
                     <p class="address">
                         Plot No. 833, Road No. 12, Avenue 4, Dhaka 1216
@@ -201,6 +211,7 @@
 
             // Get the current time for Bangladesh
             var bdTime = new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka', hour12: true, month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+            var qatarTime = new Date().toLocaleString('en-US', { timeZone: 'Asia/Qatar', hour12: true, month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' });
 
             // Log raw date values and formatted times
             // console.log("Raw USA Time:", usaTime);
@@ -209,6 +220,7 @@
             // Update the time elements
             document.getElementById('usaTime').textContent = usaTime;
             document.getElementById('bangladeshTime').textContent = bdTime;
+            document.getElementById('qatarTime').textContent = qatarTime;
         }
         // Call updateTime function initially
         updateTime();

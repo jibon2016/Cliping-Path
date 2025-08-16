@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attachment;
 use App\Models\HomeContent;
 use App\Models\WCU;
 use Illuminate\Http\Request;
@@ -155,11 +156,31 @@ class BackendHomeController extends Controller
 
         try {
 
-            WCU::create([
+           $wcu = WCU::create([
                 'title' => $validatedData['title'],
                 'description' => $validatedData['description'],
                 'status' => $validatedData['status'],
             ]);
+
+            if ($request->file('attachments')) {
+                $counter = 0;
+                foreach ($request->file('attachments') as $key => $attachmentFile) {
+                    $filename = Uuid::uuid1()->toString() . $wcu->id . '-' . $key . '.' . $attachmentFile->extension();
+
+                    $destinationPath = 'uploads/attachments/wcu';
+                    $attachmentFile->move(public_path($destinationPath), $filename);
+                    $path = 'uploads/attachments/wcu/' . $filename;
+
+
+                    $attachment = new Attachment([
+                        'user_id' => auth()->id(),
+                        'file' => $path,
+                        'sort' => $request->attachment_sort[$counter],
+                    ]);
+                    $wcu->attachments()->save($attachment);
+                    $counter++;
+                }
+            }
 
             DB::commit();
 
@@ -200,6 +221,26 @@ class BackendHomeController extends Controller
         try {
 
             $wcu->update($validatedData);
+
+            if ($request->file('attachments')) {
+                $counter = 0;
+                foreach ($request->file('attachments') as $key => $attachmentFile) {
+                    $filename = Uuid::uuid1()->toString().$wcu->id.'-'.$key.'.' .$attachmentFile->extension();
+
+                    $destinationPath = 'uploads/attachments/wcu';
+                    $attachmentFile->move(public_path($destinationPath), $filename);
+                    $path = 'uploads/attachments/wcu/' . $filename;
+
+
+                    $wcu->attachments()->create([
+                        'user_id' => auth()->id(),
+                        'file' => $path,
+                        'sort' => $request->attachment_sort[$counter],
+                    ]);
+
+                    $counter++;
+                }
+            }
 
             DB::commit();
             return response()->json([

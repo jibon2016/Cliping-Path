@@ -101,6 +101,34 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Attachments</label>
+                            <div class="col-sm-10">
+                                <div class="upload-container">
+                                    <span class="flow-text" onclick="triggerFileInput()">Click or drag and drop attachments files here</span>
+                                    <input type="file" accept=".jpg, .jpeg, .png" class="file-upload" name="attachments[]"
+                                           onchange="displayFilePreviews(this)" multiple>
+                                </div>
+
+                                <div id="file-previews" class="file-preview row">
+                                    @if($attachment = $wcu->attachments)
+                                        @php
+                                            $pathExtension = pathinfo($attachment->file,PATHINFO_EXTENSION);
+                                            $imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'bmp', 'tiff', 'webp'];
+                                        @endphp
+                                        <div class="wrapper-list-item">
+                                            <input type="number" value="{{ $attachment->sort }}" placeholder="Sort" class="file-title-input old-file-sort-update">
+                                            @if(in_array($pathExtension,$imageExtensions))
+                                                <a download href="{{ asset($attachment->file) }}"><img class="preview-image" src="{{ asset($attachment->file) }}"></a>
+                                            @endif
+                                            <input type="hidden" value="{{ $attachment->id }}" class="attachment_id">
+                                            <div data-id="{{ $attachment->id }}" class="remove-button old-file-remove">Remove</div>
+                                        </div>
+                                    @endif
+                                </div>
+                                <span id="attachments-error" class="text-danger error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Status <span class="text-danger">*</span></label>
                             <div class="col-sm-10">
                                 <div class="icheck-success d-inline pull-right">

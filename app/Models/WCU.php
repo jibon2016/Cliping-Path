@@ -9,4 +9,9 @@ class WCU extends Model
     //
     protected $guarded = [];
     protected $table = 'wcu';
+
+    public function attachments()
+    {
+        return $this->morphOne(Attachment::class, 'attachable');
+    }
 }

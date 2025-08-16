@@ -210,8 +210,8 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="text-center" style="background-size: cover;">
-                    <h3 class="section-title mb-30 mb-xs-20 wow fadeInUp">Our <span class="color-primary-1">Service</span> You Need</h3>
-                    <p class="section-descr mb-40 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1.2s" data-wow-offset="0">Discover the comprehensive range of services tailored to meet your every need. From image editing to video production and 3D modeling, we offer top-notch solutions to elevate your projects to new heights. Explore our services and unlock the potential for stunning visual content.</p>
+                    <h3 class="section-title mb-30 mb-xs-20 wow fadeInUp">The <span class="color-primary-1">Service</span> You Can Rely On</h3>
+                    <p class="section-descr mb-40 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1.2s" data-wow-offset="0">We provide exactly the service you need to elevate your business. With expertise, dedication, and proven editing, we turn your vision into global success.</p>
                     <div class="spacer-20" style="background-size: cover;"></div>
                 </div>
             </div>
@@ -363,7 +363,7 @@
 
                 <div class="col-md-12 wow fadeInLeft text-center" data-wow-delay="0s">
                     <h3 class="section-title-service mb-30 mb-xs-20 wow fadeInUp">
-                        Why <span class="color-primary-1">Choose</span> Us
+                        Why <span class="color-primary-1">Hire</span> Us?
                     </h3>
                     <p class="section-descr">
 
@@ -378,7 +378,7 @@
                                     <div class="card-body">
                                         <div class="text-center">
                                             <!-- Icon for Faster Delivery -->
-                                            <i class="fas fa-shipping-fast fa-3x mb-3 color-primary-1"></i>
+                                            <img class="mb-3" src="{{ asset($wcu->attachments->file) }}" alt="">
                                             <h4>{{$wcu->title}}</h4>
                                             <p class="description txt-lim4">
                                                 {!! $wcu->description !!}
@@ -474,7 +474,6 @@
                         {{--                        </div>--}}
                     </div>
                 </div>
-
             </div>
             <!-- End Grid -->
 

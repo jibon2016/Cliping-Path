@@ -4,38 +4,63 @@
 
     <link rel="stylesheet" href="{{ asset('themes/backend/plugins/summernote/summernote-bs4.min.css') }}">
     <style>
-        .image-upload {
-            position: relative;
+        .upload-container {
+            text-align: center;
+            padding: 20px;
+            border: 2px dashed #3498db;
+            border-radius: 8px;
+            cursor: pointer;
             margin-bottom: 20px;
         }
 
-        .file-label {
-            display: inline-block;
-            padding: 10px 20px;
-            cursor: pointer;
-            background-color: #3498db;
-            color: #fff;
-            border-radius: 5px;
-        }
-
-        #upload {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-
-        .image-preview {
-            width: 200px;
-            height: 200px;
-            border: 1px solid #ccc;
-            background-size: cover;
-            background-position: center;
+        .file-upload {
             display: none;
+        }
+
+
+        .preview-image {
+            width: 100%;
+            max-height: 100px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            object-fit: contain;
+        }
+
+        .preview-pdf {
+            width: 100%;
+            height: 100px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #ddd;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .file-title-input {
+            font-size: 14px;
             margin-top: 10px;
+            width: 100%;
+            padding: 4px;
+            box-sizing: border-box;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 14px;
+        }
+
+        .remove-button {
+            color: #e74c3c;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .wrapper-list-item {
+            display: inline-block;
+            width: 18%;
+            margin: 1%;
+            text-align: center;
         }
     </style>
 @endsection
@@ -65,6 +90,18 @@
                             <div class="col-sm-10">
                                 <textarea name="description" class="form-control" id="description">{{ old('description') }}</textarea>
                                 <span id="description-error" class="text-danger error-message"></span>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label">Image</label>
+                            <div class="col-sm-10">
+                                <div class="upload-container">
+                                    <span class="flow-text" onclick="triggerFileInput()">Click or drag and drop attachments files here</span>
+                                    <input accept=".jpg, .jpeg, .png" type="file" class="file-upload" name="attachments[]" onchange="displayFilePreviews(this)">
+                                </div>
+
+                                <div id="file-previews" class="file-preview row"></div>
+                                <span id="attachments-error" class="text-danger error-message"></span>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -184,5 +221,76 @@
                 }
             });
         });
+
+        function triggerFileInput() {
+            const fileInput = document.querySelector('.file-upload');
+            fileInput.click();
+        }
+
+        function addFileInput() {
+            const newInput = document.createElement('input');
+            newInput.type = 'file';
+            newInput.classList.add('file-upload');
+            newInput.multiple = false;
+            newInput.onchange = function () {
+                displayFilePreviews(newInput);
+            };
+
+            const filePreviews = document.getElementById('file-previews');
+            filePreviews.appendChild(newInput);
+        }
+
+        function displayFilePreviews(input) {
+            const fileInput = input;
+            const filePreviews = document.getElementById('file-previews');
+            const previewItem = document.createElement('div');
+            previewItem.classList.add('file-preview');
+
+            Array.from(fileInput.files).forEach(file => {
+                const wrapperListItem = document.createElement('div');
+                wrapperListItem.classList.add('wrapper-list-item');
+                previewItem.appendChild(wrapperListItem);
+                const sortInput = document.createElement('input');
+                sortInput.type = 'number';
+                sortInput.name = 'attachment_sort[]';
+                sortInput.placeholder = 'Sort';
+                sortInput.classList.add('file-title-input');
+
+                wrapperListItem.appendChild(sortInput);
+
+                if (file.type.startsWith('image/')) {
+                    // Image preview
+                    const previewImage = document.createElement('img');
+                    previewImage.classList.add('preview-image');
+                    previewImage.src = URL.createObjectURL(file);
+                    wrapperListItem.appendChild(previewImage);
+                } else if (file.type === 'application/pdf') {
+                    // PDF preview
+                    const previewPdf = document.createElement('div');
+                    previewPdf.classList.add('preview-pdf');
+                    previewPdf.textContent = 'PDF';
+                    wrapperListItem.appendChild(previewPdf);
+                } else {
+                    // Other file types (e.g., documents)
+                    const previewPdf = document.createElement('div');
+                    previewPdf.classList.add('preview-pdf');
+                    previewPdf.textContent = file.name;
+                    wrapperListItem.appendChild(previewPdf);
+                }
+
+                // Add a remove button for each preview
+                const removeButton = document.createElement('div');
+                removeButton.classList.add('remove-button');
+                removeButton.textContent = 'Remove';
+                removeButton.onclick = function () {
+                    fileInput.value = ''; // Clear the input
+                    wrapperListItem.remove();
+                };
+
+                wrapperListItem.appendChild(removeButton);
+
+                filePreviews.appendChild(wrapperListItem);
+            });
+        }
     </script>
 @endsection
