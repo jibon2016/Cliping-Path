@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CompanyInformation;
+use App\Models\ContactInformation;
 use Illuminate\Http\Request;
 
 class CompanyInformationController extends Controller
@@ -20,6 +21,16 @@ class CompanyInformationController extends Controller
         }
 
         return view('backend.about_us.about_us',compact('company_information'));
+    }
+
+    public function contactUs()
+    {
+
+        $company_information = CompanyInformation::first();
+        if (!$company_information){
+            $company_information = CompanyInformation::create([]);
+        }
+        return view('backend.about_us.contact_us',compact('company_information' ));
     }
     public function managementMessage()
     {
@@ -128,10 +139,13 @@ class CompanyInformationController extends Controller
     public function update(Request $request, CompanyInformation $company_information)
     {
 
-
+//        dd($request->all());
         $rules = [];
         if ($request->has('about_us')) {
             $rules['about_us'] = 'required';
+        }
+        if ($request->has('contact_us')) {
+            $rules['contact_us'] = 'required';
         }
         if ($request->has('chairman_message')) {
             $rules['chairman_message'] = 'required';
@@ -171,6 +185,10 @@ class CompanyInformationController extends Controller
             if ($request->has('about_us')) {
                 $content = handleImagesInContent($request->about_us,'uploads/about_us/content');
                 $company_information->about_us = $content;
+            }
+            if ($request->has('contact_us')) {
+                $content = handleImagesInContent($request->contact_us,'uploads/contact_us/content');
+                $company_information->contact_us = $content;
             }
             if ($request->has('chairman_message')) {
                 $content = handleImagesInContent($request->chairman_message,'uploads/chairman_message/content');

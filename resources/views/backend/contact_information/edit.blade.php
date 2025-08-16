@@ -71,6 +71,15 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group row">
+                                    <label for="instragram_url" class="col-sm-12">Instagram Url</label>
+                                    <div class="col-sm-12">
+                                        <input type="text" placeholder="Enter Facebook Page Url" value="{{ old('instragram_url',$contact_information->instragram_url) }}" name="instragram_url" class="form-control" id="instragram_url">
+                                        <span id="instragram_url-error" class="text-danger error-message"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
                                     <label for="linkedin_url" class="col-sm-12">Linkedin Page Url</label>
                                     <div class="col-sm-12">
                                         <input type="text" placeholder="Enter Linkedin Page Url" value="{{ old('linkedin_url',$contact_information->linkedin_url) }}" name="linkedin_url" class="form-control" id="linkedin_url">

@@ -74,6 +74,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
 
     //About Us
     Route::get('about-us', [CompanyInformationController::class, 'aboutUs'])->name('about-us');
+    Route::get('contact-us', [CompanyInformationController::class, 'contactUs'])->name('contact-us');
     Route::get('management-message', [CompanyInformationController::class, 'managementMessage'])->name('management.message');
     //Who We Are
     Route::get('background', [CompanyInformationController::class, 'background'])->name('background');
@@ -85,6 +86,7 @@ Route::middleware('auth')->prefix('admin')->group(function () {
     Route::get('working-area', [CompanyInformationController::class, 'workingArea'])->name('working-area');
     Route::get('at-a-glance', [CompanyInformationController::class, 'atAGlance'])->name('at-a-glance');
     Route::post('company-information/update/{company_information}', [CompanyInformationController::class, 'update'])->name('company-information.update');
+
 
     //Team Member
     Route::resource('team-members', TeamMemberController::class);

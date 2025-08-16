@@ -313,14 +313,24 @@
                                     <img loading="lazy" src="{{asset('img/logo.png')}}" alt="Colors Logo">
                                 </div>
                             </div>
-                            <span class="text-justify">Since 2015, we have been passionately committed to helping brands grow and succeed. With a skilled team of over 30 editors, we’ve proudly supported more than 100 brands in scaling their vision and achieving their goals over the years.</span>
+                            <p style="text-align: justify; line-height: 1.2; font-size: 12px; padding: 10px 0;">Since 2015, we have been passionately committed to helping brands grow and succeed. With a skilled team of over 30 editors, we’ve proudly supported more than 100 brands in scaling their vision and achieving their goals over the years.</p>
                         </div>
                     </div>
 
-                    <div class="col-lg-3 col-md-6 footer-link no-circle">
+                    <div class="col-lg-2 col-md-6 footer-link no-circle">
                         <h3 class="mb-4">Services</h3>
                         <ul>
-                            @foreach($services as $service)
+                            @foreach($services->take(6) as $service)
+                                <li><i class="fas fa-chevron-right"></i>
+                                    <a href="{{route('services.all', ['service' => $service->slug])}}">{{ $service->title }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-6 footer-link no-circle">
+                        <h3 class="mb-4 pt-4"></h3>
+                        <ul>
+                            @foreach($services->skip(6) as $service)
                                 <li><i class="fas fa-chevron-right"></i>
                                     <a href="{{route('services.all', ['service' => $service->slug])}}">{{ $service->title }}</a>
                                 </li>
@@ -338,7 +348,7 @@
                     @php
                         $contact = \App\Models\ContactInformation::first();
                     @endphp
-                    <div class="col-lg-4 col-md-6 footer-links contact__us">
+                    <div class="col-lg-3 col-md-6 footer-links contact__us">
                         <h3 class="mb-4">Contact Us</h3>
                         <ul>
                             <li class="pb-2">

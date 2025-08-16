@@ -3,7 +3,7 @@
 @section('content')
     <!-- Background Shape -->
     <div class="bg-shape-1 wow fadeIn">
-        <img loading="lazy" src="https://cdn.livingcolors.studio/colors/images/background/bg-shape-1.svg" alt="background" />
+        <img loading="lazy" src="https://livingcolors.studio/colors/images/background/bg-shape-1.svg" alt="background" />
     </div>
     <!-- End Background Shape -->
     <!-- Contact Section -->
@@ -22,7 +22,7 @@
                     </div>
 
                     <form id="contactForm" action="https://livingcolors.studio/contact-us" method="POST">
-                        <input type="hidden" name="_token" value="vWSkE0yBgqohVdCbaLvojU1gg0XiieEAQxtMzvkQ" autocomplete="off">                        <div style="display:none;">
+                        <div style="display:none;">
                             <input type="text" name="my_name" id="my_name" value="">
                         </div>
                         <div class="input-group">
@@ -101,7 +101,7 @@
                                     Our Address
                                 </h4>
                                 <div class="ci-text">
-                                    41-44, 75 Street, Suite# 1B, Elmhurst, New York – 11373, USA
+                                    {{ $contactInformation->address }}
                                 </div>
 
                             </div>
@@ -116,7 +116,7 @@
                                     Our Email
                                 </h4>
                                 <div class="ci-text">
-                                    cs@livingcolors.studio
+                                    {{ $contactInformation->email }}
                                 </div>
 
                             </div>
@@ -131,7 +131,7 @@
                                     Call Us
                                 </h4>
                                 <div class="ci-text">
-                                    +1 (718) 717 2362
+                                    {{ $contactInformation->mobile_no }}
                                 </div>
 
                             </div>
@@ -152,7 +152,7 @@
                         autoplay
                         mode="bounce"
                         loop
-                        src="https://cdn.livingcolors.studio/colors/images/icons/json/others/us_pin.lottie"
+                        src="{{ asset('/json/usa.json') }}"
                         style="width: 60%; margin: auto;"
                         subframe=""
                     >
@@ -170,7 +170,7 @@
                         autoplay
                         mode="bounce"
                         loop
-                        src="https://cdn.livingcolors.studio/colors/images/icons/json/others/bd_pin.lottie"
+                        src="{{ asset('/json/bd.json') }}"
                         style="width: 60%; margin: auto;"
                         subframe=""
                     >
@@ -188,8 +188,31 @@
 
         <div class="container mt-0 d-none d-lg-block d-xl-block">
             <div class="map">
-
             </div>
         </div>
     </section>
+@endsection
+@section('script')
+    <script>
+        // JavaScript
+        function updateTime() {
+            // Get the current time for USA
+            var usaTime = new Date().toLocaleString('en-US', { timeZone: 'America/New_York', hour12: true, month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+
+            // Get the current time for Bangladesh
+            var bdTime = new Date().toLocaleString('en-US', { timeZone: 'Asia/Dhaka', hour12: true, month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', second: 'numeric' });
+
+            // Log raw date values and formatted times
+            // console.log("Raw USA Time:", usaTime);
+            // console.log("Raw Bangladesh Time:", bdTime);
+
+            // Update the time elements
+            document.getElementById('usaTime').textContent = usaTime;
+            document.getElementById('bangladeshTime').textContent = bdTime;
+        }
+        // Call updateTime function initially
+        updateTime();
+        // Update time every second
+        setInterval(updateTime, 1000);
+    </script>
 @endsection

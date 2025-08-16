@@ -34,6 +34,7 @@ class ContactInformationController extends Controller
             'email'=>'nullable|max:255',
             'address'=>'nullable|max:255',
             'facebook_url'=>'nullable',
+            'instragram_url'=>'nullable',
             'linkedin_url'=>'nullable',
             'x_url'=>'nullable',
             'whatsapp_no'=>'nullable',

@@ -231,7 +231,7 @@
 
                 <?php
                 $subMenu = [
-                    'about-us','management.message',
+                    'about-us','management.message','contact-us'
                 ];
             ?>
 
@@ -254,6 +254,16 @@
                            class="nav-link {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'active' : '' }}">
                             <i class="far  {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'fa-check-circle' : 'fa-circle' }} nav-icon"></i>
                             <p>About {{ config('app.name') }}</p>
+                        </a>
+                    </li>
+                    <?php
+                    $subSubMenu = ['contact-us'];
+                    ?>
+                    <li class="nav-item">
+                        <a href="{{ route('contact-us') }}"
+                           class="nav-link {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'active' : '' }}">
+                            <i class="far  {{ in_array(Route::currentRouteName(), $subSubMenu) ? 'fa-check-circle' : 'fa-circle' }} nav-icon"></i>
+                            <p>Contact Us</p>
                         </a>
                     </li>
                     <?php
