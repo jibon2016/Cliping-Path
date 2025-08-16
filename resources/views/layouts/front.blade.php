@@ -320,7 +320,7 @@
                     <div class="col-lg-2 col-md-6 footer-link no-circle" style="padding-left: 30px;">
                         <h3 class="mb-4">Services</h3>
                         <ul>
-                            @foreach($services->take(7) as $service)
+                            @foreach($services->take(6) as $service)
                                 <li><i class="fas fa-chevron-right"></i>
                                     <a href="{{route('services.all', ['service' => $service->slug])}}">{{ $service->title }}</a>
                                 </li>
@@ -330,7 +330,7 @@
                     <div class="col-lg-2 col-md-6 footer-link no-circle">
                         <h3 class="mb-4 pt-4"></h3>
                         <ul>
-                            @foreach($services->skip(7) as $service)
+                            @foreach($services->skip(6) as $service)
                                 <li><i class="fas fa-chevron-right"></i>
                                     <a href="{{route('services.all', ['service' => $service->slug])}}">{{ $service->title }}</a>
                                 </li>
@@ -343,6 +343,7 @@
                         <ul>
                             <li><i class="fas fa-chevron-right"></i> <a href="{{ route('contact_us') }}">Contact Us</a></li>
                             <li><i class="fas fa-chevron-right"></i> <a href="{{ route('about_us') }}">About Us</a></li>
+                            <li><i class="fas fa-chevron-right"></i> <a href="https://stafir.com/">stafir</a></li>
                         </ul>
                     </div>
                     @php

@@ -168,7 +168,7 @@ Route::get('/activity/{slug}', [HomeController::class, 'activityShow'])->name('a
 Route::get('/program/{slug}', [HomeController::class, 'programShow'])->name('program-show');
 
 Route::get('/contact-us', [HomeController::class, 'contactUs'])->name('contact_us');
-Route::post('/contact-us', [HomeController::class, 'contactUsPost']);
+Route::post('/contact-us', [HomeController::class, 'contactUsPost'])->name('contact_us.post');
 
 Route::post('signup', [HomeController::class,'signup'])->name('signup');
 

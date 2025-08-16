@@ -72,7 +72,7 @@ class HomeController extends Controller
         })->latest()->take(12)->get();
 
         $wcus= WCU::where('status',1)->get();
-        $services= Service::where('status',1)->get();
+        $services= Service::where('status',1)->orderBy('id', 'ASC')->get();
         $clientFeedbacks = ClientFeedback::where('status', 1)->get();
 
         $homePageVideo = HomeContent::where('title','Video')

@@ -1,5 +1,74 @@
 @extends('layouts.front')
 @section('title','Contact Us')
+@section('style')
+    <style>
+        @media (max-width: 767.98px) {
+            /* Apply styles for screens smaller than or equal to 991.98px (sm, md, and lg) */
+            .contact__us .col-lg-3 {
+                text-align: center; /* Center-align text within col-lg-3 columns */
+            }
+            .local_time {
+                margin-top: 0px !important;
+            }
+        }
+        .location {
+            font-weight: 600 !important;
+        }
+        /*.local_time {*/
+        /*    margin-top: -35px;*/
+        /*    color:indigo;*/
+        /*}*/
+
+        .contact__us .container {
+            /* display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 110px; */
+        }
+        /* .contact__us .input-group input, textarea {
+            border-left: none;
+            border-right: none;
+            border-top: none;
+            border-bottom: 1px solid #cfcfcf !important;
+        }
+        .contact__us .input-group {
+            margin: 0;
+            font-size: 25px;
+            width: 100%;
+            font-weight: 700;
+        } */
+        /* CSS */
+        .contact__us .input-group {
+            margin: 0;
+            font-size: 20px;
+            width: 100%;
+            font-weight: 700;
+        }
+        .contact__us .input-group input,
+        .contact__us .input-group textarea {
+            /* margin: 0; */
+            /* font-size: 25px; */
+            border: none; /* Remove all borders */
+            border-bottom: 1px solid transparent; /* Add transparent bottom border */
+            outline: none; /* Remove default focus outline */
+        }
+
+        .contact__us .input-group input:focus,
+        .contact__us .input-group textarea:focus {
+            border-bottom: 1px solid #cfcfcf; /* Add bottom border on focus */
+        }
+        @media (max-width: 760px) {
+            .local_time {
+                margin-top: -70px !important;
+            }
+        }
+        @media (max-width: 120px) {
+            .local_time {
+                margin-top: -30px !important;
+            }
+        }
+    </style>
+@endsection
 @section('content')
     <!-- Background Shape -->
     <div class="bg-shape-1 wow fadeIn">
@@ -20,60 +89,40 @@
                     <i style="display: none;" class="icon-arrow-left backButton"></i>
                     <div class="textSection">
                     </div>
-
-                    <form id="contactForm" action="https://livingcolors.studio/contact-us" method="POST">
-                        <div style="display:none;">
-                            <input type="text" name="my_name" id="my_name" value="">
+                    <form id="contactForm" action="{{ route('contact_us.post') }}" method="POST">
+                        @csrf
+                        <div class="input-group">
+                            <label for="name pr-3">Hi! I am </label>
+                            <input class="contactInputCls" type="text" name="name" id="name" placeholder=" MP. Martin" required>
                         </div>
                         <div class="input-group">
-                            <label for="name pr-3">For more information, please click here. </label>
-                            <input class="contactInputCls" type="hidden" name="name" id="name" value="" placeholder=" MP. Martin" required>
-                        </div>
-                        <div class="input-group">
-                            <label for="email">photopixelqa@gmail.com</label>
-                            <input class="contactInputCls" type="hidden" name="email" id="email" value="" placeholder="  mp.hello@gmail.com" required>
+                            <label for="email">Reach me at </label>
+                            <input class="contactInputCls" type="email" name="email" id="email" placeholder=" mp.hello@gmail.com" required>
                         </div>
                         <div class="additional-inputs" style="display: none;">
                             <!-- Additional inputs here -->
                             <div class="input-group">
-                                <label for="country">Country </label>
-                                <input class="contactInputCls" name="country" type="text" id="country" value="" placeholder="  Country" required>
+                                <label for="phone">Country </label>
+                                <input class="contactInputCls" name="country" type="text" id="country" placeholder=" Country" required>
                             </div>
                             <div class="input-group">
                                 <label for="phone">Phone Number </label>
-                                <input class="contactInputCls" type="text" name="phone" id="phone" value="" placeholder="  Phone Number" required>
+                                <input class="contactInputCls" type="text" name="phone" id="phone" placeholder=" Phone Number" required>
                             </div>
                             <div class="input-group">
-                                <label for="company_name">Company Name </label>
-                                <input class="contactInputCls" type="text" name="company_name" id="company_name" value="" placeholder="  Company Name" required>
+                                <label for="phone">Company Name </label>
+                                <input class="contactInputCls" type="text" name="company_name" id="company_name" placeholder=" Company Name" required>
                             </div>
                             <div class="input-group">
                                 <label for="message">Message </label>
                                 <textarea class="contactInputCls" rows="5" id="message" name="message" placeholder="I want to know" style="width: 100%;" required></textarea>
-                                <input class="contactInputCls" type="hidden" name="ip" id="ip" value="27.147.202.175">
-                                <input type="hidden" name="datetime" value="1745167680">
                             </div>
                             <div class="input-group">
-                                <label for="captcha">Enter the code shown below:</label>
-                                <div style="display: flex; align-items: center; gap: 10px; margin-top: 5px;">
-                                    <div id="captchaText" style="
-                                        background: #f5f5f5;
-                                        padding: 10px 20px;
-                                        font-family: monospace;
-                                        font-size: 18px;
-                                        letter-spacing: 3px;
-                                        border: 1px solid #ddd;
-                                        border-radius: 4px;
-                                        user-select: none;
-                                        min-width: 100px;
-                                        text-align: center;
-                                    "></div>
-                                    <button type="button" id="refreshCaptcha" style="background: none; border: none; cursor: pointer;">
-                                        <i class="icon-refresh" style="font-size: 20px;"></i>
-                                    </button>
-                                </div>
-                                <input type="text" id="captcha" name="captcha" class="contactInputCls" style="margin-top: 5px;" required>
-                                <span id="captchaError" style="color: red; display: none; font-size: 12px;">Please enter the correct code.</span>
+                                <label for="captcha">What is 7 - 10?</label>
+                                <span style="display: inline-block; width: 20px;"></span>
+                                <input type="number" placeholder="Answer" id="captcha" name="captcha" class="contactInputCls" required>
+                                <input type="hidden" name="expected_result" value="-3">
+                                <span id="captchaError" style="color: red; display: none; font-size: 12px;">Incorrect CAPTCHA value.</span>
                             </div>
                         </div>
                         <h2 class="link-hover-anim">
@@ -90,7 +139,7 @@
                     <div class="row">
                         <div class="col-md-11">
                             <p class="description mb-5 mt-3 m-0">
-                            <p>No fake promises. We know we can make changes in your business. We’ve helped businesses grow from scratch. This time, it’s going to be how you stopped by Colors and turned your business into a global symbol. Let us be a part of your success.</p>
+                            We don't make Empty promises? We don't just talk; we deliver. We've helped businesses rise from the ground up, and now it's your turn. You can start working with us if you're interested, or send us two files to verify our skills, and watch your business evolve into a global symbol. Let us help you achieve success.
                             </p>
                             <!-- Address -->
                             <div class="contact-item mb-30 mb-sm-20">
@@ -190,7 +239,7 @@
                 <div class="col-lg-2 col-md-6"> <!-- Use col-md-6 for medium screens -->
                     <h3 class="location">Bangladesh Office</h3>
                     <p class="address">
-                        Plot No. 833, Road No. 12, Avenue 4, Dhaka 1216
+                        {{ $contactInformation->address }}
                     </p>
                 </div>
             </div>
@@ -204,6 +253,44 @@
 @endsection
 @section('script')
     <script>
+
+        $('body').on('click', '.contactInputCls', function () {
+            $('.textSection').slideUp('slow', function() {
+                $('.additional-inputs').slideDown('slow');
+                $('.backButton').slideDown('slow');
+
+                // Increase font size of placeholder text
+                $('#name').css('font-size', '16px');
+            });
+        });
+
+        $('body').on('click', '.backButton', function () {
+            $('.additional-inputs').slideUp('slow', function() {
+                $('.textSection').slideDown('slow');
+                $(this).hide();
+                $('.backButton').hide();
+
+                // Reset font size of placeholder text
+                $('#name').css('font-size', ''); // Reset to default
+            });
+        });
+
+        // document.getElementById('contactForm').addEventListener('submit', function(event) {
+        //     // Get user's input for CAPTCHA
+        //     var captchaValue = parseInt(document.getElementById('captcha').value);
+        //
+        //     // Get expected result
+        //     var expectedValue = parseInt("-3"); // Pass expected result from backend
+        //
+        //     // Check if CAPTCHA is correct
+        //     if (captchaValue !== expectedValue) {
+        //         // Prevent form submission
+        //         event.preventDefault();
+        //
+        //         // Show error message
+        //         document.getElementById('captchaError').style.display = 'block';
+        //     }
+        // });
         // JavaScript
         function updateTime() {
             // Get the current time for USA
