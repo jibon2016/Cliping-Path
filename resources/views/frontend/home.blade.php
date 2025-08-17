@@ -76,60 +76,6 @@
     </style>
 
     <style>
-        /*!* Handle Style *!*/
-        /*.twentytwenty-handle {*/
-        /*    width: 40px;*/
-        /*    height: 40px;*/
-        /*    margin-left: -20px;*/
-        /*    border: 3px solid white;*/
-        /*    background-color: transparent; !* Transparent background *!*/
-        /*    border-radius: 50%;*/
-        /*    cursor: ew-resize;*/
-        /*    position: absolute;*/
-        /*    z-index: 30;*/
-        /*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);*/
-        /*    display: flex;*/
-        /*    align-items: center;*/
-        /*    justify-content: center;*/
-        /*}*/
-
-        /*!* Remove hover effect *!*/
-        /*.twentytwenty-handle:hover,*/
-        /*.twentytwenty-handle:focus,*/
-        /*.twentytwenty-handle:active {*/
-        /*    background-color: transparent !important; !* No hover background *!*/
-        /*    border-color: white !important; !* No hover border color change *!*/
-        /*}*/
-
-        /*!* Icon Style *!*/
-        /*.twentytwenty-handle:before,*/
-        /*.twentytwenty-handle:after {*/
-        /*    content: "";*/
-        /*    display: inline-block;*/
-        /*    width: 12px;*/
-        /*    height: 12px;*/
-        /*    background-color: white;*/
-        /*    border-radius: 50%;*/
-        /*}*/
-
-        /*!* Adjust the position of the icons *!*/
-        /*.twentytwenty-horizontal .twentytwenty-handle:before {*/
-        /*    margin-right: 4px;*/
-        /*}*/
-
-        /*.twentytwenty-horizontal .twentytwenty-handle:after {*/
-        /*    margin-left: 4px;*/
-        /*}*/
-
-        /*!* Hide labels *!*/
-        /*.twentytwenty-before-label,*/
-        /*.twentytwenty-after-label {*/
-        /*    display: none !important;*/
-        /*}*/
-
-        /*.twentytwenty-overlay:hover {*/
-        /*    background: rgba(255, 255, 255, 0.15);*/
-        /*}*/
 
         .twentytwenty-container {
             width: 100%;
@@ -235,118 +181,6 @@
                                 </div>
                             </div>
                         @endforeach
-{{--                        @foreach($services as $service)--}}
-{{--                            <div>--}}
-{{--                                <div class="mt-4 pt-2">--}}
-{{--                                    <a href="background-removal.html">--}}
-{{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
-
-{{--                                        <div class="preview_image custom_animation">--}}
-{{--                                            <span class="circle_prev_one position-absolute"></span>--}}
-{{--                                            <span class="circle_prev_two position-absolute"></span>--}}
-{{--                                            <span class="circle_prev_three position-absolute"></span>--}}
-{{--                                            <div class="container1" class='twentytwenty-container'>--}}
-{{--                                                @foreach($service->attachments as $attachment )--}}
-{{--                                                    <img src="{{asset($attachment->file)}}" alt="jn">--}}
-{{--                                                @endforeach--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <h3 class="lh-base fs-16 mb-2 ">{{ $service->title }}</h3>--}}
-{{--                                        <span class="service-descr service-lim">--}}
-{{--                                            {!! $service->description !!}--}}
-{{--                                        </span>--}}
-{{--                                    </div>--}}
-{{--                                    </a>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                        @endforeach--}}
-
-                        {{--                        <div>--}}
-                        {{--                            <div class="mt-4 pt-2">--}}
-                        {{--                                --}}{{--<a href="background-removal.html">--}}
-                        {{--                                <div class="solution borderx rounded position-relative px-2 py-3">--}}
-
-                        {{--                                    <div class="preview_image custom_animation">--}}
-                        {{--                                        <span class="circle_prev_one position-absolute"></span>--}}
-                        {{--                                        <span class="circle_prev_two position-absolute"></span>--}}
-                        {{--                                        <span class="circle_prev_three position-absolute"></span>--}}
-                        {{--                                        <div class="container1" class='twentytwenty-container'>--}}
-                        {{--                                            <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
-                        {{--                                            <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
-                        {{--                                            <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
-                        {{--                                        </div>--}}
-                        {{--                                    </div>--}}
-
-                        {{--                                    <h3 class="lh-base fs-16 mb-2">Background Removal</h3>--}}
-                        {{--                                    <p class="service-descr service-lim">Removing the Background is easy; replacing it with something better is tough. And that’s what our image editing company is good at. We’ll remove the background of your image and replace it with something better that blends.</p>--}}
-                        {{--                                </div>--}}
-                        {{--                                --}}{{--</a>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div>--}}
-                        {{--                            <div class="mt-4 pt-2">--}}
-                        {{--                                <a href="clipping-path.html">--}}
-                        {{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
-                        {{--                                        <div class="preview_image custom_animation">--}}
-                        {{--                                            <span class="circle_prev_one position-absolute"></span>--}}
-                        {{--                                            <span class="circle_prev_two position-absolute"></span>--}}
-                        {{--                                            <span class="circle_prev_three position-absolute"></span>--}}
-                        {{--                                            <div class="container1" class='twentytwenty-container'>--}}
-                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
-                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
-                        {{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
-                        {{--                                            </div>--}}
-                        {{--                                        </div>--}}
-
-                        {{--                                        <h3 class="lh-base fs-16 mb-2">Clipping Path</h3>--}}
-                        {{--                                        <p class="service-descr service-lim">With completely hand-drawn clipping paths using the Photoshop pen tool, we give extra attention to the slightest of details. We guarantee professional image editing services to give you the cleanest images that bring you more conversion.</p>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </a>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div>--}}
-                        {{--                            <div class="mt-4 pt-2">--}}
-                        {{--                                <a href="photo-retouching.html">--}}
-                        {{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
-                        {{--                                        <div class="preview_image custom_animation">--}}
-                        {{--                                            <span class="circle_prev_one position-absolute"></span>--}}
-                        {{--                                            <span class="circle_prev_two position-absolute"></span>--}}
-                        {{--                                            <span class="circle_prev_three position-absolute"></span>--}}
-                        {{--                                            <div class="container1" class='twentytwenty-container'>--}}
-                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
-                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
-                        {{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
-                        {{--                                            </div>--}}
-                        {{--                                        </div>--}}
-
-                        {{--                                        <h3 class="lh-base fs-16 mb-2">Photo Retouching</h3>--}}
-                        {{--                                        <p class="service-descr service-lim">You’ve captured your image once, you don’t have to shoot it again. Send your image to us. We’ll enhance it, remove the unwanted and add the essentials. That way, even the once ‘not-so-perfect’ image you’ve captured will start to bring you sales.</p>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </a>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-
-                        {{--                        <div>--}}
-                        {{--                            <div class="mt-4 pt-2">--}}
-                        {{--                                <a href="color-adjustment.html">--}}
-                        {{--                                    <div class="solution borderx rounded position-relative px-2 py-3">--}}
-                        {{--                                        <div class="preview_image custom_animation">--}}
-                        {{--                                            <span class="circle_prev_one position-absolute"></span>--}}
-                        {{--                                            <span class="circle_prev_two position-absolute"></span>--}}
-                        {{--                                            <span class="circle_prev_three position-absolute"></span>--}}
-                        {{--                                            <div class="container1" class='twentytwenty-container'>--}}
-                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\after.png')}}" alt="jn">--}}
-                        {{--                                                <img src="{{asset('themes\frontend\assets\images\work\before.png')}}" alt="jn">--}}
-                        {{--                                                <!-- <img src="./assets/img/preview/02.jpg"> -->--}}
-                        {{--                                            </div>--}}
-                        {{--                                        </div>--}}
-
-                        {{--                                        <h3 class="lh-base fs-16 mb-2">Color Adjustment</h3>--}}
-                        {{--                                        <p class="service-descr service-lim">Stop worrying about buying the same product with different color variants for showcasing. Get the shade that you desire with the life-like color vibrancy. We’ll make different color variants for you and help you cut down on expenses.</p>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </a>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -388,90 +222,6 @@
                                 </div>
                             </div>
                         @endforeach
-                        {{--                        <div class="col-md-4">--}}
-                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-                        {{--                                <div class="card-body">--}}
-                        {{--                                    <div class="text-center">--}}
-                        {{--                                        <!-- Icon for Faster Delivery -->--}}
-                        {{--                                        <i class="fas fa-shipping-fast fa-3x mb-3 color-primary-1"></i>--}}
-                        {{--                                        <h4>Faster Delivery</h4>--}}
-                        {{--                                        <p class="description txt-lim4">--}}
-                        {{--                                            Our TAT is flexible— 24 hours to 48 hours MAX for no race against time. For emergencies, WE LET YOU CHOOSE. Urgent deliveries within ASAP 1 hour, 4 hours, and 10 hours; you demand it, we do it.--}}
-                        {{--                                        </p>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="col-md-4">--}}
-                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-                        {{--                                <div class="card-body">--}}
-                        {{--                                    <div class="text-center">--}}
-                        {{--                                        <!-- Icon for No Mediocre AI -->--}}
-                        {{--                                        <i class="fas fa-robot fa-3x mb-3 color-primary-1"></i>--}}
-                        {{--                                        <h4>No Mediocre AI</h4>--}}
-                        {{--                                        <p class="description txt-lim4">--}}
-                        {{--                                            Every project is closely carried out, monitored, and edited by HUMANS. We don’t hate AI; we simply prioritize hand-crafted works to make your images ‘picture perfect’.--}}
-                        {{--                                        </p>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="col-md-4">--}}
-                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-                        {{--                                <div class="card-body">--}}
-                        {{--                                    <div class="text-center">--}}
-                        {{--                                        <!-- Icon for 24/7 Support -->--}}
-                        {{--                                        <i class="fas fa-headset fa-3x mb-3 color-primary-1"></i>--}}
-                        {{--                                        <h4>24/7 Support</h4>--}}
-                        {{--                                        <p class="description txt-lim4">--}}
-                        {{--                                            Rest assured, our dedicated team is always available to swiftly address your queries. Just reach out, and we'll provide immediate assistance round the clock.--}}
-                        {{--                                        </p>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="col-md-4">--}}
-                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-                        {{--                                <div class="card-body">--}}
-                        {{--                                    <div class="text-center">--}}
-                        {{--                                        <!-- Icon for Dedicated Team -->--}}
-                        {{--                                        <i class="fas fa-users fa-3x mb-3 color-primary-1"></i>--}}
-                        {{--                                        <h4>Dedicated Team</h4>--}}
-                        {{--                                        <p class="description txt-lim4">--}}
-                        {{--                                            Picture this! A team working solely for your project. We make sure the team we assign your project to focuses on you and your project alone.--}}
-                        {{--                                        </p>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="col-md-4">--}}
-                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-                        {{--                                <div class="card-body">--}}
-                        {{--                                    <div class="text-center">--}}
-                        {{--                                        <!-- Icon for Competitive Price -->--}}
-                        {{--                                        <i class="fas fa-dollar-sign fa-3x mb-3 color-primary-1"></i>--}}
-                        {{--                                        <h4>Competitive Price</h4>--}}
-                        {{--                                        <p class="description txt-lim4">--}}
-                        {{--                                            We’re not cheap; we EARN the price even you’ll agree we deserve. We just make sure you don’t have to break your bank to afford us.--}}
-                        {{--                                        </p>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
-                        {{--                        <div class="col-md-4">--}}
-                        {{--                            <div class="card border-0 mb-4" style="min-height: 350px;">--}}
-                        {{--                                <div class="card-body">--}}
-                        {{--                                    <div class="text-center">--}}
-                        {{--                                        <!-- Icon for Secured Data -->--}}
-                        {{--                                        <i class="fas fa-lock fa-3x mb-3 color-primary-1"></i>--}}
-                        {{--                                        <h4>Secured Data</h4>--}}
-                        {{--                                        <p class="description txt-lim4">--}}
-                        {{--                                            Your images are always secured with us. We use firewalls and security that are strong enough to stop all types of unwanted breaches.--}}
-                        {{--                                        </p>--}}
-                        {{--                                    </div>--}}
-                        {{--                                </div>--}}
-                        {{--                            </div>--}}
-                        {{--                        </div>--}}
                     </div>
                 </div>
             </div>
@@ -504,7 +254,7 @@
                             <img class="full-height mb-3 m-auto" src="{{ asset($howItWork->attachments->file) }}" alt="{{ $howItWork->name }}">
                             <span class="step">{{ $loop->iteration }}</span>
                             <h4 class="features-2-title">{{ $howItWork->name }}</h4>
-                            <div class="features-2-descr txt-lim5">
+                            <div class="features-2-descr txt-lim4">
                                 {!!   $howItWork->details !!}
                             </div>
                         </div>
