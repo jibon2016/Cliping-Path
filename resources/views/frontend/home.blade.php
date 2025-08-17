@@ -177,7 +177,7 @@
                     <div class="spacer-20"></div>
 
                     <div class="local-scroll wow fadeInUp wch-unset" data-wow-delay="0.5s" data-wow-duration="1.2s">
-                        <a href="{{route('home')}}" class="btn btn-mod btn-color btn-small btn-circle btn-hover-animX me-1 mb-xs-10">
+                        <a href="{{route('contact_us')}}" class="btn btn-mod btn-color btn-small btn-circle btn-hover-animX me-1 mb-xs-10">
                             Get Your Free Trial Now!
                         </a>
                     </div>
@@ -663,7 +663,7 @@
 
     <div class="container">
         <div class="row">
-            <a href="https://sites.google.com/view/backlink-stafir">We are listed on B2B Marketplace Stafir (where you can hyperlink B2B Marketplace) How to do it:</a>
+            <p>Welcom to our store... We are listed on B2B marketplace <a href="https://stafir.com/"> Stafir</a></p>
         </div>
     </div>
 

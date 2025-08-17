@@ -278,7 +278,7 @@
                         <div class="vr mt-2"></div>
                     </li>
                     <li class="d-none d-lg-block d-xl-block">
-                        <a href="{{route('home')}}" class="opacity-1 no-hover">
+                        <a href="{{route('contact-us')}}" class="opacity-1 no-hover">
                             <span class="btn btn-mod btn-color btn-small btn-circle" data-btn-animate="y">Free Trial</span>
                         </a>
                     </li>
@@ -343,7 +343,7 @@
                         <ul>
                             <li><i class="fas fa-chevron-right"></i> <a href="{{ route('contact_us') }}">Contact Us</a></li>
                             <li><i class="fas fa-chevron-right"></i> <a href="{{ route('about_us') }}">About Us</a></li>
-                            <li><i class="fas fa-chevron-right"></i> <a href="https://stafir.com/">stafir</a></li>
+                            <li><i class="fas fa-chevron-right"></i> We are listed on <a href="https://stafir.com/">B2B marketplace Stafir</a></li>
                         </ul>
                     </div>
                     @php
