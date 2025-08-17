@@ -501,7 +501,7 @@
                @foreach($howItWorks as $howItWork)
                     <div class="col-lg-3 col-md-6 mb-4 wow fadeInUp text-center" data-wow-delay="0s">
                         <div class="feature-box f-boxed style-3">
-                            <img class="full-height mb-3" src="{{ asset($howItWork->attachments->file) }}" alt="{{ $howItWork->name }}">
+                            <img class="full-height mb-3 m-auto" src="{{ asset($howItWork->attachments->file) }}" alt="{{ $howItWork->name }}">
                             <span class="step">{{ $loop->iteration }}</span>
 {{--                            <div id="lottie-container1" class="sw-1 mb-4 icon-xxl sol-icon"></div>--}}
                             <h4 class="features-2-title">{{ $howItWork->name }}</h4>

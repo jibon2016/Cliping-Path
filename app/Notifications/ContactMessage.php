@@ -32,7 +32,7 @@ class ContactMessage extends Notification
      */
     public function via($notifiable)
     {
-        return ['database', 'mail']; // Add 'mail' channel
+        return [ 'mail']; // Add 'mail' channel
     }
 
     /**
