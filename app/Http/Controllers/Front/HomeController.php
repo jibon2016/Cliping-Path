@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SliderController;
+use App\Mail\ContactUsMail;
 use App\Models\Activity;
 use App\Models\Attachment;
 use App\Models\Brand;
@@ -46,6 +47,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -332,13 +334,19 @@ class HomeController extends Controller
 
             $users = User::where('status',1)->get();
             $array = [
-                'title'=>$request->subject,
+                'subject'  =>$request->subject,
+                'name' => $request->name,
+                'phone' => $request->phone,
+                'country' => $request->contry,
+                'company_name' => $request->company_name,
+                'email' => $request->email,
                 'content'=>$request->message,
                 'action'=> 'https://photopixelqa.com/'
             ];
 
 
-                $message->notify(new \App\Notifications\ContactMessage($array));
+                Mail::to('photopixelqa@gmail.com')->send(new ContactUsMail($array));
+//                dd($message->notify(new \App\Notifications\ContactMessage($array)));
 
 
             // Commit the transaction

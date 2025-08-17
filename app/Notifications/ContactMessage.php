@@ -44,7 +44,7 @@ class ContactMessage extends Notification
     public function toArray($notifiable)
     {
         return [
-            'title' => $this->message['title'],
+            'title' => $this->message['subject'],
             'content' => $this->message['content'],
             'url' => $this->message['action'],
         ];
@@ -59,7 +59,7 @@ class ContactMessage extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-            ->subject($this->message['title'])
+            ->subject($this->message['subject'])
             ->greeting('Hello!')
             ->line($this->message['content'])
             ->action('View Message', url($this->message['action']))
