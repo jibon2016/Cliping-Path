@@ -311,8 +311,7 @@ class HomeController extends Controller
         $request->validate([
             'name'=>'required|max:50',
             'email'=>'required|email|max:100',
-            'mobile_no'=>['required','digits:11','regex:/^01\d{9}$/'],
-            'subject'=>'required|max:255',
+            'phone'=>['required','digits:11','regex:/^01\d{9}$/'],
             'message'=>'required|max:1000',
         ]);
 
@@ -323,8 +322,8 @@ class HomeController extends Controller
             $message = new ContactMessage();
             $message->name = $request->name;
             $message->email = $request->email;
-            $message->mobile_no = $request->mobile_no;
-            $message->subject = $request->subject;
+            $message->mobile_no = $request->phone;
+            $message->subject = 'Contact Message';
             $message->message = $request->message;
             $message->ip_address = $request->ip();
             $message->remember = $request->remember ? 1 : 0;
@@ -335,11 +334,12 @@ class HomeController extends Controller
             $array = [
                 'title'=>$request->subject,
                 'content'=>$request->message,
-                'action'=>route('contact-message.show',['contact_message'=>$message->id])
+                'action'=> 'https://photopixelqa.com/'
             ];
-            foreach ($users as $user){
-                $user->notify(new \App\Notifications\ContactMessage($array));
-            }
+
+
+                $message->notify(new \App\Notifications\ContactMessage($array));
+
 
             // Commit the transaction
             DB::commit();
