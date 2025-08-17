@@ -71,7 +71,7 @@
 
         .inner-nav ul li {
             margin: 0 18px;
-            padding: 6px 0px 21px 0px;
+            padding: 6px 0px 10px 0px;
         }
 
         @keyframes float {
@@ -343,7 +343,7 @@
                         <ul>
                             <li><i class="fas fa-chevron-right"></i> <a href="{{ route('contact_us') }}">Contact Us</a></li>
                             <li><i class="fas fa-chevron-right"></i> <a href="{{ route('about_us') }}">About Us</a></li>
-                            <li><i class="fas fa-chevron-right"></i> We are listed on <a href="https://stafir.com/">B2B marketplace Stafir</a></li>
+                            <li><i class="fas fa-chevron-right"></i> We are listed on <a style="color:#0284ff;" target="_blank" href="https://stafir.com/">B2B marketplace Stafir</a></li>
                         </ul>
                     </div>
                     @php
