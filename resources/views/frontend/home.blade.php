@@ -661,6 +661,12 @@
     {{--        </div>--}}
     {{--    </section>--}}
 
+    <div class="container">
+        <div class="row">
+            <a href="https://sites.google.com/view/backlink-stafir">We are listed on B2B Marketplace Stafir (where you can hyperlink B2B Marketplace) How to do it:</a>
+        </div>
+    </div>
+
     <section class="section-testimonial" id="section-testimonial">
         {{--        data-bgimage="url(https://cdn.livingcolors.studio/colors/images/background/11.svg) top">--}}
         <div class="container-fluid">

@@ -345,7 +345,7 @@ class HomeController extends Controller
             ];
 
 
-                Mail::to('photopixelqa@gmail.com')->send(new ContactUsMail($array));
+                Mail::to('photopixelqa@gmail.com')->send((new ContactUsMail($array))->from($request->email,$request->name));
 //                dd($message->notify(new \App\Notifications\ContactMessage($array)));
 
 
