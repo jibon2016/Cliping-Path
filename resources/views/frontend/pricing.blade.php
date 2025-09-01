@@ -49,10 +49,10 @@
             <div class="row text-center nowrap">
                 <div class="col-md-3">
                     <div class="card mb-4 shadow-sm">
-                        <div class="card-header">
-                            <h4 class="my-0 font-weight-normal">Image Complexity</h4>
+                        <div class="card-header " style="background: var(--color-primary-1);opacity: 0.8;">
+                            <h4 style="color:#fff" class="my-0 font-weight-normal">Image Complexity</h4>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body ">
                             <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
                             <ul class="list-unstyled mt-3 mb-4">
                                 <li>simple or high-end retouching</li>
@@ -60,15 +60,16 @@
                                 <li>simple or high-end retouching</li>
                                 <li>simple or high-end retouching</li>
                             </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+
                         </div>
+                        <div class="card-footer" style="background: var(--color-primary-1);opacity: 0.8;"></div>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="card mb-4 shadow-sm">
-                        <div class="card-header">
-                            <h4 class="my-0 font-weight-normal">Volume of Images</h4>
+                        <div class="card-header " style="background: var(--color-primary-1);opacity: 0.8;">
+                            <h4 style="color:#fff" class="my-0 font-weight-normal">Volume of Images</h4>
                         </div>
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
@@ -78,14 +79,15 @@
                                 <li>bulk orders get special discounts</li>
                                 <li>bulk orders get special discounts</li>
                             </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+
                         </div>
+                        <div class="card-footer" style="background: var(--color-primary-1);opacity: 0.8;"></div>
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="card mb-4 shadow-sm">
-                        <div class="card-header">
-                            <h4 class="my-0 font-weight-normal">Turnaround Time</h4>
+                        <div class="card-header " style="background: var(--color-primary-1);opacity: 0.8;">
+                            <h4 style="color:#fff" class="my-0 font-weight-normal">Turnaround Time</h4>
                         </div>
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
@@ -95,15 +97,16 @@
                                 <li>standard or urgent delivery</li>
                                 <li>standard or urgent delivery</li>
                             </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+
                         </div>
+                        <div class="card-footer" style="background: var(--color-primary-1);opacity: 0.8;"></div>
                     </div>
                 </div>
 
                 <div class="col-md-3">
                     <div class="card mb-4 shadow-sm">
-                        <div class="card-header">
-                            <h4 class="my-0 font-weight-normal">Specific Requirements</h4>
+                        <div class="card-header " style="background: var(--color-primary-1);opacity: 0.8;">
+                            <h4 style="color:#fff" class="my-0 font-weight-normal">Specific Requirements</h4>
                         </div>
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
@@ -113,8 +116,9 @@
                                 <li>tailored edits to match your needs</li>
                                 <li>tailored edits to match your needs</li>
                             </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up for free</button>
+
                         </div>
+                        <div class="card-footer" style="background: var(--color-primary-1);opacity: 0.8;"></div>
                     </div>
                 </div>
             </div>
@@ -181,10 +185,10 @@
                             <div class="col-lg-8 offset-md-1 align-items-center wow fadeInLeft" data-wow-delay="0.5s">
 
                                 <h2>
-                                    Get Your First <span class="color-primary-1">Project</span> <span class="color-primary-1">Free</span>
+                                    Share your <span class="color-primary-1">Project</span> details  <span class="color-primary-1"> with us</span>
                                 </h2>
                                 <p class="section-descr">
-                                    Sign up today and get 03 free edits — no credit card required.
+                                    and we’ll create a customized quote that perfectly fits your budget and expectations.
                                 </p>
                                 <!-- <div class="spacer-half"></div> -->
 
@@ -194,7 +198,7 @@
                                                   src="{{ asset('/img/upload.lottie') }}">
                                 </dotlottie-player>
                                 <a class="btn btn-mod btn-color btn-large btn-circle" href="{{ route('contact_us') }}">
-                                    Upload Photos
+                                    Let's Talk
                                 </a>
                             </div>
                         </div>
