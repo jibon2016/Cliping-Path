@@ -223,8 +223,7 @@ class HomeController extends Controller
     }
     public function pricing()
     {
-        $wcus = WCU::where('status',1)->get();
-        return view('frontend.pricing',compact('wcus'));
+        return view('frontend.pricing');
     }
     public function chairmanMessage()
     {
