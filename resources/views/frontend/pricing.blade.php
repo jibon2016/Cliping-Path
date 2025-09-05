@@ -30,7 +30,7 @@
             <div class="justify-content-center text-center">
                 <div class="service-hero-image-combination">
                     <div class="service-bg">
-                        <dotlottie-player class="center-xy" autoplay loop playMode="normal" src="{{ asset('/img/cir_ani_purple.lottie') }}">
+                        <dotlottie-player class="center-xy opacity-05" autoplay loop playMode="normal" src="{{ asset('/img/cir_ani_purple.lottie') }}">
 
                         </dotlottie-player>
                     </div>
@@ -42,30 +42,30 @@
                 </div>
                 <div class="row py-5 my-3">
                     <div class="col-md-3">
-                        <h5 class="fs-5 ">📸 Volume of images</h5>
-                        <p>- simple or high-end retouching</p>
+                        <h5 class="fs-5 text-black">📸 Volume of images</h5>
+                        <p class="text-black">- simple or high-end retouching</p>
                     </div>
                     <div class="col-md-3">
-                        <h5 class="fs-5 ">📦 Image Complexity</h5>
-                        <p>– bulk orders get special discounts</p>
+                        <h5 class="fs-5 text-black">📦 Image Complexity</h5>
+                        <p class="text-black">– bulk orders get special discounts</p>
                     </div>
                     <div class="col-md-3">
-                        <h5 class="fs-5 ">⏱ Turnaround Time</h5>
-                        <p>– standard or urgent delivery</p>
+                        <h5 class="fs-5 text-black">⏱ Turnaround Time</h5>
+                        <p class="text-black">– standard or urgent delivery</p>
                     </div>
                     <div class="col-md-3">
-                        <h5 class="fs-5 ">🎯 Specific Requirements</h5>
-                        <p>– tailored edits to match your needs</p>
+                        <h5 class="fs-5 text-black">🎯 Specific Requirements</h5>
+                        <p class="text-black">– tailored edits to match your needs</p>
                     </div>
                 </div>
                 <div class="row py-3">
                     <h2 class="text-start ">💬 Let’s Talk!</h2>
-                    <p class="text-start">Share your project details with us, and we’ll create a customized quote that perfectly fits your budget and expectations.</p>
+                    <p class="text-start text-black">Share your project details with us, and we’ll create a customized quote that perfectly fits your budget and expectations.</p>
                 </div>
                 <div class="row py-3 ">
                     <div class="col-12 text-center">
                         <h3 class="fs-1 fw-bold" style="margin-bottom: 10px !important;">Exclusive Discounts</h3>
-                        <p class="fw-bold">We value long-term partnerships and bulk orders. Enjoy extra savings:</p>
+                        <p class=" text-black">We value long-term partnerships and bulk orders. Enjoy extra savings:</p>
                     </div>
                 </div>
                 <div class="row p-5">
@@ -79,7 +79,7 @@
                         <h4 class="fw-bold">✅ 20% Off → 1000+ images</h4>
                     </div>
                     <div class="col-12 py-5">
-                        <p class="fw-bold">🎁 Special Offer → Custom discount for long-term projects</p>
+                        <p class=" text-black">🎁 Special Offer → Custom discount for long-term projects</p>
                     </div>
                 </div>
                 <div class="hero-button py-5 mt-5  ">
