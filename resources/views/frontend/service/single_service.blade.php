@@ -65,6 +65,20 @@
     </section>
     <!-- end Service -->
 
+    @if($service->serviceDetails->lottie_json)
+    <!-- Video Section -->
+    <section class="section-highlight bg-gray-light-1 overflow-hidden">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <iframe width="695" height="391" src="https://youtube.com/embed/{{ \Illuminate\Support\Str::chopStart($service->serviceDetails->lottie_json, ['https://youtu.be/', 'https://youtube.com/']) }}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Video Section -->
+    @endif
+
     <!-- Expart Section -->
     <section class="section-highlight bg-gray-light-1 overflow-hidden">
 

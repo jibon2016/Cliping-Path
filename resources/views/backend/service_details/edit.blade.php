@@ -145,26 +145,15 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Lottie Json</label>
+                            <label class="col-sm-2 col-form-label">YouTube Video Link</label>
                             <div class="col-sm-10">
                                 <div class="mb-3">
-                                    <label for="formFile" class="form-label">Click or drag and drop attachments files here</label>
-                                    <input class="form-control" type="file" name="lottie_json">
+                                    <input class="form-control" type="text" name="lottie_json" value="{{ old('lottie_json',$service->serviceDetails->lottie_json ?? '') }}" placeholder="YouTube Video Link">
                                 </div>
                                 <span id="attachments-error" class="text-danger error-message"></span>
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label class="col-sm-2 col-form-label">Header Image</label>
-                            <div class="col-sm-10">
-                                <div class="mb-3">
-                                    <label for="formFile" class="form-label">Click or drag and drop attachments files here</label>
-                                    <input class="form-control" type="file" name="header_image">
-                                </div>
-                                <span id="attachments-error" class="text-danger error-message"></span>
-                            </div>
-                        </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">Status <span class="text-danger">*</span></label>
                             <div class="col-sm-10">

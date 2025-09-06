@@ -61,11 +61,11 @@ class ServiceDetailsController extends Controller
             'description1' => 'nullable',
             'description2' => 'nullable',
             'status' => 'required|boolean',
-            'lottie_json' => 'nullable|mimes:lottie,json,zip|max:1024',
+            'lottie_json' => 'nullable',
             'header_image' => 'nullable|mimes:jpg,jpeg,webp,png|max:2048',
         ]);
 
-        // Start a database transaction
+        // Start a database transactionn
         DB::beginTransaction();
 
         try {
@@ -78,6 +78,7 @@ class ServiceDetailsController extends Controller
                 'service_id' => $service->id,
                 'description1' => $validatedData['description1'],
                 'description2' => $validatedData['description2'],
+                'lottie_json' => $validatedData['lottie_json'],
                 'status' => $validatedData['status'],
             ]);
 
@@ -99,16 +100,16 @@ class ServiceDetailsController extends Controller
                 }
             }
 
-            if ($request->file('lottie_json')) {
-                $filename = Uuid::uuid1()->toString().$service->id .'.lottie';
-                $destinationPath = 'uploads/attachments/services-details/lottie';
-                $request->file('lottie_json')->move(public_path($destinationPath), $filename);
-                $path = 'uploads/attachments/services-details/lottie/' . $filename;
-
-                $serviceDetails->update([
-                    'lottie_json' => $path,
-                ]);
-            }
+//            if ($request->file('lottie_json')) {
+//                $filename = Uuid::uuid1()->toString().$service->id .'.lottie';
+//                $destinationPath = 'uploads/attachments/services-details/lottie';
+//                $request->file('lottie_json')->move(public_path($destinationPath), $filename);
+//                $path = 'uploads/attachments/services-details/lottie/' . $filename;
+//
+//                $serviceDetails->update([
+//                    'lottie_json' => $path,
+//                ]);
+//            }
             if ($request->file('header_image')) {
                 $filename = Uuid::uuid1()->toString() . $service->id . '.' . $request->file('header_image')->getClientOriginalExtension();
                 $destinationPath = 'uploads/attachments/services-details/header_image';
