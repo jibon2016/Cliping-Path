@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row pt-5">
                 <!-- First Column -->
-                <div class="col-lg-6">
+                <div class="col-lg-12">
                     <!-- Div 1: Title and Text -->
                     <div class="hero-content">
                         <h1 class="title-45 mb-40 mb-sm-20 wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
