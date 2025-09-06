@@ -217,10 +217,11 @@ class HomeController extends Controller
         $companyInformation = CompanyInformation::first();
         return view('frontend.about_us.about_us',compact('companyInformation'));
     }
-    public function portfolio()
-    {
-        return view('frontend.portfolio');
-    }
+//    public function portfolio()
+//    {
+//        $services= Service::where('status',1)->orderBy('id', 'ASC')->get();
+//        return view('frontend.portfolio', compact('services'));
+//    }
     public function pricing()
     {
         return view('frontend.pricing');

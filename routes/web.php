@@ -146,7 +146,7 @@ Route::get('news-and-events/{slug}', [HomeController::class, 'newsAndEventsShow'
 
 
 Route::get('/about-us', [HomeController::class, 'aboutUs'])->name('about_us');
-Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
+//Route::get('/portfolio', [HomeController::class, 'portfolio'])->name('portfolio');
 Route::get('/pricing', [HomeController::class, 'pricing'])->name('pricing');
 Route::get('/chairman-message', [HomeController::class, 'chairmanMessage'])->name('chairman-message');
 Route::get('/managing-director-message', [HomeController::class, 'managingDirectorMessage'])->name('managing-director-message');
