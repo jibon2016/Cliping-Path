@@ -17,9 +17,9 @@
                         </h1>
                     </div>
                     <!-- Div 2: Button (Aligned to bottom) -->
-                    <div class="">
-                        <a href="{{ route('contact_us') }}" class="btn btn-mod btn-circle btn-color btn-large mb-xs-10" data-btn-animate="y"><span class="btn-animate-y"><span class="btn-animate-y-1">Free Trial</span><span class="btn-animate-y-2" aria-hidden="true">Free Trial</span></span></a>
-                    </div>
+{{--                    <div class="">--}}
+{{--                        <a href="{{ route('contact_us') }}" class="btn btn-mod btn-circle btn-color btn-large mb-xs-10" data-btn-animate="y"><span class="btn-animate-y"><span class="btn-animate-y-1">Free Trial</span><span class="btn-animate-y-2" aria-hidden="true">Free Trial</span></span></a>--}}
+{{--                    </div>--}}
                 </div>
             </div>
 
