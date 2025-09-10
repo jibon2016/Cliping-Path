@@ -34,9 +34,9 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="text-center" style="background-size: cover;">
-                    <h3 class="section-title mb-30 mb-xs-20 wow fadeInUp">The <span class="color-primary-1">Service</span> You Can Rely On</h3>
-                    <p class="section-descr mb-40 wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1.2s" data-wow-offset="0">We provide exactly the service you need to elevate your business. With expertise, dedication, and proven editing, we turn your vision into global success.</p>
-                    <div class="spacer-20" style="background-size: cover;"></div>
+                    <h3 class="section-title wow fadeInUp" style="margin-bottom: 0 !important;">The <span class="color-primary-1">Service</span> You Can Rely On</h3>
+                    <p class="section-descr  wow fadeInUp" data-wow-delay="0.6s" data-wow-duration="1.2s" data-wow-offset="0" style="padding:0; margin-bottom: 1px !important;">We provide exactly the service you need to elevate your business. With expertise, dedication, and proven editing, we turn your vision into global success.</p>
+{{--                    <div class="spacer-20" style="background-size: cover;"></div>--}}
                 </div>
             </div>
             <div class="row text-center">
