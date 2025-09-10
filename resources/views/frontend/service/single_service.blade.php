@@ -5,14 +5,14 @@
 @section('title','Clipping Path '.config('app.name'))
 @section('content')
     <!-- Service Hero Section -->
-    <section class=" vertical-center">
+    <section class=" vertical-center" style="padding: 90px 0 0;">
         <div class="container">
             <div class="row pt-5">
                 <!-- First Column -->
                 <div class="col-lg-12">
                     <!-- Div 1: Title and Text -->
                     <div class="hero-content">
-                        <h1 class="title-45 mb-40 mb-sm-20 wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp;">
+                        <h1 class="title-45 wow fadeInUp animated" style="margin-bottom:0;visibility: visible; animation-name: fadeInUp;">
                             <span class="color-primary-1">{{ $service->title }}</span> Services
                         </h1>
                     </div>
