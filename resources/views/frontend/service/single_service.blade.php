@@ -29,8 +29,8 @@
     <!-- End Service Hero Section -->
 
     <!-- start Service -->
-    <section class="page-section mt-4 mb-4 bg-green position-relative" id="service">
-        <div class="divider top d-none d-sm-block"></div>
+    <section class=" mt-4 mb-4 bg-green position-relative" id="service" style="padding: 0 0 90px ;">
+{{--        <div class="divider top d-none d-sm-block"></div>--}}
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="text-center" style="background-size: cover;">
@@ -61,7 +61,7 @@
                 </div>
             </div>
         </div>
-        <div class="divider bottom d-none d-sm-block"></div>
+{{--        <div class="divider bottom d-none d-sm-block"></div>--}}
     </section>
     <!-- end Service -->
 
